@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INNO TEXNO — LED svetoforlar ishlab chiqarish | O'zbekiston</title>
+<meta name="description" content="Transport, piyodalar va quyosh panelli LED svetoforlar, yo'l belgilari va boshqaruv bloklari. Mahalliy ishlab chiqarish, 1 yil kafolat, bepul yetkazib berish va o'rnatish. O'zbekiston va MDH bo'ylab.">
+<meta property="og:title" content="INNO TEXNO — LED svetoforlar ishlab chiqarish">
+<meta property="og:description" content="Mahalliy ishlab chiqarilgan svetoforlar va yo'l LED-uskunalari. 1 yil kafolat, bepul o'rnatish.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: oklch(0.16 0.01 250);
+  --surface: oklch(0.21 0.012 250);
+  --surface-2: oklch(0.25 0.014 250);
+  --ink: oklch(0.95 0.005 250);
+  --ink-muted: oklch(0.74 0.01 250);
+  --amber: oklch(0.84 0.17 90);
+  --amber-deep: oklch(0.72 0.16 85);
+  --green: oklch(0.78 0.19 150);
+  --red: oklch(0.66 0.21 25);
+  --line: oklch(0.32 0.012 250);
+  --font-display: 'Unbounded', 'IBM Plex Sans', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --z-sticky: 100;
+  --z-progress: 120;
+  --z-menu: 200;
+  --z-toast: 300;
+  --z-preload: 400;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; text-wrap: balance; }
+p { max-width: 68ch; }
+a { color: inherit; }
+img { max-width: 100%; }
+button { cursor: pointer; font-family: inherit; }
+iconify-icon { display: inline-block; vertical-align: -0.15em; }
+[hidden] { display: none !important; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--amber); outline-offset: 2px; border-radius: 4px;
+}
+section[id] { scroll-margin-top: 84px; } /* sticky header must not cover anchor targets */
+
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: var(--z-toast);
+  background: var(--amber); color: oklch(0.2 0.02 90); font-weight: 600;
+  padding: 10px 18px; border-radius: 10px; text-decoration: none;
+  transform: translateY(-64px); transition: transform .2s;
+}
+.skip-link:focus-visible { transform: none; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+section { padding: 96px 0; }
+main { perspective: 1600px; } /* depth for scroll-driven section tilts */
+
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: var(--z-progress);
+  background: linear-gradient(90deg, var(--red), var(--amber) 50%, var(--green));
+  transform: scaleX(0); transform-origin: left center; pointer-events: none;
+}
+
+/* ---------- header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: color-mix(in oklch, var(--bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow .25s;
+}
+.site-header.scrolled { box-shadow: 0 6px 24px oklch(0.08 0.01 250 / 0.55); background: color-mix(in oklch, var(--bg) 97%, transparent); }
+.site-header .wrap { max-width: 1360px; } /* the full toolbar needs more room than the content column */
+.header-in { display: flex; align-items: center; gap: 20px; height: 68px; transition: height .25s; }
+.site-header.scrolled .header-in { height: 58px; }
+.logo, .lang-switch, .header-socials, .header-phone, .header-cta, .burger { flex-shrink: 0; }
+.header-cta { white-space: nowrap; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em; white-space: nowrap; }
+.logo-dots { display: inline-flex; flex-direction: column; gap: 3px; padding: 5px 4px; background: oklch(0.13 0.01 250); border-radius: 5px; }
+.logo-dots i { width: 7px; height: 7px; border-radius: 50%; }
+.logo-dots i:nth-child(1) { background: var(--red); }
+.logo-dots i:nth-child(2) { background: var(--amber); }
+.logo-dots i:nth-child(3) { background: var(--green); }
+.logo b { color: var(--amber); font-weight: 700; }
+.main-nav { display: flex; gap: 4px; margin-inline: auto; }
+.main-nav a { position: relative; text-decoration: none; color: var(--ink-muted); font-size: 0.92rem; padding: 8px 12px; border-radius: 8px; white-space: nowrap; transition: color .18s, background .18s; }
+.main-nav a:hover { color: var(--ink); background: var(--surface); }
+.main-nav a.active { color: var(--ink); }
+.main-nav a.active::after {
+  content: ""; position: absolute; left: 50%; bottom: 1px; transform: translateX(-50%);
+  width: 5px; height: 5px; border-radius: 50%; background: var(--amber);
+  box-shadow: 0 0 8px oklch(0.84 0.17 90 / 0.7); /* the lit signal marks where you are */
+}
+.lang-switch { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.lang-switch button { background: none; border: none; color: var(--ink-muted); font-family: var(--font-mono); font-size: 0.78rem; padding: 7px 10px; transition: background .18s, color .18s; }
+.lang-switch button:hover { color: var(--ink); }
+.lang-switch button.active { background: var(--amber); color: oklch(0.2 0.02 90); font-weight: 500; }
+.header-phone { display: flex; align-items: center; gap: 7px; text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink); white-space: nowrap; }
+.header-phone:hover { color: var(--amber); }
+.header-socials { display: flex; gap: 4px; }
+.header-socials a { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 8px; transition: background .18s; }
+.header-socials a:hover { background: var(--surface); }
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--amber); color: oklch(0.2 0.02 90);
+  border: none; border-radius: 10px;
+  font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+  padding: 13px 24px; text-decoration: none;
+  transition: background .18s, transform .18s;
+}
+.btn:hover { background: var(--amber-deep); transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn.ghost:hover { border-color: var(--ink-muted); background: var(--surface); transform: translateY(-1px); }
+.btn.sm { padding: 10px 18px; font-size: 0.88rem; }
+.burger { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; width: 40px; height: 40px; color: var(--ink); font-size: 1.15rem; place-items: center; transition: border-color .18s; }
+.burger:hover { border-color: var(--ink-muted); }
+
+.mobile-menu {
+  position: fixed; inset: 0; z-index: var(--z-menu);
+  background: color-mix(in oklch, var(--bg) 96%, transparent);
+  backdrop-filter: blur(16px);
+  display: flex; flex-direction: column; padding: 88px 28px 36px;
+  opacity: 0; pointer-events: none; transition: opacity .25s;
+}
+.mobile-menu.open { opacity: 1; pointer-events: auto; }
+.mobile-menu nav { display: flex; flex-direction: column; }
+.mobile-menu nav a {
+  text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 500;
+  font-size: 1.35rem; padding: 16px 4px; border-bottom: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  transform: translateY(12px); opacity: 0; transition: transform .35s cubic-bezier(.16,1,.3,1), opacity .3s;
+}
+.mobile-menu.open nav a { transform: none; opacity: 1; }
+.mobile-menu nav a iconify-icon { color: var(--amber); font-size: 1.1rem; }
+.mobile-menu nav a.active { color: var(--amber); }
+.mobile-menu .mm-cta { margin-top: 28px; justify-content: center; }
+.mobile-menu .mm-phone {
+  display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 14px;
+  text-decoration: none; color: var(--ink); font-family: var(--font-mono); font-size: 1rem; padding: 12px;
+}
+.mobile-menu .mm-socials { display: flex; justify-content: center; gap: 10px; margin-top: auto; }
+.mobile-menu .mm-socials a {
+  display: grid; place-items: center; width: 46px; height: 46px;
+  border: 1px solid var(--line); border-radius: 12px; transition: border-color .18s;
+}
+.mobile-menu .mm-socials a:hover { border-color: var(--ink-muted); }
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu, .mobile-menu nav a { transition: none; }
+}
+body.menu-open { overflow: hidden; }
+
+/* ---------- hero ---------- */
+.hero { padding: 72px 0 88px; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; }
+.hero-bg video { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, oklch(0.16 0.01 250 / 0.88), transparent 32% 68%, var(--bg) 99%),
+    linear-gradient(90deg, oklch(0.16 0.01 250 / 0.96) 0%, oklch(0.16 0.01 250 / 0.8) 52%, oklch(0.16 0.01 250 / 0.62) 100%);
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(600px 340px at 78% 30%, oklch(0.84 0.17 90 / 0.07), transparent 70%),
+    radial-gradient(500px 300px at 15% 85%, oklch(0.78 0.19 150 / 0.05), transparent 70%);
+}
+.hero-in { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; position: relative; }
+.made-in {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--green);
+  border: 1px solid color-mix(in oklch, var(--green) 35%, transparent);
+  border-radius: 999px; padding: 6px 14px; margin-bottom: 26px;
+}
+.hero h1 { font-size: clamp(2rem, 4.6vw, 3.9rem); margin-bottom: 22px; }
+.hero h1 .accent { color: var(--amber); }
+.hero-sub { color: var(--ink-muted); font-size: 1.08rem; margin-bottom: 34px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+.trust-line { display: flex; flex-wrap: wrap; gap: 10px 26px; color: var(--ink-muted); font-size: 0.9rem; }
+.trust-line span { display: inline-flex; align-items: center; gap: 8px; }
+.trust-line iconify-icon { color: var(--green); font-size: 1.1rem; }
+.hero-visual { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+#tl-canvas { cursor: grab; touch-action: none; transition: filter .6s; }
+#tl-canvas:active { cursor: grabbing; }
+.canvas-hint { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted); display: inline-flex; align-items: center; gap: 7px; }
+
+/* ---------- section headers ---------- */
+.sec-head { margin-bottom: 48px; }
+.sec-head h2 { font-size: clamp(1.5rem, 2.8vw, 2.3rem); margin-bottom: 14px; }
+.sec-head p { color: var(--ink-muted); font-size: 1.02rem; }
+
+/* ---------- catalog ---------- */
+.catalog { background: var(--surface); border-block: 1px solid var(--line); }
+.cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.product-card {
+  background: var(--bg); border: 1px solid var(--line); border-radius: 14px;
+  padding: 26px; display: flex; flex-direction: column; gap: 14px;
+  transform-style: preserve-3d; transition: border-color .2s;
+}
+.product-card:hover { border-color: color-mix(in oklch, var(--amber) 45%, var(--line)); }
+.product-card.featured { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 44px; padding: 34px 44px; }
+.product-card.wide { grid-column: span 2; }
+.product-card.featured .pc-body { flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.pc-visual { height: 120px; display: grid; place-items: center; }
+.product-card.featured .pc-visual { height: auto; flex: 0 0 180px; }
+.pc-name { font-family: var(--font-display); font-weight: 500; font-size: 1.02rem; letter-spacing: -0.01em; }
+.product-card.featured .pc-name { font-size: 1.4rem; }
+.pc-spec { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-muted); }
+.pc-price { font-family: var(--font-mono); font-size: 0.92rem; color: var(--amber); margin-top: auto; }
+.pc-cta { align-self: flex-start; }
+
+/* CSS product visuals (originated from primitives) */
+.tl-mini { width: 44px; background: oklch(0.28 0.012 250); border: 1px solid oklch(0.36 0.012 250); border-radius: 9px; padding: 7px 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.tl-mini i { width: 26px; height: 26px; border-radius: 50%; background: oklch(0.35 0.012 250); box-shadow: inset 0 2px 5px oklch(0.18 0.01 250); }
+.tl-mini i.on-r { background: var(--red); box-shadow: 0 0 14px oklch(0.66 0.21 25 / 0.55); }
+.tl-mini i.on-y { background: var(--amber); box-shadow: 0 0 14px oklch(0.84 0.17 90 / 0.55); }
+.tl-mini i.on-g { background: var(--green); box-shadow: 0 0 14px oklch(0.78 0.19 150 / 0.55); }
+.tl-mini.big { width: 72px; border-radius: 13px; padding: 12px 0; gap: 10px; }
+.tl-mini.big i { width: 44px; height: 44px; }
+.tl-ped { display: flex; flex-direction: column; gap: 6px; width: 52px; background: oklch(0.28 0.012 250); border: 1px solid oklch(0.36 0.012 250); border-radius: 9px; padding: 8px; }
+.tl-ped b { display: grid; place-items: center; height: 36px; border-radius: 6px; background: oklch(0.24 0.01 250); font-size: 1.25rem; }
+.tl-ped b.walk { color: var(--green); text-shadow: 0 0 12px oklch(0.78 0.19 150 / 0.6); }
+.tl-ped b.stand { color: oklch(0.55 0.16 25); }
+.solar-rig { position: relative; padding-top: 20px; }
+.solar-panel { position: absolute; top: 0; left: 50%; transform: translateX(-50%) rotate(-14deg); width: 58px; height: 16px; border-radius: 3px; background: repeating-linear-gradient(90deg, oklch(0.42 0.08 250) 0 8px, oklch(0.34 0.06 250) 8px 9px); border: 1px solid oklch(0.5 0.06 250); }
+.sign-tri { width: 74px; height: 64px; clip-path: polygon(50% 0, 100% 100%, 0 100%); background: var(--amber); display: grid; place-items: center; }
+.sign-tri i { width: 54px; height: 46px; margin-top: 12px; clip-path: polygon(50% 0, 100% 100%, 0 100%); background: oklch(0.22 0.01 250); display: grid; place-items: center; color: var(--amber); font-size: 1.1rem; }
+.ctrl-box { width: 84px; background: oklch(0.28 0.012 250); border: 1px solid oklch(0.36 0.012 250); border-radius: 9px; padding: 10px; display: flex; flex-direction: column; gap: 7px; }
+.ctrl-box .leds { display: flex; gap: 6px; }
+.ctrl-box .leds i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: blink 2.2s infinite; }
+.ctrl-box .leds i:nth-child(2) { background: var(--amber); animation-delay: .55s; }
+.ctrl-box .leds i:nth-child(3) { background: oklch(0.4 0.01 250); animation: none; }
+.ctrl-box .slots { display: flex; flex-direction: column; gap: 4px; }
+.ctrl-box .slots i { height: 6px; border-radius: 3px; background: oklch(0.34 0.012 250); }
+@keyframes blink { 0%, 60% { opacity: 1; } 70%, 85% { opacity: 0.25; } 100% { opacity: 1; } }
+.pcb { width: 84px; height: 84px; border-radius: 9px; background: oklch(0.34 0.09 150); border: 1px solid oklch(0.44 0.09 150); position: relative; overflow: hidden; }
+.pcb i { position: absolute; background: oklch(0.75 0.12 90); }
+.pcb i:nth-child(1) { width: 40px; height: 3px; top: 18px; left: 8px; }
+.pcb i:nth-child(2) { width: 3px; height: 34px; top: 18px; left: 45px; }
+.pcb i:nth-child(3) { width: 26px; height: 3px; top: 52px; left: 45px; }
+.pcb i:nth-child(4) { width: 14px; height: 14px; border-radius: 50%; top: 60px; left: 14px; border: 3px solid oklch(0.75 0.12 90); background: transparent; }
+.pcb b { position: absolute; width: 22px; height: 16px; background: oklch(0.2 0.01 250); border-radius: 2px; top: 30px; left: 12px; }
+
+/* ---------- why us ---------- */
+.why-rows { display: flex; flex-direction: column; }
+.why-row { display: grid; grid-template-columns: 64px 1fr 1.2fr; gap: 28px; align-items: baseline; padding: 30px 0; border-bottom: 1px solid var(--line); }
+.why-row:first-child { border-top: 1px solid var(--line); }
+.why-icon { color: var(--amber); font-size: 1.7rem; }
+.why-row h3 { font-size: 1.15rem; font-weight: 500; }
+.why-row p { color: var(--ink-muted); }
+
+/* ---------- process (real sequence → numbers earned) ---------- */
+.process { background: var(--surface); border-block: 1px solid var(--line); }
+.proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
+.proc-step { position: relative; padding: 24px 20px 24px 0; }
+.proc-step::before {
+  counter-increment: step; content: "0" counter(step);
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--amber);
+  display: block; margin-bottom: 14px;
+}
+.proc-step::after { content: ""; position: absolute; top: 34px; right: 12px; left: 44px; height: 1px; background: var(--line); }
+.proc-step:last-child::after { display: none; }
+.proc-step h3 { font-size: 1rem; font-weight: 500; margin-bottom: 8px; }
+.proc-step p { color: var(--ink-muted); font-size: 0.92rem; }
+
+/* ---------- calculator ---------- */
+.calc-in { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start; }
+.calc-form { display: flex; flex-direction: column; gap: 22px; }
+.field label { display: block; font-size: 0.88rem; font-weight: 500; margin-bottom: 9px; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg button {
+  background: var(--surface); border: 1px solid var(--line); color: var(--ink-muted);
+  border-radius: 9px; padding: 10px 16px; font-size: 0.9rem; transition: all .18s;
+}
+.seg button:hover { color: var(--ink); border-color: var(--ink-muted); }
+.seg button.active { background: color-mix(in oklch, var(--amber) 16%, var(--surface)); border-color: var(--amber); color: var(--ink); }
+.qty-row { display: flex; align-items: center; gap: 10px; }
+.qty-row button { width: 42px; height: 42px; border-radius: 9px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); font-size: 1.1rem; }
+.qty-row button:hover { border-color: var(--ink-muted); }
+.qty-row input { width: 80px; height: 42px; text-align: center; background: var(--bg); border: 1px solid var(--line); border-radius: 9px; color: var(--ink); font-family: var(--font-mono); font-size: 1rem; }
+.qty-row input:focus { outline: 2px solid var(--amber); outline-offset: 1px; }
+.calc-hint { font-size: 0.82rem; color: var(--ink-muted); font-family: var(--font-mono); }
+.calc-result {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 32px; position: sticky; top: 92px;
+}
+.calc-result .cr-label { font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 6px; }
+.calc-result .cr-sum { font-family: var(--font-mono); font-weight: 500; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--amber); margin-bottom: 4px; }
+.calc-result .cr-per { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-muted); margin-bottom: 18px; }
+.calc-result .cr-note { font-size: 0.85rem; color: var(--ink-muted); border-top: 1px solid var(--line); padding-top: 16px; margin-bottom: 22px; }
+.cr-disc { display: inline-block; font-family: var(--font-mono); font-size: 0.78rem; color: var(--green); border: 1px solid color-mix(in oklch, var(--green) 35%, transparent); border-radius: 999px; padding: 4px 12px; margin-bottom: 18px; }
+
+/* ---------- certificates ---------- */
+.certs { background: var(--surface); border-block: 1px solid var(--line); }
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cert-card { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+.cert-card iconify-icon { color: var(--green); font-size: 1.9rem; }
+.cert-card h3 { font-size: 1rem; font-weight: 500; }
+.cert-card p { color: var(--ink-muted); font-size: 0.9rem; flex: 1; }
+.cert-card a { display: inline-flex; align-items: center; gap: 8px; color: var(--amber); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.cert-card a:hover { text-decoration: underline; }
+
+/* ---------- projects ---------- */
+.proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.proj-card { margin: 0; position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.proj-card img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+.proj-card:hover img { transform: scale(1.045); }
+.proj-card figcaption {
+  position: absolute; inset: auto 0 0 0; padding: 34px 16px 13px;
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink);
+  background: linear-gradient(180deg, transparent, oklch(0.13 0.01 250 / 0.88));
+}
+
+/* ---------- video ---------- */
+.video-in { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center; }
+.video-facade {
+  position: relative; aspect-ratio: 16/9; border-radius: 14px; overflow: hidden;
+  background:
+    radial-gradient(300px 200px at 30% 60%, oklch(0.84 0.17 90 / 0.12), transparent 70%),
+    radial-gradient(280px 200px at 75% 30%, oklch(0.78 0.19 150 / 0.1), transparent 70%),
+    var(--surface);
+  border: 1px solid var(--line);
+  display: grid; place-items: center; text-decoration: none;
+}
+.video-facade img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video-facade .play {
+  position: relative; width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--amber); color: oklch(0.2 0.02 90); font-size: 1.9rem;
+  transition: transform .2s;
+}
+.video-facade:hover .play { transform: scale(1.08); }
+.video-facade .vf-cap {
+  position: absolute; bottom: 12px; left: 14px; font-family: var(--font-mono); font-size: 0.78rem;
+  color: var(--ink); background: color-mix(in oklch, var(--bg) 72%, transparent);
+  padding: 5px 10px; border-radius: 7px;
+}
+
+/* ---------- testimonials ---------- */
+.testi { background: var(--surface); border-block: 1px solid var(--line); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.testi-card { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+.testi-card blockquote { font-size: 0.98rem; line-height: 1.65; flex: 1; }
+.testi-card blockquote::before { content: "“"; color: var(--amber); font-family: var(--font-display); font-size: 1.6rem; line-height: 0; margin-right: 4px; }
+.testi-card cite { font-style: normal; font-size: 0.84rem; color: var(--ink-muted); font-family: var(--font-mono); }
+
+/* ---------- FAQ ---------- */
+.faq-list { max-width: 780px; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item:first-child { border-top: 1px solid var(--line); }
+.faq-item summary {
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  padding: 22px 4px; cursor: pointer; font-weight: 500; font-size: 1.02rem; list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary iconify-icon { color: var(--amber); transition: transform .25s; flex-shrink: 0; }
+.faq-item[open] summary iconify-icon { transform: rotate(180deg); }
+.faq-item .faq-a { padding: 0 4px 22px; color: var(--ink-muted); }
+
+/* ---------- contact ---------- */
+.contact-in { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.contact-form input, .contact-form select, .contact-form textarea {
+  width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  color: var(--ink); font-family: var(--font-body); font-size: 0.95rem; padding: 13px 16px;
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: oklch(0.62 0.01 250); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: 2px solid var(--amber); outline-offset: 1px; }
+.contact-form textarea { resize: vertical; min-height: 100px; }
+.form-note { display: flex; gap: 10px; align-items: flex-start; font-size: 0.85rem; color: var(--ink-muted); }
+.form-note iconify-icon { color: var(--green); font-size: 1.15rem; flex-shrink: 0; margin-top: 2px; }
+.contact-side { display: flex; flex-direction: column; gap: 26px; }
+.ci-row { display: flex; gap: 14px; }
+.ci-row iconify-icon { color: var(--amber); font-size: 1.3rem; flex-shrink: 0; margin-top: 3px; }
+.ci-row .ci-label { font-size: 0.8rem; color: var(--ink-muted); font-family: var(--font-mono); margin-bottom: 3px; }
+.ci-row .ci-val { font-size: 0.98rem; }
+.ci-row a.ci-val { text-decoration: none; }
+.ci-row a.ci-val:hover { color: var(--amber); }
+.contact-socials { display: flex; gap: 10px; }
+.contact-socials a {
+  display: inline-flex; align-items: center; gap: 9px; text-decoration: none;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px 16px; font-size: 0.88rem; transition: border-color .18s, background .18s;
+}
+.contact-socials a:hover { border-color: var(--ink-muted); background: var(--surface-2); }
+
+/* ---------- footer ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 48px 0 36px; background: oklch(0.13 0.01 250); }
+.footer-in { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-start; }
+.footer-tag { color: var(--ink-muted); font-size: 0.9rem; margin-top: 10px; max-width: 34ch; }
+.footer-nav { display: flex; flex-direction: column; gap: 8px; }
+.footer-nav a { text-decoration: none; color: var(--ink-muted); font-size: 0.9rem; }
+.footer-nav a:hover { color: var(--ink); }
+.footer-bottom { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 0.82rem; color: var(--ink-muted); font-family: var(--font-mono); }
+
+/* ---------- preloader ---------- */
+#preloader {
+  position: fixed; inset: 0; z-index: var(--z-preload);
+  background: var(--bg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  transition: transform .75s cubic-bezier(.7, 0, .3, 1), opacity .45s .2s, visibility 0s .8s;
+  /* no-JS safety valve: fade itself away even if the script never runs */
+  animation: pl-auto .5s ease 5s forwards;
+}
+#preloader.done { transform: translateY(-100%); opacity: 0; visibility: hidden; pointer-events: none; }
+@keyframes pl-auto { to { opacity: 0; visibility: hidden; } }
+.pl-light {
+  width: 58px; padding: 11px 0; border-radius: 13px;
+  background: oklch(0.22 0.012 250); border: 1px solid var(--line);
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+}
+.pl-light i { width: 34px; height: 34px; border-radius: 50%; background: oklch(0.3 0.012 250); }
+.pl-light .pl-r { animation: pl-red 1.6s infinite; }
+.pl-light .pl-y { animation: pl-yellow 1.6s infinite; }
+.pl-light .pl-g { animation: pl-green 1.6s infinite; }
+@keyframes pl-red {
+  0%, 28% { background: var(--red); box-shadow: 0 0 20px oklch(0.66 0.21 25 / 0.6); }
+  34%, 100% { background: oklch(0.3 0.012 250); box-shadow: none; }
+}
+@keyframes pl-yellow {
+  0%, 32% { background: oklch(0.3 0.012 250); box-shadow: none; }
+  34%, 62% { background: var(--amber); box-shadow: 0 0 20px oklch(0.84 0.17 90 / 0.6); }
+  68%, 100% { background: oklch(0.3 0.012 250); box-shadow: none; }
+}
+@keyframes pl-green {
+  0%, 66% { background: oklch(0.3 0.012 250); box-shadow: none; }
+  68%, 96% { background: var(--green); box-shadow: 0 0 20px oklch(0.78 0.19 150 / 0.6); }
+  100% { background: oklch(0.3 0.012 250); box-shadow: none; }
+}
+/* when we're done, the light goes — and stays — green */
+#preloader.go .pl-light i { animation: none; }
+#preloader.go .pl-light .pl-g { background: var(--green); box-shadow: 0 0 20px oklch(0.78 0.19 150 / 0.6); }
+.pl-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; letter-spacing: 0.01em; }
+.pl-logo b { color: var(--amber); }
+.pl-status { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-muted); }
+.pl-status::after { content: ""; animation: pl-dots 1.2s steps(4) infinite; }
+@keyframes pl-dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } 100% { content: ""; } }
+@media (prefers-reduced-motion: reduce) {
+  .pl-light .pl-g { background: var(--green); box-shadow: 0 0 20px oklch(0.78 0.19 150 / 0.6); }
+}
+
+/* ---------- toast ---------- */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 140%);
+  z-index: var(--z-toast);
+  background: var(--surface-2); border: 1px solid var(--green); border-radius: 12px;
+  padding: 15px 22px; display: flex; gap: 11px; align-items: center; font-size: 0.92rem;
+  transition: transform .35s cubic-bezier(.22,1,.36,1); max-width: min(90vw, 480px);
+}
+.toast.show { transform: translate(-50%, 0); }
+.toast iconify-icon { color: var(--green); font-size: 1.3rem; flex-shrink: 0; }
+
+/* ---------- responsive ---------- */
+body.menu-open .site-header { z-index: calc(var(--z-menu) + 1); } /* keep the burger reachable above the open menu */
+
+@media (max-width: 1500px) {
+  .header-phone span { display: none; } /* icon-only phone until the full number truly fits */
+}
+@media (max-width: 1180px) {
+  .header-socials { display: none; } /* socials live on in the menu, contacts and footer */
+}
+@media (max-width: 1020px) {
+  .main-nav { display: none; }
+  .header-socials { display: none; }
+  .burger { display: grid; }
+  .lang-switch { margin-left: auto; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .product-card.featured { grid-column: 1 / -1; }
+  .proc-grid { grid-template-columns: repeat(2, 1fr); }
+  .cert-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
+  .proj-grid { grid-template-columns: 1fr 1fr; }
+  .calc-in, .video-in, .contact-in { grid-template-columns: 1fr; }
+  .calc-result { position: static; }
+}
+@media (max-width: 680px) {
+  section { padding: 68px 0; }
+  .hero { padding: 44px 0 64px; }
+  .hero-in { grid-template-columns: 1fr; gap: 36px; }
+  .hero-visual { order: -1; }
+  /* !important: Zdog sets an inline CSS size on the canvas for retina scaling */
+  #tl-canvas { width: 250px !important; height: 324px !important; }
+  .header-phone { display: none; }
+  .header-cta { display: none; }
+  .header-in { gap: 12px; }
+  .logo { font-size: 0.98rem; }
+  .lang-switch button { padding: 7px 8px; }
+  .cat-grid { grid-template-columns: 1fr; }
+  .product-card.featured { grid-column: auto; flex-direction: column; align-items: flex-start; gap: 20px; padding: 26px; }
+  .product-card.wide { grid-column: auto; }
+  .why-row { grid-template-columns: 44px 1fr; }
+  .why-row p { grid-column: 2; }
+  .proc-grid { grid-template-columns: 1fr; }
+  .proc-step::after { display: none; }
+  .cert-grid, .testi-grid, .proj-grid { grid-template-columns: 1fr; }
+}
+/* entrance motion — CSS only: runs on wall-clock, can't strand content like rAF-driven tweens */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } }
+  .hero-copy > * { animation: rise .7s cubic-bezier(.16,1,.3,1) backwards; }
+  .hero-copy > *:nth-child(1) { animation-delay: .05s; }
+  .hero-copy > *:nth-child(2) { animation-delay: .13s; }
+  .hero-copy > *:nth-child(3) { animation-delay: .21s; }
+  .hero-copy > *:nth-child(4) { animation-delay: .29s; }
+  .hero-copy > *:nth-child(5) { animation-delay: .37s; }
+  .hero-visual { animation: rise .9s cubic-bezier(.16,1,.3,1) .2s backwards; }
+  .cat-grid, .why-rows, .proc-grid, .cert-grid, .testi-grid, .proj-grid, .sec-head { perspective: 1100px; }
+  .rv { opacity: 0; transform: translateY(28px) rotateX(9deg); transition: opacity .65s ease-out, transform .75s cubic-bezier(.16,1,.3,1); }
+  .rv.rv-in { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="preloader" role="status">
+  <div class="pl-light" aria-hidden="true"><i class="pl-r"></i><i class="pl-y"></i><i class="pl-g"></i></div>
+  <div class="pl-logo" aria-hidden="true">INNO<b>TEXNO</b></div>
+  <div class="pl-status" data-i18n="loading">yuklanmoqda</div>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main" data-i18n="skip">Kontentga o'tish</a>
+
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="logo" href="#" aria-label="INNO TEXNO">
+      <span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      INNO<b>TEXNO</b>
+    </a>
+    <nav class="main-nav" aria-label="Asosiy navigatsiya">
+      <a href="#katalog" data-i18n="nav_catalog">Katalog</a>
+      <a href="#nima-uchun" data-i18n="nav_why">Nima uchun biz</a>
+      <a href="#kalkulyator" data-i18n="nav_calc">Kalkulyator</a>
+      <a href="#sertifikatlar" data-i18n="nav_certs">Sertifikatlar</a>
+      <a href="#aloqa" data-i18n="nav_contact">Aloqa</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Til / Язык / Language">
+      <button type="button" data-lang="uz" class="active">UZ</button>
+      <button type="button" data-lang="ru">RU</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <div class="header-socials">
+      <a href="https://t.me/innotexno" target="_blank" rel="noopener" aria-label="Telegram"><img src="https://cdn.simpleicons.org/telegram/A8ADB8" width="17" height="17" alt=""></a>
+      <a href="https://instagram.com/innotexno" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/A8ADB8" width="17" height="17" alt=""></a>
+      <a href="https://youtube.com/@innotexno" target="_blank" rel="noopener" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/A8ADB8" width="17" height="17" alt=""></a>
+    </div>
+    <a class="header-phone" href="tel:+998712000000"><iconify-icon icon="lucide:phone"></iconify-icon><span>+998 71 200-00-00</span></a>
+    <a class="btn sm header-cta" href="#aloqa" data-i18n="nav_order">Buyurtma berish</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria="menu_label" aria-label="Menyu">
+      <iconify-icon class="ic-open" icon="lucide:menu"></iconify-icon>
+      <iconify-icon class="ic-close" icon="lucide:x" hidden></iconify-icon>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav data-i18n-aria="menu_label" aria-label="Menyu">
+    <a href="#katalog" data-i18n="nav_catalog">Katalog</a>
+    <a href="#nima-uchun" data-i18n="nav_why">Nima uchun biz</a>
+    <a href="#kalkulyator" data-i18n="nav_calc">Kalkulyator</a>
+    <a href="#sertifikatlar" data-i18n="nav_certs">Sertifikatlar</a>
+    <a href="#aloqa" data-i18n="nav_contact">Aloqa</a>
+  </nav>
+  <a class="btn mm-cta" href="#aloqa" data-i18n="nav_order">Buyurtma berish</a>
+  <a class="mm-phone" href="tel:+998712000000"><iconify-icon icon="lucide:phone"></iconify-icon>+998 71 200-00-00</a>
+  <div class="mm-socials">
+    <a href="https://t.me/innotexno" target="_blank" rel="noopener" aria-label="Telegram"><img src="https://cdn.simpleicons.org/telegram/EDEDF0" width="19" height="19" alt=""></a>
+    <a href="https://instagram.com/innotexno" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/EDEDF0" width="19" height="19" alt=""></a>
+    <a href="https://youtube.com/@innotexno" target="_blank" rel="noopener" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/EDEDF0" width="19" height="19" alt=""></a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <video id="hero-video" src="assets/production-video.mp4" poster="assets/img/video-poster.webp" muted loop playsinline preload="metadata"></video>
+  </div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <span class="made-in"><iconify-icon icon="lucide:factory"></iconify-icon><span data-i18n="hero_badge">O'zbekistonda ishlab chiqarilgan</span></span>
+      <h1><span data-i18n="hero_h1a">Zamonaviy</span> <span class="accent" data-i18n="hero_h1b">LED svetoforlar</span> <span data-i18n="hero_h1c">ishlab chiqaramiz</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">Transport, piyodalar va quyosh panelli svetoforlar, LED yo'l belgilari hamda boshqaruv tizimlari. Mahalliy ishlab chiqarish — import narxidan arzon, 1 yil kafolat, bepul yetkazib berish va o'rnatish.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#katalog"><span data-i18n="hero_cta1">Katalogni ko'rish</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
+        <a class="btn ghost" href="#kalkulyator" data-i18n="hero_cta2">Narxni hisoblash</a>
+      </div>
+      <div class="trust-line">
+        <span><iconify-icon icon="lucide:shield-check"></iconify-icon><span data-i18n="trust1">1 yil kafolat</span></span>
+        <span><iconify-icon icon="lucide:truck"></iconify-icon><span data-i18n="trust2">Bepul yetkazib berish va o'rnatish</span></span>
+        <span><iconify-icon icon="lucide:map-pin"></iconify-icon><span data-i18n="trust3">O'zbekiston va MDH bo'ylab</span></span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <canvas id="tl-canvas" width="340" height="440"></canvas>
+      <span class="canvas-hint"><iconify-icon icon="lucide:rotate-3d"></iconify-icon><span data-i18n="hero_hint">Svetoforni aylantirib ko'ring</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="katalog">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="cat_title">Mahsulotlar katalogi</h2>
+      <p data-i18n="cat_sub">Barcha mahsulotlar o'z ishlab chiqarish bazamizda tayyorlanadi — tayyor korpuslardan individual buyurtma platalarigacha.</p>
+    </div>
+    <div class="cat-grid">
+      <article class="product-card featured" data-tilt-off>
+        <div class="pc-visual">
+          <div class="tl-mini big"><i class="on-r"></i><i></i><i></i></div>
+        </div>
+        <div class="pc-body">
+          <h3 class="pc-name" data-i18n="p1n">Transport svetoforlari</h3>
+          <span class="pc-spec">Ø200/300&nbsp;mm · IP65 · 12–24V LED</span>
+          <p style="color:var(--ink-muted);font-size:0.95rem" data-i18n="p1d">Chorrahalar va magistrallar uchun uch seksiyali svetoforlar. Quyoshda ham aniq ko'rinadigan yuqori yorqinlikdagi LED modullar, po'lat korpus.</p>
+          <span class="pc-price" data-i18n="p1p">4 800 000 so'mdan</span>
+          <a class="btn sm pc-cta" href="#aloqa" data-product="transport" data-i18n="pc_cta">Narxini bilish</a>
+        </div>
+      </article>
+      <article class="product-card tiltable">
+        <div class="pc-visual">
+          <div class="tl-ped"><b class="stand"><iconify-icon icon="lucide:user"></iconify-icon></b><b class="walk"><iconify-icon icon="lucide:footprints"></iconify-icon></b></div>
+        </div>
+        <h3 class="pc-name" data-i18n="p2n">Piyodalar svetofori</h3>
+        <span class="pc-spec">Ø200&nbsp;mm · <span data-i18n="p2s">taymer bilan</span> · IP65</span>
+        <span class="pc-price" data-i18n="p2p">3 600 000 so'mdan</span>
+        <a class="btn sm ghost pc-cta" href="#aloqa" data-product="piyoda" data-i18n="pc_cta2">Narxini bilish</a>
+      </article>
+      <article class="product-card tiltable">
+        <div class="pc-visual">
+          <div class="solar-rig">
+            <span class="solar-panel"></span>
+            <div class="tl-mini"><i></i><i class="on-y"></i><i></i></div>
+          </div>
+        </div>
+        <h3 class="pc-name" data-i18n="p3n">Quyosh panelli svetofor</h3>
+        <span class="pc-spec"><span data-i18n="p3s">Avtonom</span> · 60W · AKB 40Ah</span>
+        <span class="pc-price" data-i18n="p3p">6 900 000 so'mdan</span>
+        <a class="btn sm ghost pc-cta" href="#aloqa" data-product="solar" data-i18n="pc_cta3">Narxini bilish</a>
+      </article>
+      <article class="product-card tiltable">
+        <div class="pc-visual">
+          <div class="sign-tri"><i><iconify-icon icon="lucide:zap"></iconify-icon></i></div>
+        </div>
+        <h3 class="pc-name" data-i18n="p4n">LED yo'l belgilari</h3>
+        <span class="pc-spec">7000&nbsp;cd/m² · IP66</span>
+        <span class="pc-price" data-i18n="p4p">2 400 000 so'mdan</span>
+        <a class="btn sm ghost pc-cta" href="#aloqa" data-product="belgi" data-i18n="pc_cta4">Narxini bilish</a>
+      </article>
+      <article class="product-card tiltable">
+        <div class="pc-visual">
+          <div class="ctrl-box"><span class="leds"><i></i><i></i><i></i></span><span class="slots"><i></i><i></i><i></i></span></div>
+        </div>
+        <h3 class="pc-name" data-i18n="p5n">Boshqaruv bloklari</h3>
+        <span class="pc-spec"><span data-i18n="p5s">2–16 faza</span> · GSM/GPS</span>
+        <span class="pc-price" data-i18n="p5p">8 500 000 so'mdan</span>
+        <a class="btn sm ghost pc-cta" href="#aloqa" data-product="kontroller" data-i18n="pc_cta5">Narxini bilish</a>
+      </article>
+      <article class="product-card wide tiltable">
+        <div class="pc-visual">
+          <div class="pcb"><i></i><i></i><i></i><i></i><b></b></div>
+        </div>
+        <h3 class="pc-name" data-i18n="p6n">Svetofor platalari va ehtiyot qismlar</h3>
+        <span class="pc-spec"><span data-i18n="p6s">Individual buyurtma</span> · 12/24V</span>
+        <span class="pc-price" data-i18n="p6p">450 000 so'mdan</span>
+        <a class="btn sm ghost pc-cta" href="#aloqa" data-product="plata" data-i18n="pc_cta6">Narxini bilish</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="nima-uchun">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="why_title">Nima uchun INNO TEXNO?</h2>
+    </div>
+    <div class="why-rows">
+      <div class="why-row">
+        <iconify-icon class="why-icon" icon="lucide:factory"></iconify-icon>
+        <h3 data-i18n="w1t">Mahalliy ishlab chiqarish</h3>
+        <p data-i18n="w1d">Import analoglaridan arzon narx va tezkor yetkazib berish — mahsulot omborda tayyor turadi, bojxona kutilmaydi.</p>
+      </div>
+      <div class="why-row">
+        <iconify-icon class="why-icon" icon="lucide:zap"></iconify-icon>
+        <h3 data-i18n="w2t">Energiya tejamkor LED</h3>
+        <p data-i18n="w2d">Sifatli diodlar kam quvvat sarflaydi va yorqin quyoshda ham aniq ko'rinadi.</p>
+      </div>
+      <div class="why-row">
+        <iconify-icon class="why-icon" icon="lucide:shield"></iconify-icon>
+        <h3 data-i18n="w3t">Mustahkam korpus</h3>
+        <p data-i18n="w3d">Po'lat korpus va IP65 himoya — jazirama issiqda ham, qor-yomg'irda ham uzluksiz ishlaydi.</p>
+      </div>
+      <div class="why-row">
+        <iconify-icon class="why-icon" icon="lucide:wrench"></iconify-icon>
+        <h3 data-i18n="w4t">Kafolat va servis</h3>
+        <p data-i18n="w4d">1 yil rasmiy kafolat, undan keyin ham xizmat ko'rsatamiz. Ishlab chiqarish nuqsoni aniqlansa — almashtirib beramiz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="proc_title">Buyurtma qanday amalga oshadi</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step">
+        <h3 data-i18n="s1t">Buyurtma</h3>
+        <p data-i18n="s1d">So'rov qoldirasiz — 30 daqiqa ichida aloqaga chiqamiz.</p>
+      </div>
+      <div class="proc-step">
+        <h3 data-i18n="s2t">Texnik talablar</h3>
+        <p data-i18n="s2d">Ob'ektingiz uchun texnik talablar kelishiladi.</p>
+      </div>
+      <div class="proc-step">
+        <h3 data-i18n="s3t">Shartnoma</h3>
+        <p data-i18n="s3d">Narx va muddatlar shartnomada yozma kafolatlanadi.</p>
+      </div>
+      <div class="proc-step">
+        <h3 data-i18n="s4t">O'rnatish</h3>
+        <p data-i18n="s4d">Yetkazib beramiz, o'rnatamiz va sozlaymiz — bepul.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section id="kalkulyator">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="calc_title">Narx kalkulyatori</h2>
+      <p data-i18n="calc_sub">Konfiguratsiyani tanlang — taxminiy narxni darhol ko'rasiz. Aniq taklifni so'rovdan keyin taqdim etamiz.</p>
+    </div>
+    <div class="calc-in">
+      <div class="calc-form">
+        <div class="field">
+          <label data-i18n="calc_type">Svetofor turi</label>
+          <div class="seg" id="seg-type">
+            <button type="button" data-val="transport" class="active" data-i18n="ct1">Transport</button>
+            <button type="button" data-val="piyoda" data-i18n="ct2">Piyodalar</button>
+            <button type="button" data-val="solar" data-i18n="ct3">Quyosh panelli</button>
+          </div>
+        </div>
+        <div class="field">
+          <label data-i18n="calc_lens">Linza diametri</label>
+          <div class="seg" id="seg-lens">
+            <button type="button" data-val="200" class="active">200 mm</button>
+            <button type="button" data-val="300">300 mm</button>
+          </div>
+        </div>
+        <div class="field">
+          <label data-i18n="calc_housing">Korpus materiali</label>
+          <div class="seg" id="seg-housing">
+            <button type="button" data-val="steel" class="active" data-i18n="ch1">Po'lat</button>
+            <button type="button" data-val="alu" data-i18n="ch2">Alyuminiy</button>
+          </div>
+        </div>
+        <div class="field">
+          <label data-i18n="calc_qty">Soni</label>
+          <div class="qty-row">
+            <button type="button" id="qty-minus" aria-label="−">−</button>
+            <input type="number" id="qty" value="1" min="1" max="500" inputmode="numeric">
+            <button type="button" id="qty-plus" aria-label="+">+</button>
+          </div>
+        </div>
+        <span class="calc-hint" data-i18n="calc_disc_hint">10 donadan — 5% chegirma · 50 donadan — 12%</span>
+      </div>
+      <div class="calc-result">
+        <div class="cr-label" data-i18n="calc_result">Taxminiy narx</div>
+        <div class="cr-sum" id="cr-sum">≈ 4 800 000 so'm</div>
+        <div class="cr-per" id="cr-per"></div>
+        <span class="cr-disc" id="cr-disc" hidden></span>
+        <p class="cr-note" data-i18n="calc_note">Yakuniy narx texnik talablarga bog'liq. Yetkazib berish va o'rnatish narxga kiritilgan — bepul.</p>
+        <a class="btn" href="#aloqa" id="calc-order"><span data-i18n="calc_cta">Shu konfiguratsiya bilan buyurtma berish</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="certs" id="sertifikatlar">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="cert_title">Sertifikatlar va hujjatlar</h2>
+      <p data-i18n="cert_sub">Davlat xaridlari va tenderlar uchun to'liq hujjatlar paketi — PDF formatida yuklab oling.</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <iconify-icon icon="lucide:badge-check"></iconify-icon>
+        <h3 data-i18n="c1t">GOST muvofiqlik sertifikati</h3>
+        <p data-i18n="c1d">Barcha svetoforlar davlat standartlariga muvofiqligi tasdiqlangan.</p>
+        <a href="#" data-cert="gost"><iconify-icon icon="lucide:download"></iconify-icon><span data-i18n="cert_dl">PDF yuklab olish</span></a>
+      </div>
+      <div class="cert-card">
+        <iconify-icon icon="lucide:award"></iconify-icon>
+        <h3 data-i18n="c2t">ISO 9001 sifat sertifikati</h3>
+        <p data-i18n="c2d">Ishlab chiqarish jarayoni xalqaro sifat menejmenti talablariga javob beradi.</p>
+        <a href="#" data-cert="iso"><iconify-icon icon="lucide:download"></iconify-icon><span data-i18n="cert_dl2">PDF yuklab olish</span></a>
+      </div>
+      <div class="cert-card">
+        <iconify-icon icon="lucide:file-text"></iconify-icon>
+        <h3 data-i18n="c3t">Mahsulot pasportlari</h3>
+        <p data-i18n="c3d">Har bir mahsulot uchun texnik pasport va foydalanish hujjatlari.</p>
+        <a href="#" data-cert="passport"><iconify-icon icon="lucide:download"></iconify-icon><span data-i18n="cert_dl3">PDF yuklab olish</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="loyihalar">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="proj_title">Amalga oshirilgan loyihalar</h2>
+      <p data-i18n="proj_sub">Shahar chorrahalari va magistrallarda o'rnatilgan tizimlarimiz har kuni minglab haydovchiga xizmat qiladi.</p>
+    </div>
+    <div class="proj-grid">
+      <figure class="proj-card">
+        <img src="assets/img/project-1.webp" alt="Aqlli chorraha tizimi o'rnatilgan shahar kesishmasi" loading="lazy">
+        <figcaption data-i18n="proj1">Toshkent · aqlli chorraha tizimi</figcaption>
+      </figure>
+      <figure class="proj-card">
+        <img src="assets/img/project-2.webp" alt="Magistralda adaptiv svetofor boshqaruvi" loading="lazy">
+        <figcaption data-i18n="proj2">Magistral · adaptiv boshqaruv</figcaption>
+      </figure>
+      <figure class="proj-card">
+        <img src="assets/img/project-3.webp" alt="Markaziy kesishmada LED svetoforlar" loading="lazy">
+        <figcaption data-i18n="proj3">Markaziy kesishma · LED svetoforlar</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section>
+  <div class="wrap video-in">
+    <div>
+      <div class="sec-head" style="margin-bottom:24px">
+        <h2 data-i18n="vid_title">Ishlab chiqarish jarayoni</h2>
+        <p data-i18n="vid_sub">Sexdagi jarayonlar, svetoforlarni sinovdan o'tkazish va tayyor ob'ektlar — YouTube kanalimizda.</p>
+      </div>
+      <a class="btn ghost" href="https://youtube.com/@innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/EDEDF0" width="17" height="17" alt=""><span data-i18n="vid_cta">YouTube'da ko'rish</span></a>
+    </div>
+    <a class="video-facade" href="https://youtube.com/@innotexno" target="_blank" rel="noopener" aria-label="YouTube">
+      <img src="assets/img/video-poster.webp" alt="" loading="lazy">
+      <span class="play"><iconify-icon icon="lucide:play"></iconify-icon></span>
+      <span class="vf-cap" data-i18n="vid_cap">INNO TEXNO · aqlli chorraha yechimlari</span>
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="testi_title">Mijozlar fikri</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <blockquote data-i18n="q1">Narxi import analogidan sezilarli arzon, sifati esa kam emas. 40 ta chorraha uchun buyurtma berdik — hammasi muddatida yetkazildi va o'rnatildi.</blockquote>
+        <cite data-i18n="a1">Bosh muhandis, yo'l qurilish kompaniyasi</cite>
+      </div>
+      <div class="testi-card">
+        <blockquote data-i18n="q2">Quyosh panelli svetoforlar elektr tarmog'i yo'q hududda ikkinchi yil uzluksiz ishlab turibdi. Servis bilan muammo bo'lgani yo'q.</blockquote>
+        <cite data-i18n="a2">Tuman obodonlashtirish bo'limi</cite>
+      </div>
+      <div class="testi-card">
+        <blockquote data-i18n="q3">Individual platalar buyurtmasini 10 kunda yig'ib berishdi. Texnik savollarga tez javob berishadi.</blockquote>
+        <cite data-i18n="a3">Texnik direktor, montaj tashkiloti</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="faq_title">Savol-javob</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span data-i18n="f1q">Kafolat qancha muddatga beriladi?</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary>
+        <p class="faq-a" data-i18n="f1a">Barcha mahsulotlarga 1 yil rasmiy kafolat beriladi. Ishlab chiqarish nuqsoni aniqlansa — mahsulotni almashtirib beramiz. Kafolat muddati tugagach ham servis xizmati mavjud.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-i18n="f2q">Yetkazib berish va o'rnatish qancha turadi?</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary>
+        <p class="faq-a" data-i18n="f2a">Bepul. O'zbekistonning barcha viloyatlariga yetkazib beramiz, o'rnatamiz va sozlab beramiz. MDH mamlakatlariga — shartnoma asosida.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-i18n="f3q">To'lov qanday amalga oshiriladi?</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary>
+        <p class="faq-a" data-i18n="f3a">Bank o'tkazmasi yoki naqd pul ko'rinishida. Yuridik shaxslar va davlat tashkilotlari bilan shartnoma asosida ishlaymiz.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-i18n="f4q">Individual buyurtma qabul qilasizmi?</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary>
+        <p class="faq-a" data-i18n="f4a">Ha — svetofor platalarini individual talablar bo'yicha yig'amiz. Tayyor korpuslar va ehtiyot qismlar alohida ham sotiladi.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-i18n="f5q">Chegirmalar bormi?</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary>
+        <p class="faq-a" data-i18n="f5a">Katta partiyadagi xaridlar uchun bonus va chegirmalar, Ramazon oyida maxsus aksiyalar amal qiladi. Doimiy hamkorlarga alohida shartlar.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="catalog" id="aloqa">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="ct_title">Buyurtma yoki savol qoldiring</h2>
+      <p data-i18n="ct_sub">So'rovingiz zudlik bilan mas'ul xodimning Telegram-botiga va CRM tizimiga tushadi — 30 daqiqa ichida javob beramiz.</p>
+    </div>
+    <div class="contact-in">
+      <form class="contact-form" id="order-form">
+        <input type="text" name="name" required data-i18n-ph="fm_name" placeholder="Ismingiz" autocomplete="name">
+        <input type="tel" name="phone" required data-i18n-ph="fm_phone" placeholder="Telefon raqamingiz" autocomplete="tel">
+        <select name="product" id="fm-product">
+          <option value="" data-i18n="fm_p0">Qiziqtirgan mahsulot</option>
+          <option value="transport" data-i18n="fm_p1">Transport svetoforlari</option>
+          <option value="piyoda" data-i18n="fm_p2">Piyodalar svetofori</option>
+          <option value="solar" data-i18n="fm_p3">Quyosh panelli svetofor</option>
+          <option value="belgi" data-i18n="fm_p4">LED yo'l belgilari</option>
+          <option value="kontroller" data-i18n="fm_p5">Boshqaruv bloklari</option>
+          <option value="plata" data-i18n="fm_p6">Platalar / ehtiyot qismlar</option>
+          <option value="other" data-i18n="fm_p7">Boshqa</option>
+        </select>
+        <textarea name="message" id="fm-msg" data-i18n-ph="fm_msg" placeholder="Xabar (ixtiyoriy)"></textarea>
+        <button class="btn" type="submit"><iconify-icon icon="lucide:send"></iconify-icon><span data-i18n="fm_send">Yuborish</span></button>
+        <div class="form-note">
+          <iconify-icon icon="lucide:shield-check"></iconify-icon>
+          <span data-i18n="fm_note">Ma'lumotlaringiz faqat buyurtmani qayta ishlash uchun ishlatiladi.</span>
+        </div>
+      </form>
+      <div class="contact-side">
+        <div class="ci-row">
+          <iconify-icon icon="lucide:map-pin"></iconify-icon>
+          <div>
+            <div class="ci-label" data-i18n="ci_addr">Manzil</div>
+            <div class="ci-val" data-i18n="ci_addr_v">Toshkent sh., Sergeli tumani, Sanoat ko'chasi, 12</div>
+          </div>
+        </div>
+        <div class="ci-row">
+          <iconify-icon icon="lucide:phone"></iconify-icon>
+          <div>
+            <div class="ci-label" data-i18n="ci_phone">Telefon</div>
+            <a class="ci-val" href="tel:+998712000000">+998 71 200-00-00</a>
+          </div>
+        </div>
+        <div class="ci-row">
+          <iconify-icon icon="lucide:mail"></iconify-icon>
+          <div>
+            <div class="ci-label">E-mail</div>
+            <a class="ci-val" href="mailto:info@innotexno.uz">info@innotexno.uz</a>
+          </div>
+        </div>
+        <div class="ci-row">
+          <iconify-icon icon="lucide:clock"></iconify-icon>
+          <div>
+            <div class="ci-label" data-i18n="ci_hours">Ish vaqti</div>
+            <div class="ci-val" data-i18n="ci_hours_v">Dushanba–Shanba, 9:00–18:00</div>
+          </div>
+        </div>
+        <div>
+          <div class="ci-label" style="font-family:var(--font-mono);font-size:0.8rem;color:var(--ink-muted);margin-bottom:10px" data-i18n="ci_soc">Ijtimoiy tarmoqlar</div>
+          <div class="contact-socials">
+            <a href="https://t.me/innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/telegram/EDEDF0" width="16" height="16" alt="">Telegram</a>
+            <a href="https://instagram.com/innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/EDEDF0" width="16" height="16" alt="">Instagram</a>
+            <a href="https://youtube.com/@innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/EDEDF0" width="16" height="16" alt="">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-in">
+      <div>
+        <a class="logo" href="#" aria-label="INNO TEXNO">
+          <span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          INNO<b>TEXNO</b>
+        </a>
+        <p class="footer-tag" data-i18n="ft_tag">Yo'l harakati xavfsizligi uchun zamonaviy yechimlar — svetoforlar, LED belgilar va boshqaruv tizimlari.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#katalog" data-i18n="nav_catalog2">Katalog</a>
+        <a href="#nima-uchun" data-i18n="nav_why2">Nima uchun biz</a>
+        <a href="#kalkulyator" data-i18n="nav_calc2">Kalkulyator</a>
+        <a href="#sertifikatlar" data-i18n="nav_certs2">Sertifikatlar</a>
+        <a href="#aloqa" data-i18n="nav_contact2">Aloqa</a>
+      </nav>
+      <div class="footer-nav">
+        <a href="tel:+998712000000">+998 71 200-00-00</a>
+        <a href="mailto:info@innotexno.uz">info@innotexno.uz</a>
+        <div class="contact-socials" style="margin-top:6px">
+          <a href="https://t.me/innotexno" target="_blank" rel="noopener" aria-label="Telegram"><img src="https://cdn.simpleicons.org/telegram/EDEDF0" width="16" height="16" alt=""></a>
+          <a href="https://instagram.com/innotexno" target="_blank" rel="noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/EDEDF0" width="16" height="16" alt=""></a>
+          <a href="https://youtube.com/@innotexno" target="_blank" rel="noopener" aria-label="YouTube"><img src="https://cdn.simpleicons.org/youtube/EDEDF0" width="16" height="16" alt=""></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="ft_rights">© 2026 INNO TEXNO. Barcha huquqlar himoyalangan.</span>
+      <span>UZ · RU · EN</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status">
+  <iconify-icon icon="lucide:check-circle-2"></iconify-icon>
+  <span data-i18n="toast_ok">Rahmat! So'rovingiz qabul qilindi — tez orada bog'lanamiz.</span>
+</div>
+
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+/* ============ i18n ============ */
+const I18N = {
+  uz: {
+    nav_catalog:"Katalog", nav_why:"Nima uchun biz", nav_calc:"Kalkulyator", nav_certs:"Sertifikatlar", nav_contact:"Aloqa", nav_order:"Buyurtma berish",
+    skip:"Kontentga o'tish", menu_label:"Menyu", loading:"yuklanmoqda",
+    hero_badge:"O'zbekistonda ishlab chiqarilgan", hero_h1a:"Zamonaviy", hero_h1b:"LED svetoforlar", hero_h1c:"ishlab chiqaramiz",
+    hero_sub:"Transport, piyodalar va quyosh panelli svetoforlar, LED yo'l belgilari hamda boshqaruv tizimlari. Mahalliy ishlab chiqarish — import narxidan arzon, 1 yil kafolat, bepul yetkazib berish va o'rnatish.",
+    hero_cta1:"Katalogni ko'rish", hero_cta2:"Narxni hisoblash",
+    trust1:"1 yil kafolat", trust2:"Bepul yetkazib berish va o'rnatish", trust3:"O'zbekiston va MDH bo'ylab",
+    hero_hint:"Svetoforni aylantirib ko'ring",
+    cat_title:"Mahsulotlar katalogi", cat_sub:"Barcha mahsulotlar o'z ishlab chiqarish bazamizda tayyorlanadi — tayyor korpuslardan individual buyurtma platalarigacha.",
+    p1n:"Transport svetoforlari", p1d:"Chorrahalar va magistrallar uchun uch seksiyali svetoforlar. Quyoshda ham aniq ko'rinadigan yuqori yorqinlikdagi LED modullar, po'lat korpus.", p1p:"4 800 000 so'mdan",
+    p2n:"Piyodalar svetofori", p2s:"taymer bilan", p2p:"3 600 000 so'mdan",
+    p3n:"Quyosh panelli svetofor", p3s:"Avtonom", p3p:"6 900 000 so'mdan",
+    p4n:"LED yo'l belgilari", p4p:"2 400 000 so'mdan",
+    p5n:"Boshqaruv bloklari", p5s:"2–16 faza", p5p:"8 500 000 so'mdan",
+    p6n:"Svetofor platalari va ehtiyot qismlar", p6s:"Individual buyurtma", p6p:"450 000 so'mdan",
+    pc_cta:"Narxini bilish", pc_cta2:"Narxini bilish", pc_cta3:"Narxini bilish", pc_cta4:"Narxini bilish", pc_cta5:"Narxini bilish", pc_cta6:"Narxini bilish",
+    why_title:"Nima uchun INNO TEXNO?",
+    w1t:"Mahalliy ishlab chiqarish", w1d:"Import analoglaridan arzon narx va tezkor yetkazib berish — mahsulot omborda tayyor turadi, bojxona kutilmaydi.",
+    w2t:"Energiya tejamkor LED", w2d:"Sifatli diodlar kam quvvat sarflaydi va yorqin quyoshda ham aniq ko'rinadi.",
+    w3t:"Mustahkam korpus", w3d:"Po'lat korpus va IP65 himoya — jazirama issiqda ham, qor-yomg'irda ham uzluksiz ishlaydi.",
+    w4t:"Kafolat va servis", w4d:"1 yil rasmiy kafolat, undan keyin ham xizmat ko'rsatamiz. Ishlab chiqarish nuqsoni aniqlansa — almashtirib beramiz.",
+    proc_title:"Buyurtma qanday amalga oshadi",
+    s1t:"Buyurtma", s1d:"So'rov qoldirasiz — 30 daqiqa ichida aloqaga chiqamiz.",
+    s2t:"Texnik talablar", s2d:"Ob'ektingiz uchun texnik talablar kelishiladi.",
+    s3t:"Shartnoma", s3d:"Narx va muddatlar shartnomada yozma kafolatlanadi.",
+    s4t:"O'rnatish", s4d:"Yetkazib beramiz, o'rnatamiz va sozlaymiz — bepul.",
+    calc_title:"Narx kalkulyatori", calc_sub:"Konfiguratsiyani tanlang — taxminiy narxni darhol ko'rasiz. Aniq taklifni so'rovdan keyin taqdim etamiz.",
+    calc_type:"Svetofor turi", ct1:"Transport", ct2:"Piyodalar", ct3:"Quyosh panelli",
+    calc_lens:"Linza diametri", calc_housing:"Korpus materiali", ch1:"Po'lat", ch2:"Alyuminiy",
+    calc_qty:"Soni", calc_disc_hint:"10 donadan — 5% chegirma · 50 donadan — 12%",
+    calc_result:"Taxminiy narx", calc_note:"Yakuniy narx texnik talablarga bog'liq. Yetkazib berish va o'rnatish narxga kiritilgan — bepul.",
+    calc_cta:"Shu konfiguratsiya bilan buyurtma berish", calc_per:"dona narxi", calc_disc:"chegirma qo'llandi", calc_sum:"so'm",
+    cert_title:"Sertifikatlar va hujjatlar", cert_sub:"Davlat xaridlari va tenderlar uchun to'liq hujjatlar paketi — PDF formatida yuklab oling.",
+    c1t:"GOST muvofiqlik sertifikati", c1d:"Barcha svetoforlar davlat standartlariga muvofiqligi tasdiqlangan.",
+    c2t:"ISO 9001 sifat sertifikati", c2d:"Ishlab chiqarish jarayoni xalqaro sifat menejmenti talablariga javob beradi.",
+    c3t:"Mahsulot pasportlari", c3d:"Har bir mahsulot uchun texnik pasport va foydalanish hujjatlari.",
+    cert_dl:"PDF yuklab olish", cert_dl2:"PDF yuklab olish", cert_dl3:"PDF yuklab olish",
+    proj_title:"Amalga oshirilgan loyihalar", proj_sub:"Shahar chorrahalari va magistrallarda o'rnatilgan tizimlarimiz har kuni minglab haydovchiga xizmat qiladi.",
+    proj1:"Toshkent · aqlli chorraha tizimi", proj2:"Magistral · adaptiv boshqaruv", proj3:"Markaziy kesishma · LED svetoforlar",
+    vid_title:"Ishlab chiqarish jarayoni", vid_sub:"Sexdagi jarayonlar, svetoforlarni sinovdan o'tkazish va tayyor ob'ektlar — YouTube kanalimizda.",
+    vid_cta:"YouTube'da ko'rish", vid_cap:"INNO TEXNO · aqlli chorraha yechimlari",
+    testi_title:"Mijozlar fikri",
+    q1:"Narxi import analogidan sezilarli arzon, sifati esa kam emas. 40 ta chorraha uchun buyurtma berdik — hammasi muddatida yetkazildi va o'rnatildi.", a1:"Bosh muhandis, yo'l qurilish kompaniyasi",
+    q2:"Quyosh panelli svetoforlar elektr tarmog'i yo'q hududda ikkinchi yil uzluksiz ishlab turibdi. Servis bilan muammo bo'lgani yo'q.", a2:"Tuman obodonlashtirish bo'limi",
+    q3:"Individual platalar buyurtmasini 10 kunda yig'ib berishdi. Texnik savollarga tez javob berishadi.", a3:"Texnik direktor, montaj tashkiloti",
+    faq_title:"Savol-javob",
+    f1q:"Kafolat qancha muddatga beriladi?", f1a:"Barcha mahsulotlarga 1 yil rasmiy kafolat beriladi. Ishlab chiqarish nuqsoni aniqlansa — mahsulotni almashtirib beramiz. Kafolat muddati tugagach ham servis xizmati mavjud.",
+    f2q:"Yetkazib berish va o'rnatish qancha turadi?", f2a:"Bepul. O'zbekistonning barcha viloyatlariga yetkazib beramiz, o'rnatamiz va sozlab beramiz. MDH mamlakatlariga — shartnoma asosida.",
+    f3q:"To'lov qanday amalga oshiriladi?", f3a:"Bank o'tkazmasi yoki naqd pul ko'rinishida. Yuridik shaxslar va davlat tashkilotlari bilan shartnoma asosida ishlaymiz.",
+    f4q:"Individual buyurtma qabul qilasizmi?", f4a:"Ha — svetofor platalarini individual talablar bo'yicha yig'amiz. Tayyor korpuslar va ehtiyot qismlar alohida ham sotiladi.",
+    f5q:"Chegirmalar bormi?", f5a:"Katta partiyadagi xaridlar uchun bonus va chegirmalar, Ramazon oyida maxsus aksiyalar amal qiladi. Doimiy hamkorlarga alohida shartlar.",
+    ct_title:"Buyurtma yoki savol qoldiring", ct_sub:"So'rovingiz zudlik bilan mas'ul xodimning Telegram-botiga va CRM tizimiga tushadi — 30 daqiqa ichida javob beramiz.",
+    fm_name:"Ismingiz", fm_phone:"Telefon raqamingiz", fm_msg:"Xabar (ixtiyoriy)", fm_send:"Yuborish",
+    fm_p0:"Qiziqtirgan mahsulot", fm_p1:"Transport svetoforlari", fm_p2:"Piyodalar svetofori", fm_p3:"Quyosh panelli svetofor", fm_p4:"LED yo'l belgilari", fm_p5:"Boshqaruv bloklari", fm_p6:"Platalar / ehtiyot qismlar", fm_p7:"Boshqa",
+    fm_note:"Ma'lumotlaringiz faqat buyurtmani qayta ishlash uchun ishlatiladi.",
+    ci_addr:"Manzil", ci_addr_v:"Toshkent sh., Sergeli tumani, Sanoat ko'chasi, 12",
+    ci_phone:"Telefon", ci_hours:"Ish vaqti", ci_hours_v:"Dushanba–Shanba, 9:00–18:00", ci_soc:"Ijtimoiy tarmoqlar",
+    ft_tag:"Yo'l harakati xavfsizligi uchun zamonaviy yechimlar — svetoforlar, LED belgilar va boshqaruv tizimlari.",
+    nav_catalog2:"Katalog", nav_why2:"Nima uchun biz", nav_calc2:"Kalkulyator", nav_certs2:"Sertifikatlar", nav_contact2:"Aloqa",
+    ft_rights:"© 2026 INNO TEXNO. Barcha huquqlar himoyalangan.",
+    toast_ok:"Rahmat! So'rovingiz qabul qilindi — tez orada bog'lanamiz.",
+    calc_msg:"Kalkulyatordan: {type}, {lens} mm, {housing}, {qty} dona — ≈ {sum} so'm"
+  },
+  ru: {
+    nav_catalog:"Каталог", nav_why:"Почему мы", nav_calc:"Калькулятор", nav_certs:"Сертификаты", nav_contact:"Контакты", nav_order:"Заказать",
+    skip:"Перейти к содержимому", menu_label:"Меню", loading:"загрузка",
+    hero_badge:"Произведено в Узбекистане", hero_h1a:"Производим", hero_h1b:"LED-светофоры", hero_h1c:"нового поколения",
+    hero_sub:"Транспортные, пешеходные и автономные светофоры на солнечных панелях, LED-знаки и системы управления. Местное производство — дешевле импорта, гарантия 1 год, бесплатная доставка и монтаж.",
+    hero_cta1:"Смотреть каталог", hero_cta2:"Рассчитать цену",
+    trust1:"Гарантия 1 год", trust2:"Бесплатная доставка и монтаж", trust3:"По Узбекистану и СНГ",
+    hero_hint:"Покрутите светофор",
+    cat_title:"Каталог продукции", cat_sub:"Вся продукция изготавливается на собственной производственной базе — от готовых корпусов до плат под индивидуальный заказ.",
+    p1n:"Транспортные светофоры", p1d:"Трёхсекционные светофоры для перекрёстков и магистралей. Яркие LED-модули, читаемые даже на солнце, стальной корпус.", p1p:"от 4 800 000 сум",
+    p2n:"Пешеходные светофоры", p2s:"с таймером", p2p:"от 3 600 000 сум",
+    p3n:"Светофор на солнечной панели", p3s:"Автономный", p3p:"от 6 900 000 сум",
+    p4n:"LED дорожные знаки", p4p:"от 2 400 000 сум",
+    p5n:"Блоки управления", p5s:"2–16 фаз", p5p:"от 8 500 000 сум",
+    p6n:"Платы и запчасти", p6s:"Под заказ", p6p:"от 450 000 сум",
+    pc_cta:"Узнать цену", pc_cta2:"Узнать цену", pc_cta3:"Узнать цену", pc_cta4:"Узнать цену", pc_cta5:"Узнать цену", pc_cta6:"Узнать цену",
+    why_title:"Почему INNO TEXNO?",
+    w1t:"Местное производство", w1d:"Цена ниже импортных аналогов и быстрая поставка — продукция готова на складе, без ожидания таможни.",
+    w2t:"Энергоэффективные LED", w2d:"Качественные диоды потребляют мало энергии и отлично читаются даже на ярком солнце.",
+    w3t:"Прочный корпус", w3d:"Стальной корпус и защита IP65 — работает без перебоев и в жару, и в снег.",
+    w4t:"Гарантия и сервис", w4d:"Официальная гарантия 1 год, обслуживание и после неё. При производственном браке — заменим.",
+    proc_title:"Как проходит заказ",
+    s1t:"Заявка", s1d:"Оставляете заявку — свяжемся в течение 30 минут.",
+    s2t:"Техтребования", s2d:"Согласовываем технические требования объекта.",
+    s3t:"Договор", s3d:"Цена и сроки фиксируются в договоре.",
+    s4t:"Монтаж", s4d:"Доставим, установим и настроим — бесплатно.",
+    calc_title:"Калькулятор цены", calc_sub:"Выберите конфигурацию — примерная цена рассчитается сразу. Точное предложение вышлем после заявки.",
+    calc_type:"Тип светофора", ct1:"Транспортный", ct2:"Пешеходный", ct3:"На солнечной панели",
+    calc_lens:"Диаметр линзы", calc_housing:"Материал корпуса", ch1:"Сталь", ch2:"Алюминий",
+    calc_qty:"Количество", calc_disc_hint:"от 10 шт — скидка 5% · от 50 шт — 12%",
+    calc_result:"Примерная цена", calc_note:"Итоговая цена зависит от техтребований. Доставка и монтаж включены — бесплатно.",
+    calc_cta:"Заказать эту конфигурацию", calc_per:"цена за шт", calc_disc:"скидка применена", calc_sum:"сум",
+    cert_title:"Сертификаты и документы", cert_sub:"Полный пакет документов для госзакупок и тендеров — скачайте в PDF.",
+    c1t:"Сертификат соответствия ГОСТ", c1d:"Соответствие всех светофоров государственным стандартам подтверждено.",
+    c2t:"Сертификат качества ISO 9001", c2d:"Производственный процесс отвечает требованиям международного менеджмента качества.",
+    c3t:"Паспорта изделий", c3d:"Технический паспорт и эксплуатационные документы на каждое изделие.",
+    cert_dl:"Скачать PDF", cert_dl2:"Скачать PDF", cert_dl3:"Скачать PDF",
+    proj_title:"Реализованные проекты", proj_sub:"Наши системы на городских перекрёстках и магистралях ежедневно обслуживают тысячи водителей.",
+    proj1:"Ташкент · система умного перекрёстка", proj2:"Магистраль · адаптивное управление", proj3:"Центральный перекрёсток · LED-светофоры",
+    vid_title:"Как мы производим", vid_sub:"Процессы в цеху, испытания светофоров и готовые объекты — на нашем YouTube-канале.",
+    vid_cta:"Смотреть на YouTube", vid_cap:"INNO TEXNO · умные решения для перекрёстков",
+    testi_title:"Отзывы клиентов",
+    q1:"Цена заметно ниже импортного аналога, а качество не уступает. Заказали на 40 перекрёстков — всё доставили и смонтировали в срок.", a1:"Главный инженер, дорожно-строительная компания",
+    q2:"Светофоры на солнечных панелях второй год работают без перебоев там, где нет электросети. С сервисом проблем не было.", a2:"Районный отдел благоустройства",
+    q3:"Индивидуальный заказ плат собрали за 10 дней. На технические вопросы отвечают быстро.", a3:"Технический директор, монтажная организация",
+    faq_title:"Вопросы и ответы",
+    f1q:"Какой срок гарантии?", f1a:"На всю продукцию — официальная гарантия 1 год. При производственном браке изделие заменим. После окончания гарантии сервис также доступен.",
+    f2q:"Сколько стоят доставка и монтаж?", f2a:"Бесплатно. Доставляем во все области Узбекистана, устанавливаем и настраиваем. В страны СНГ — на договорной основе.",
+    f3q:"Как проходит оплата?", f3a:"Банковским переводом или наличными. С юридическими лицами и госорганизациями работаем по договору.",
+    f4q:"Принимаете индивидуальные заказы?", f4a:"Да — собираем платы светофоров по индивидуальным требованиям. Корпуса и запчасти продаются и отдельно.",
+    f5q:"Есть ли скидки?", f5a:"Бонусы и скидки на крупные партии, специальные акции в Рамадан. Постоянным партнёрам — отдельные условия.",
+    ct_title:"Оставьте заявку или вопрос", ct_sub:"Заявка мгновенно попадает в Telegram-бот ответственного сотрудника и в CRM — ответим в течение 30 минут.",
+    fm_name:"Ваше имя", fm_phone:"Ваш телефон", fm_msg:"Сообщение (необязательно)", fm_send:"Отправить",
+    fm_p0:"Интересующий продукт", fm_p1:"Транспортные светофоры", fm_p2:"Пешеходные светофоры", fm_p3:"Светофор на солнечной панели", fm_p4:"LED дорожные знаки", fm_p5:"Блоки управления", fm_p6:"Платы / запчасти", fm_p7:"Другое",
+    fm_note:"Ваши данные используются только для обработки заявки.",
+    ci_addr:"Адрес", ci_addr_v:"г. Ташкент, Сергелийский район, ул. Саноат, 12",
+    ci_phone:"Телефон", ci_hours:"Режим работы", ci_hours_v:"Понедельник–Суббота, 9:00–18:00", ci_soc:"Социальные сети",
+    ft_tag:"Современные решения для безопасности дорожного движения — светофоры, LED-знаки и системы управления.",
+    nav_catalog2:"Каталог", nav_why2:"Почему мы", nav_calc2:"Калькулятор", nav_certs2:"Сертификаты", nav_contact2:"Контакты",
+    ft_rights:"© 2026 INNO TEXNO. Все права защищены.",
+    toast_ok:"Спасибо! Заявка принята — скоро свяжемся с вами.",
+    calc_msg:"Из калькулятора: {type}, {lens} мм, {housing}, {qty} шт — ≈ {sum} сум"
+  },
+  en: {
+    nav_catalog:"Catalog", nav_why:"Why us", nav_calc:"Calculator", nav_certs:"Certificates", nav_contact:"Contact", nav_order:"Place an order",
+    skip:"Skip to content", menu_label:"Menu", loading:"loading",
+    hero_badge:"Made in Uzbekistan", hero_h1a:"We manufacture", hero_h1b:"LED traffic lights", hero_h1c:"of the new generation",
+    hero_sub:"Vehicle, pedestrian and solar-powered traffic lights, LED road signs and control systems. Local production — cheaper than imports, 1-year warranty, free delivery and installation.",
+    hero_cta1:"View catalog", hero_cta2:"Calculate price",
+    trust1:"1-year warranty", trust2:"Free delivery & installation", trust3:"Across Uzbekistan & CIS",
+    hero_hint:"Drag to rotate the traffic light",
+    cat_title:"Product catalog", cat_sub:"Everything is made at our own facility — from complete housings to custom-assembled boards.",
+    p1n:"Vehicle traffic lights", p1d:"Three-section traffic lights for intersections and highways. High-brightness LED modules readable in direct sunlight, steel housing.", p1p:"from 4,800,000 UZS",
+    p2n:"Pedestrian traffic lights", p2s:"with countdown timer", p2p:"from 3,600,000 UZS",
+    p3n:"Solar-powered traffic light", p3s:"Off-grid", p3p:"from 6,900,000 UZS",
+    p4n:"LED road signs", p4p:"from 2,400,000 UZS",
+    p5n:"Traffic controllers", p5s:"2–16 phases", p5p:"from 8,500,000 UZS",
+    p6n:"Boards & spare parts", p6s:"Custom orders", p6p:"from 450,000 UZS",
+    pc_cta:"Get a quote", pc_cta2:"Get a quote", pc_cta3:"Get a quote", pc_cta4:"Get a quote", pc_cta5:"Get a quote", pc_cta6:"Get a quote",
+    why_title:"Why INNO TEXNO?",
+    w1t:"Local production", w1d:"Lower prices than imported analogs and fast delivery — products are in stock, no customs delays.",
+    w2t:"Energy-efficient LEDs", w2d:"Quality diodes consume little power and stay clearly visible even in bright sunlight.",
+    w3t:"Rugged housing", w3d:"Steel housing with IP65 protection — runs non-stop in scorching heat and snow alike.",
+    w4t:"Warranty & service", w4d:"1-year official warranty and service beyond it. Manufacturing defects — we replace the unit.",
+    proc_title:"How ordering works",
+    s1t:"Request", s1d:"Leave a request — we respond within 30 minutes.",
+    s2t:"Requirements", s2d:"We agree on the technical requirements of your site.",
+    s3t:"Contract", s3d:"Price and deadlines are fixed in the contract.",
+    s4t:"Installation", s4d:"We deliver, install and configure — free of charge.",
+    calc_title:"Price calculator", calc_sub:"Pick a configuration — the estimate updates instantly. A precise quote follows your request.",
+    calc_type:"Traffic light type", ct1:"Vehicle", ct2:"Pedestrian", ct3:"Solar-powered",
+    calc_lens:"Lens diameter", calc_housing:"Housing material", ch1:"Steel", ch2:"Aluminium",
+    calc_qty:"Quantity", calc_disc_hint:"10+ units — 5% off · 50+ units — 12% off",
+    calc_result:"Estimated price", calc_note:"The final price depends on technical requirements. Delivery and installation are included — free.",
+    calc_cta:"Order this configuration", calc_per:"per unit", calc_disc:"discount applied", calc_sum:"UZS",
+    cert_title:"Certificates & documents", cert_sub:"A complete document package for public procurement and tenders — download as PDF.",
+    c1t:"GOST conformity certificate", c1d:"All traffic lights are certified against state standards.",
+    c2t:"ISO 9001 quality certificate", c2d:"Our production process meets international quality management requirements.",
+    c3t:"Product passports", c3d:"A technical passport and operating documents for every product.",
+    cert_dl:"Download PDF", cert_dl2:"Download PDF", cert_dl3:"Download PDF",
+    proj_title:"Delivered projects", proj_sub:"Our systems at city intersections and highways serve thousands of drivers every day.",
+    proj1:"Tashkent · smart intersection system", proj2:"Highway · adaptive control", proj3:"Central junction · LED traffic lights",
+    vid_title:"Inside our production", vid_sub:"Shop-floor processes, traffic light testing and completed installations — on our YouTube channel.",
+    vid_cta:"Watch on YouTube", vid_cap:"INNO TEXNO · smart intersection solutions",
+    testi_title:"What clients say",
+    q1:"Noticeably cheaper than the imported analog with no compromise on quality. We ordered for 40 intersections — everything was delivered and installed on time.", a1:"Chief engineer, road construction company",
+    q2:"The solar-powered traffic lights have run flawlessly for two years in an area with no power grid. No issues with service.", a2:"District public works department",
+    q3:"A custom board order was assembled in 10 days. Technical questions get answered fast.", a3:"Technical director, installation contractor",
+    faq_title:"FAQ",
+    f1q:"How long is the warranty?", f1a:"All products carry a 1-year official warranty. Manufacturing defects — we replace the unit. Service remains available after the warranty ends.",
+    f2q:"How much do delivery and installation cost?", f2a:"They're free. We deliver to every region of Uzbekistan, install and configure. CIS countries — by contract.",
+    f3q:"How does payment work?", f3a:"Bank transfer or cash. We work with legal entities and government organizations under contract.",
+    f4q:"Do you take custom orders?", f4a:"Yes — we assemble traffic light boards to individual requirements. Housings and spare parts are also sold separately.",
+    f5q:"Are there discounts?", f5a:"Bonuses and discounts for bulk purchases, special offers during Ramadan. Long-term partners get dedicated terms.",
+    ct_title:"Leave a request or a question", ct_sub:"Your request instantly reaches the responsible manager's Telegram bot and our CRM — we reply within 30 minutes.",
+    fm_name:"Your name", fm_phone:"Your phone", fm_msg:"Message (optional)", fm_send:"Send",
+    fm_p0:"Product of interest", fm_p1:"Vehicle traffic lights", fm_p2:"Pedestrian traffic lights", fm_p3:"Solar-powered traffic light", fm_p4:"LED road signs", fm_p5:"Traffic controllers", fm_p6:"Boards / spare parts", fm_p7:"Other",
+    fm_note:"Your data is used only to process the request.",
+    ci_addr:"Address", ci_addr_v:"12 Sanoat st., Sergeli district, Tashkent",
+    ci_phone:"Phone", ci_hours:"Working hours", ci_hours_v:"Monday–Saturday, 9:00–18:00", ci_soc:"Social media",
+    ft_tag:"Modern solutions for road traffic safety — traffic lights, LED signs and control systems.",
+    nav_catalog2:"Catalog", nav_why2:"Why us", nav_calc2:"Calculator", nav_certs2:"Certificates", nav_contact2:"Contact",
+    ft_rights:"© 2026 INNO TEXNO. All rights reserved.",
+    toast_ok:"Thank you! Your request has been received — we'll be in touch shortly.",
+    calc_msg:"From the calculator: {type}, {lens} mm, {housing}, {qty} pcs — ≈ {sum} UZS"
+  }
+};
+function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
+function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }
+let lang = storageGet('it-lang') || 'uz';
+function t(key) { return (I18N[lang] && I18N[lang][key]) || I18N.uz[key] || key; }
+function applyLang(l) {
+  lang = l;
+  storageSet('it-lang', l);
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-i18n]').forEach(el => { const v = t(el.dataset.i18n); if (v) el.textContent = v; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { const v = t(el.dataset.i18nPh); if (v) el.placeholder = v; });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { const v = t(el.dataset.i18nAria); if (v) el.setAttribute('aria-label', v); });
+  document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+  renderCalc();
+}
+document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+/* ============ Zdog 3D traffic light ============ */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const COL = {
+  housing: '#2A2E35', housingDark: '#1E2126', housingSide: '#24272E', housingTop: '#343941',
+  visor: '#15171B', pole: '#3A3F47',
+  red: '#F45B5B', amber: '#FFC53D', green: '#3EDB8A',
+  redDim: '#4A2C2E', amberDim: '#4A4028', greenDim: '#25423A'
+};
+let dragging = false;
+let scrollTwist = 0; /* driven by the hero ScrollTrigger below */
+const illo = new Zdog.Illustration({
+  element: '#tl-canvas',
+  zoom: 1.55,
+  dragRotate: true,
+  rotate: { x: -0.08, y: -0.42 },
+  onDragStart: () => { dragging = true; },
+  onDragEnd: () => { dragging = false; }
+});
+const rig = new Zdog.Anchor({ addTo: illo, translate: { y: -26 } });
+new Zdog.Box({
+  addTo: rig, width: 62, height: 158, depth: 32, stroke: 4,
+  color: COL.housing, frontFace: COL.housing, rearFace: COL.housingSide,
+  leftFace: COL.housingSide, rightFace: COL.housingSide,
+  topFace: COL.housingTop, bottomFace: COL.housingDark
+});
+const lensY = [-50, 0, 50];
+const lenses = lensY.map((y, i) => {
+  new Zdog.Ellipse({
+    addTo: rig, diameter: 44, stroke: 5, color: COL.visor,
+    translate: { y, z: 24 }
+  });
+  return new Zdog.Cylinder({
+    addTo: rig, diameter: 36, length: 8, stroke: false,
+    color: [COL.redDim, COL.amberDim, COL.greenDim][i],
+    frontFace: [COL.redDim, COL.amberDim, COL.greenDim][i],
+    backface: COL.housingDark,
+    translate: { y, z: 20 }
+  });
+});
+new Zdog.Shape({
+  addTo: rig, path: [ { y: 82 }, { y: 195 } ], stroke: 11, color: COL.pole
+});
+new Zdog.Cylinder({
+  addTo: rig, diameter: 54, length: 6, stroke: false, color: COL.housingDark,
+  frontFace: COL.housingSide, translate: { y: 198 }, rotate: { x: Zdog.TAU / 4 }
+});
+const canvas = document.getElementById('tl-canvas');
+const BRIGHT = [COL.red, COL.amber, COL.green];
+const DIM = [COL.redDim, COL.amberDim, COL.greenDim];
+const GLOW = ['oklch(0.66 0.21 25 / 0.5)', 'oklch(0.84 0.17 90 / 0.5)', 'oklch(0.78 0.19 150 / 0.5)'];
+function setLight(idx) {
+  lenses.forEach((lens, i) => {
+    const c = i === idx ? BRIGHT[i] : DIM[i];
+    lens.color = c;
+    if (lens.frontBase) lens.frontBase.color = c; /* Zdog bakes face colors into child ellipses at creation */
+  });
+  canvas.style.filter = `drop-shadow(0 0 26px ${GLOW[idx]})`;
+  illo.updateRenderGraph(); /* redraw now — don't depend on the rAF loop (throttled in background tabs) */
+}
+setLight(2);
+illo.updateRenderGraph(); /* immediate first frame — never gate the visual on rAF */
+if (!reduceMotion) {
+  let phase = 0;
+  const SEQ = [ { i: 0, ms: 2600 }, { i: 2, ms: 2600 }, { i: 1, ms: 1000 } ];
+  function cycle() {
+    setLight(SEQ[phase].i);
+    setTimeout(() => { phase = (phase + 1) % SEQ.length; cycle(); }, SEQ[phase].ms);
+  }
+  cycle();
+  let tTick = 0;
+  const baseY = illo.rotate.y;
+  function animate() {
+    if (!dragging) { tTick += 0.012; illo.rotate.y = baseY + Math.sin(tTick) * 0.16 + scrollTwist; }
+    illo.updateRenderGraph();
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+/* ============ preloader: min one signal cycle, green light, curtain up ============ */
+const preloader = document.getElementById('preloader');
+const plStart = performance.now();
+let plHidden = false;
+function hidePreloader() {
+  if (plHidden) return;
+  plHidden = true;
+  const minShow = reduceMotion ? 0 : 1600;
+  setTimeout(() => {
+    preloader.classList.add('go');               /* lock the green light… */
+    setTimeout(() => {
+      preloader.classList.add('done');           /* …then lift the curtain */
+      setTimeout(() => preloader.remove(), 1000);
+    }, reduceMotion ? 0 : 380);
+  }, Math.max(0, minShow - (performance.now() - plStart)));
+}
+if (document.readyState === 'complete') hidePreloader();
+else addEventListener('load', hidePreloader, { once: true });
+setTimeout(hidePreloader, 4000); /* never hold the page hostage */
+
+/* ============ header: compact on scroll, burger menu, scrollspy ============ */
+const header = document.querySelector('.site-header');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 40), { passive: true });
+
+const burger = document.querySelector('.burger');
+const mobileMenu = document.getElementById('mobile-menu');
+function setMenu(open) {
+  mobileMenu.classList.toggle('open', open);
+  mobileMenu.setAttribute('aria-hidden', String(!open));
+  document.body.classList.toggle('menu-open', open);
+  burger.setAttribute('aria-expanded', String(open));
+  burger.querySelector('.ic-open').hidden = open;
+  burger.querySelector('.ic-close').hidden = !open;
+  if (open) mobileMenu.querySelector('a').focus({ preventScroll: true });
+  else burger.focus({ preventScroll: true });
+}
+burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+mobileMenu.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => setMenu(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape' && mobileMenu.classList.contains('open')) setMenu(false); });
+
+/* scrollspy: light up the nav item for the section in view */
+const spyLinks = [...document.querySelectorAll('.main-nav a, .mobile-menu nav a')];
+const spyIO = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const id = '#' + en.target.id;
+    spyLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+document.querySelectorAll('main section[id]').forEach(s => spyIO.observe(s));
+
+/* ============ tilt on product cards ============ */
+if (!reduceMotion && matchMedia('(pointer: fine)').matches && window.VanillaTilt) {
+  VanillaTilt.init(document.querySelectorAll('.product-card.tiltable'), {
+    max: 5, speed: 600, scale: 1.012, glare: false, gyroscope: false
+  });
+}
+
+/* ============ scroll reveals: CSS transitions + IO (enhance visible defaults) ============ */
+if (!reduceMotion && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('rv-in'); io.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.cat-grid, .why-rows, .proc-grid, .cert-grid, .testi-grid, .proj-grid, .sec-head').forEach(grid => {
+    if (grid.getBoundingClientRect().top < innerHeight * 0.9) return; /* already on screen — stay visible */
+    [...grid.children].forEach((el, i) => {
+      el.classList.add('rv');
+      el.style.transitionDelay = Math.min(i * 70, 420) + 'ms';
+      io.observe(el);
+    });
+  });
+}
+
+/* ============ scroll-driven motion: GSAP ScrollTrigger (scrub-only — never hides content) ============ */
+if (!reduceMotion && window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* traffic-light progress bar */
+  gsap.to('.scroll-progress', {
+    scaleX: 1, ease: 'none',
+    scrollTrigger: { start: 0, end: 'max', scrub: 0.3 }
+  });
+
+  /* hero: cinematic parallax — video zooms, copy drifts up, traffic light counter-drifts and twists */
+  gsap.to('.hero-bg video', {
+    scale: 1.14, yPercent: 10, ease: 'none', transformOrigin: 'center top',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+  gsap.to('.hero-copy', {
+    yPercent: 28, autoAlpha: 0.15, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+  gsap.to('.hero-visual', {
+    yPercent: -12, ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true,
+      onUpdate: self => { scrollTwist = self.progress * 1.15; }
+    }
+  });
+
+  gsap.matchMedia().add('(min-width: 900px)', () => {
+    /* 3d section hand-off: a section tips back in depth as the next one arrives */
+    document.querySelectorAll('#katalog, .process, #sertifikatlar, .testi').forEach(sec => {
+      gsap.to(sec, {
+        rotateX: -2.2, scale: 0.975, autoAlpha: 0.55, ease: 'none', transformOrigin: 'center top',
+        scrollTrigger: { trigger: sec, start: 'bottom 55%', end: 'bottom top', scrub: true }
+      });
+    });
+    /* floating depth on the video card and calculator result */
+    gsap.fromTo('.video-facade', { y: 48 }, {
+      y: -48, ease: 'none',
+      scrollTrigger: { trigger: '.video-in', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  });
+}
+
+/* ============ price calculator ============ */
+const BASE = { transport: 4800000, piyoda: 3600000, solar: 6900000 };
+const LENS_K = { '200': 1, '300': 1.18 };
+const HOUSING_K = { steel: 1, alu: 1.12 };
+const calcState = { type: 'transport', lens: '200', housing: 'steel', qty: 1 };
+function segInit(id, key) {
+  const seg = document.getElementById(id);
+  seg.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    seg.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    calcState[key] = b.dataset.val;
+    renderCalc();
+  }));
+}
+segInit('seg-type', 'type'); segInit('seg-lens', 'lens'); segInit('seg-housing', 'housing');
+const qtyInput = document.getElementById('qty');
+document.getElementById('qty-minus').addEventListener('click', () => { qtyInput.value = Math.max(1, +qtyInput.value - 1); syncQty(); });
+document.getElementById('qty-plus').addEventListener('click', () => { qtyInput.value = Math.min(500, +qtyInput.value + 1); syncQty(); });
+qtyInput.addEventListener('input', syncQty);
+function syncQty() { calcState.qty = Math.min(500, Math.max(1, parseInt(qtyInput.value) || 1)); renderCalc(); }
+function fmt(n) { return Math.round(n).toLocaleString('ru-RU').replace(/,/g, ' '); }
+function calcPrice() {
+  const unit = BASE[calcState.type] * LENS_K[calcState.lens] * HOUSING_K[calcState.housing];
+  const disc = calcState.qty >= 50 ? 0.12 : calcState.qty >= 10 ? 0.05 : 0;
+  return { unit: unit * (1 - disc), total: unit * calcState.qty * (1 - disc), disc };
+}
+function renderCalc() {
+  const { unit, total, disc } = calcPrice();
+  document.getElementById('cr-sum').textContent = `≈ ${fmt(total)} ${t('calc_sum')}`;
+  document.getElementById('cr-per').textContent = calcState.qty > 1 ? `${fmt(unit)} ${t('calc_sum')} · ${t('calc_per')}` : '';
+  const dEl = document.getElementById('cr-disc');
+  if (disc > 0) { dEl.hidden = false; dEl.textContent = `−${disc * 100}% ${t('calc_disc')}`; } else { dEl.hidden = true; }
+}
+document.getElementById('calc-order').addEventListener('click', () => {
+  const { total } = calcPrice();
+  const typeName = { transport: t('ct1'), piyoda: t('ct2'), solar: t('ct3') }[calcState.type];
+  const housingName = { steel: t('ch1'), alu: t('ch2') }[calcState.housing];
+  document.getElementById('fm-product').value = calcState.type;
+  document.getElementById('fm-msg').value = t('calc_msg')
+    .replace('{type}', typeName).replace('{lens}', calcState.lens)
+    .replace('{housing}', housingName).replace('{qty}', calcState.qty).replace('{sum}', fmt(total));
+});
+
+/* ============ hero background video: play only in viewport, desktop/tablet only ============ */
+const heroVideo = document.getElementById('hero-video');
+if (heroVideo && !reduceMotion && matchMedia('(min-width: 680px)').matches && 'IntersectionObserver' in window) {
+  new IntersectionObserver(entries => {
+    entries.forEach(en => { en.isIntersecting ? heroVideo.play().catch(() => {}) : heroVideo.pause(); });
+  }, { threshold: 0.15 }).observe(heroVideo);
+}
+
+/* ============ product card CTA → prefill form ============ */
+document.querySelectorAll('.pc-cta').forEach(a => a.addEventListener('click', () => {
+  const p = a.dataset.product;
+  if (p) document.getElementById('fm-product').value = p;
+}));
+
+/* ============ form (demo: Telegram-bot/CRM hook point) ============ */
+document.getElementById('order-form').addEventListener('submit', e => {
+  e.preventDefault();
+  /* production: POST to backend → Telegram Bot API + CRM webhook */
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4200);
+  e.target.reset();
+});
+
+/* ============ boot ============ */
+applyLang(lang);
+</script>
+</body>
+</html>
