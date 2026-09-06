@@ -25,6 +25,10 @@
 
 - Прелоадер-светофор: цикл красный→жёлтый→зелёный с glow, логотип, mono-статус «yuklanmoqda…» (i18n); на готовности фиксируется зелёный (~0.4с) и шторка уезжает вверх; минимум показа 1.6с (полный цикл), жёсткий кэп 4с, CSS-fallback самоскрытия при мёртвом JS, reduced-motion — мгновенное скрытие
 
+- Секция «Amalga oshirilgan loyihalar»: 3 кадра из видео клиента (WebP, hover-zoom, mono-подписи, i18n); постер видео переведён на WebP (`assets/img/`)
+- GitHub: https://github.com/farik9797/inno-texno (public, main); GitHub Pages включён → https://farik9797.github.io/inno-texno/
+- Генерация продуктовых фото НЕ выполнена: на обоих сервисах нет кредитов (Recraft — нужен basic-план; Kling — Free, 0 кредитов, пополнение: kling.ai/h5-app/membership-agent)
+
 ## Следующие шаги
 - Заменить плейсхолдеры: телефон +998 71 200-00-00, адрес (Сергели, Санoat 12), email, ссылки соцсетей (@innotexno)
 - Реальные PDF сертификатов в `assets/` + прописать href
