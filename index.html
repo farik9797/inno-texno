@@ -207,30 +207,20 @@ body.menu-open { overflow: hidden; }
 .product-card.featured { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 44px; padding: 34px 44px; }
 .product-card.wide { grid-column: span 2; }
 .product-card.featured .pc-body { flex: 1; display: flex; flex-direction: column; gap: 14px; }
-.pc-visual { height: 120px; display: grid; place-items: center; }
-.product-card.featured .pc-visual { height: auto; flex: 0 0 180px; }
+.pc-visual { height: 160px; display: grid; place-items: center; }
+.product-card.featured .pc-visual { height: auto; flex: 0 0 220px; }
+.pc-visual img {
+  max-width: 100%; max-height: 160px; object-fit: contain;
+  filter: drop-shadow(0 12px 26px oklch(0 0 0 / 0.5));
+}
+.product-card.featured .pc-visual img { max-height: 250px; }
 .pc-name { font-family: var(--font-display); font-weight: 500; font-size: 1.02rem; letter-spacing: -0.01em; }
 .product-card.featured .pc-name { font-size: 1.4rem; }
 .pc-spec { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-muted); }
 .pc-price { font-family: var(--font-mono); font-size: 0.92rem; color: var(--amber); margin-top: auto; }
 .pc-cta { align-self: flex-start; }
 
-/* CSS product visuals (originated from primitives) */
-.tl-mini { width: 44px; background: oklch(0.28 0.012 250); border: 1px solid oklch(0.36 0.012 250); border-radius: 9px; padding: 7px 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.tl-mini i { width: 26px; height: 26px; border-radius: 50%; background: oklch(0.35 0.012 250); box-shadow: inset 0 2px 5px oklch(0.18 0.01 250); }
-.tl-mini i.on-r { background: var(--red); box-shadow: 0 0 14px oklch(0.66 0.21 25 / 0.55); }
-.tl-mini i.on-y { background: var(--amber); box-shadow: 0 0 14px oklch(0.84 0.17 90 / 0.55); }
-.tl-mini i.on-g { background: var(--green); box-shadow: 0 0 14px oklch(0.78 0.19 150 / 0.55); }
-.tl-mini.big { width: 72px; border-radius: 13px; padding: 12px 0; gap: 10px; }
-.tl-mini.big i { width: 44px; height: 44px; }
-.tl-ped { display: flex; flex-direction: column; gap: 6px; width: 52px; background: oklch(0.28 0.012 250); border: 1px solid oklch(0.36 0.012 250); border-radius: 9px; padding: 8px; }
-.tl-ped b { display: grid; place-items: center; height: 36px; border-radius: 6px; background: oklch(0.24 0.01 250); font-size: 1.25rem; }
-.tl-ped b.walk { color: var(--green); text-shadow: 0 0 12px oklch(0.78 0.19 150 / 0.6); }
-.tl-ped b.stand { color: oklch(0.55 0.16 25); }
-.solar-rig { position: relative; padding-top: 20px; }
-.solar-panel { position: absolute; top: 0; left: 50%; transform: translateX(-50%) rotate(-14deg); width: 58px; height: 16px; border-radius: 3px; background: repeating-linear-gradient(90deg, oklch(0.42 0.08 250) 0 8px, oklch(0.34 0.06 250) 8px 9px); border: 1px solid oklch(0.5 0.06 250); }
-.sign-tri { width: 74px; height: 64px; clip-path: polygon(50% 0, 100% 100%, 0 100%); background: var(--amber); display: grid; place-items: center; }
-.sign-tri i { width: 54px; height: 46px; margin-top: 12px; clip-path: polygon(50% 0, 100% 100%, 0 100%); background: oklch(0.22 0.01 250); display: grid; place-items: center; color: var(--amber); font-size: 1.1rem; }
+/* CSS product visual — controller (no clean vendor photo available) */
 .ctrl-box { width: 84px; background: oklch(0.28 0.012 250); border: 1px solid oklch(0.36 0.012 250); border-radius: 9px; padding: 10px; display: flex; flex-direction: column; gap: 7px; }
 .ctrl-box .leds { display: flex; gap: 6px; }
 .ctrl-box .leds i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: blink 2.2s infinite; }
@@ -239,13 +229,6 @@ body.menu-open { overflow: hidden; }
 .ctrl-box .slots { display: flex; flex-direction: column; gap: 4px; }
 .ctrl-box .slots i { height: 6px; border-radius: 3px; background: oklch(0.34 0.012 250); }
 @keyframes blink { 0%, 60% { opacity: 1; } 70%, 85% { opacity: 0.25; } 100% { opacity: 1; } }
-.pcb { width: 84px; height: 84px; border-radius: 9px; background: oklch(0.34 0.09 150); border: 1px solid oklch(0.44 0.09 150); position: relative; overflow: hidden; }
-.pcb i { position: absolute; background: oklch(0.75 0.12 90); }
-.pcb i:nth-child(1) { width: 40px; height: 3px; top: 18px; left: 8px; }
-.pcb i:nth-child(2) { width: 3px; height: 34px; top: 18px; left: 45px; }
-.pcb i:nth-child(3) { width: 26px; height: 3px; top: 52px; left: 45px; }
-.pcb i:nth-child(4) { width: 14px; height: 14px; border-radius: 50%; top: 60px; left: 14px; border: 3px solid oklch(0.75 0.12 90); background: transparent; }
-.pcb b { position: absolute; width: 22px; height: 16px; background: oklch(0.2 0.01 250); border-radius: 2px; top: 30px; left: 12px; }
 
 /* ---------- why us ---------- */
 .why-rows { display: flex; flex-direction: column; }
@@ -617,7 +600,7 @@ body.menu-open .site-header { z-index: calc(var(--z-menu) + 1); } /* keep the bu
     <div class="cat-grid">
       <article class="product-card featured" data-tilt-off>
         <div class="pc-visual">
-          <div class="tl-mini big"><i class="on-r"></i><i></i><i></i></div>
+          <img src="assets/img/products/p-transport.webp" alt="Uch seksiyali transport svetofori" loading="lazy">
         </div>
         <div class="pc-body">
           <h3 class="pc-name" data-i18n="p1n">Transport svetoforlari</h3>
@@ -629,7 +612,7 @@ body.menu-open .site-header { z-index: calc(var(--z-menu) + 1); } /* keep the bu
       </article>
       <article class="product-card tiltable">
         <div class="pc-visual">
-          <div class="tl-ped"><b class="stand"><iconify-icon icon="lucide:user"></iconify-icon></b><b class="walk"><iconify-icon icon="lucide:footprints"></iconify-icon></b></div>
+          <img src="assets/img/products/p-ped.webp" alt="Taymerli piyodalar svetofori" loading="lazy">
         </div>
         <h3 class="pc-name" data-i18n="p2n">Piyodalar svetofori</h3>
         <span class="pc-spec">Ø200&nbsp;mm · <span data-i18n="p2s">taymer bilan</span> · IP65</span>
@@ -638,10 +621,7 @@ body.menu-open .site-header { z-index: calc(var(--z-menu) + 1); } /* keep the bu
       </article>
       <article class="product-card tiltable">
         <div class="pc-visual">
-          <div class="solar-rig">
-            <span class="solar-panel"></span>
-            <div class="tl-mini"><i></i><i class="on-y"></i><i></i></div>
-          </div>
+          <img src="assets/img/products/p-solar.webp" alt="Quyosh panelli mobil svetofor" loading="lazy">
         </div>
         <h3 class="pc-name" data-i18n="p3n">Quyosh panelli svetofor</h3>
         <span class="pc-spec"><span data-i18n="p3s">Avtonom</span> · 60W · AKB 40Ah</span>
@@ -650,7 +630,7 @@ body.menu-open .site-header { z-index: calc(var(--z-menu) + 1); } /* keep the bu
       </article>
       <article class="product-card tiltable">
         <div class="pc-visual">
-          <div class="sign-tri"><i><iconify-icon icon="lucide:zap"></iconify-icon></i></div>
+          <img src="assets/img/products/p-sign.webp" alt="Radar bilan tezlik ko'rsatuvchi LED belgi" loading="lazy">
         </div>
         <h3 class="pc-name" data-i18n="p4n">LED yo'l belgilari</h3>
         <span class="pc-spec">7000&nbsp;cd/m² · IP66</span>
@@ -668,7 +648,7 @@ body.menu-open .site-header { z-index: calc(var(--z-menu) + 1); } /* keep the bu
       </article>
       <article class="product-card wide tiltable">
         <div class="pc-visual">
-          <div class="pcb"><i></i><i></i><i></i><i></i><b></b></div>
+          <img src="assets/img/products/p-module.webp" alt="LED svetofor modullari va platalari" loading="lazy">
         </div>
         <h3 class="pc-name" data-i18n="p6n">Svetofor platalari va ehtiyot qismlar</h3>
         <span class="pc-spec"><span data-i18n="p6s">Individual buyurtma</span> · 12/24V</span>
