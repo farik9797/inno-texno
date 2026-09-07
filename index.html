@@ -178,12 +178,6 @@ body.menu-open { overflow: hidden; }
     radial-gradient(500px 300px at 15% 85%, oklch(0.78 0.19 150 / 0.05), transparent 70%);
 }
 .hero-in { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; position: relative; }
-.made-in {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-mono); font-size: 0.78rem; color: var(--green);
-  border: 1px solid color-mix(in oklch, var(--green) 35%, transparent);
-  border-radius: 999px; padding: 6px 14px; margin-bottom: 26px;
-}
 .hero h1 { font-size: clamp(2rem, 4.6vw, 3.9rem); margin-bottom: 22px; }
 .hero h1 .accent { color: var(--amber); }
 .hero-sub { color: var(--ink-muted); font-size: 1.08rem; margin-bottom: 34px; }
@@ -594,7 +588,6 @@ body.menu-open .site-header { z-index: calc(var(--z-menu) + 1); } /* keep the bu
   </div>
   <div class="wrap hero-in">
     <div class="hero-copy">
-      <span class="made-in"><iconify-icon icon="lucide:factory"></iconify-icon><span data-i18n="hero_badge">O'zbekistonda ishlab chiqarilgan</span></span>
       <h1><span data-i18n="hero_h1a">Zamonaviy</span> <span class="accent" data-i18n="hero_h1b">LED svetoforlar</span> <span data-i18n="hero_h1c">ishlab chiqaramiz</span></h1>
       <p class="hero-sub" data-i18n="hero_sub">Transport, piyodalar va quyosh panelli svetoforlar, LED yo'l belgilari hamda boshqaruv tizimlari. Mahalliy ishlab chiqarish — import narxidan arzon, 1 yil kafolat, bepul yetkazib berish va o'rnatish.</p>
       <div class="hero-ctas">
@@ -1045,7 +1038,7 @@ const I18N = {
   uz: {
     nav_catalog:"Katalog", nav_why:"Nima uchun biz", nav_calc:"Kalkulyator", nav_certs:"Sertifikatlar", nav_contact:"Aloqa", nav_order:"Buyurtma berish",
     skip:"Kontentga o'tish", menu_label:"Menyu", loading:"yuklanmoqda",
-    hero_badge:"O'zbekistonda ishlab chiqarilgan", hero_h1a:"Zamonaviy", hero_h1b:"LED svetoforlar", hero_h1c:"ishlab chiqaramiz",
+    hero_h1a:"Zamonaviy", hero_h1b:"LED svetoforlar", hero_h1c:"ishlab chiqaramiz",
     hero_sub:"Transport, piyodalar va quyosh panelli svetoforlar, LED yo'l belgilari hamda boshqaruv tizimlari. Mahalliy ishlab chiqarish — import narxidan arzon, 1 yil kafolat, bepul yetkazib berish va o'rnatish.",
     hero_cta1:"Katalogni ko'rish", hero_cta2:"Narxni hisoblash",
     trust1:"1 yil kafolat", trust2:"Bepul yetkazib berish va o'rnatish", trust3:"O'zbekiston va MDH bo'ylab",
@@ -1108,7 +1101,7 @@ const I18N = {
   ru: {
     nav_catalog:"Каталог", nav_why:"Почему мы", nav_calc:"Калькулятор", nav_certs:"Сертификаты", nav_contact:"Контакты", nav_order:"Заказать",
     skip:"Перейти к содержимому", menu_label:"Меню", loading:"загрузка",
-    hero_badge:"Произведено в Узбекистане", hero_h1a:"Производим", hero_h1b:"LED-светофоры", hero_h1c:"нового поколения",
+    hero_h1a:"Производим", hero_h1b:"LED-светофоры", hero_h1c:"нового поколения",
     hero_sub:"Транспортные, пешеходные и автономные светофоры на солнечных панелях, LED-знаки и системы управления. Местное производство — дешевле импорта, гарантия 1 год, бесплатная доставка и монтаж.",
     hero_cta1:"Смотреть каталог", hero_cta2:"Рассчитать цену",
     trust1:"Гарантия 1 год", trust2:"Бесплатная доставка и монтаж", trust3:"По Узбекистану и СНГ",
@@ -1171,7 +1164,7 @@ const I18N = {
   en: {
     nav_catalog:"Catalog", nav_why:"Why us", nav_calc:"Calculator", nav_certs:"Certificates", nav_contact:"Contact", nav_order:"Place an order",
     skip:"Skip to content", menu_label:"Menu", loading:"loading",
-    hero_badge:"Made in Uzbekistan", hero_h1a:"We manufacture", hero_h1b:"LED traffic lights", hero_h1c:"of the new generation",
+    hero_h1a:"We manufacture", hero_h1b:"LED traffic lights", hero_h1c:"of the new generation",
     hero_sub:"Vehicle, pedestrian and solar-powered traffic lights, LED road signs and control systems. Local production — cheaper than imports, 1-year warranty, free delivery and installation.",
     hero_cta1:"View catalog", hero_cta2:"Calculate price",
     trust1:"1-year warranty", trust2:"Free delivery & installation", trust3:"Across Uzbekistan & CIS",
