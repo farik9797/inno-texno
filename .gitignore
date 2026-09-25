@@ -1,3 +1,6 @@
 # secrets — never commit
 password.md
 .DS_Store
+
+# firecrawl local cache
+.firecrawl/
