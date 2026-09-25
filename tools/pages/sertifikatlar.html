@@ -1,0 +1,59 @@
+<!-- Body of sertifikatlar.html (inside <main>). Built by tools/build-products.mjs: header/footer/order form come from katalog.html.
+     {{js:…}} → escaped text, {{html:…}} → raw markup; both evaluated with the site scripts (lang = uz). Documents: assets/js/sertifikatlar.js. -->
+<div class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html" data-i18n="crumb_home">Bosh sahifa</a>
+      <iconify-icon icon="lucide:chevron-right" aria-hidden="true"></iconify-icon>
+      <span aria-current="page" data-i18n="nav_certs">Sertifikatlar</span>
+    </nav>
+    <h1 data-i18n="cert_title">Sertifikatlar va hujjatlar</h1>
+    <p data-i18n="dc_lead">{{js:t('dc_lead')}}</p>
+    <ul class="sv-badges">
+      <li><iconify-icon icon="lucide:file-down"></iconify-icon><span data-i18n="dc_b1">{{js:t('dc_b1')}}</span></li>
+      <li><iconify-icon icon="lucide:landmark"></iconify-icon><span data-i18n="dc_b2">{{js:t('dc_b2')}}</span></li>
+      <li><iconify-icon icon="lucide:mail"></iconify-icon><span data-i18n="dc_b3">{{js:t('dc_b3')}}</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="k-sec" id="yuklab-olish">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="dc_dl_t">Yuklab olish uchun hujjatlar</h2>
+      <p data-i18n="dc_dl_d">{{js:t('dc_dl_d')}}</p>
+    </div>
+    <div class="doc-list" id="docs-list">{{html:docsHtml()}}
+    </div>
+    <a class="sv-doc-link" href="yangiliklar/aqlli-yol-belgisi-patentlandi.html"><span data-i18n="dc_news">{{js:t('dc_news')}}</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
+  </div>
+</section>
+
+<section class="certs k-sec alt" id="sorov">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="dc_req_t">So'rov bo'yicha hujjatlar</h2>
+      <p data-i18n="dc_req_d">{{js:t('dc_req_d')}}</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <iconify-icon icon="lucide:badge-check"></iconify-icon>
+        <h3 data-i18n="c3t">{{js:t('c3t')}}</h3>
+        <p data-i18n="c3d">{{js:t('c3d')}}</p>
+        <a href="#buyurtma" data-product="" data-tpl="doc_msg" data-item-key="c3t"><iconify-icon icon="lucide:mail"></iconify-icon><span data-i18n="cert_req">{{js:t('cert_req')}}</span></a>
+      </div>
+      <div class="cert-card">
+        <iconify-icon icon="lucide:shield-check"></iconify-icon>
+        <h3 data-i18n="dr2t">{{js:t('dr2t')}}</h3>
+        <p data-i18n="dr2d">{{js:t('dr2d')}}</p>
+        <a href="#buyurtma" data-product="" data-tpl="doc_msg" data-item-key="dr2t"><iconify-icon icon="lucide:mail"></iconify-icon><span data-i18n="cert_req">{{js:t('cert_req')}}</span></a>
+      </div>
+      <div class="cert-card">
+        <iconify-icon icon="lucide:clipboard-list"></iconify-icon>
+        <h3 data-i18n="dr3t">{{js:t('dr3t')}}</h3>
+        <p data-i18n="dr3d">{{js:t('dr3d')}}</p>
+        <a href="#buyurtma" data-product="" data-tpl="doc_msg" data-item-key="dr3t"><iconify-icon icon="lucide:mail"></iconify-icon><span data-i18n="cert_req">{{js:t('cert_req')}}</span></a>
+      </div>
+    </div>
+  </div>
+</section>

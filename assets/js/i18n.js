@@ -601,6 +601,59 @@ Object.assign(I18N.en, {
   proj_title: "Projects & news", proj_sub: "Installed systems and our new developments.", home_all_posts: "All news & projects"
 });
 
+/* ---- certificates & documents page (brief: GOST/quality certificates and product passports as PDF) ---- */
+Object.assign(I18N.uz, {
+  dc_title: "Sertifikatlar va hujjatlar — INNO TEXNO",
+  dc_lead: "Davlat xaridlari va tenderlar uchun hujjatlar. Patent va davlat reestridan ko'chirmani shu yerdan yuklab oling, GOST va sifat sertifikatlari hamda mahsulot pasportlarini so'rov bo'yicha yuboramiz.",
+  dc_b1: "PDF formatida", dc_b2: "Davlat xaridlari va tenderlar uchun", dc_b3: "Qolgan hujjatlar — so'rov bo'yicha",
+  dc_dl_t: "Yuklab olish uchun hujjatlar", dc_dl_d: "Rasmiy hujjatlarning PDF nusxalari.",
+  dc_k_patent: "Patent", dc_k_reestr: "Davlat reestri",
+  dc_no: "Raqami", dc_issuer: "Bergan organ", dc_moj: "O'zbekiston Respublikasi Adliya vazirligi", dc_app: "Talabnoma",
+  dc_term: "Amal qilish muddati", dc_term_v: "29.11.2024 dan 10 yil", dc_regno: "Ro'yxat raqami", dc_bull: "Axborotnomada e'lon qilingan",
+  dc_open: "Ochish", dc_download: "Yuklab olish", dc_page1: "1 bet", dc_pages: "{n} bet", u_kb: "KB", u_mb: "MB",
+  dc_open_aria: "{name}: PDF-ni yangi oynada ochish", dc_preview: "{name} — birinchi sahifa", dc_news: "Patent haqida batafsil",
+  dc_req_t: "So'rov bo'yicha hujjatlar", dc_req_d: "Bu hujjatlarni tender yoki shartnoma uchun so'rang — qaysi mahsulot uchun kerakligini ko'rsating.",
+  dr2t: "Sifat sertifikatlari", dr2d: "Mahsulot sifatini tasdiqlovchi hujjatlar — tender va davlat xaridlari uchun.",
+  dr3t: "Mahsulot pasportlari", dr3d: "Tanlangan model uchun texnik pasport — mahsulotni formada ko'rsating.",
+  doc_msg: "Hujjat so'rovi: {name}",
+  dc_form_t: "Hujjatni so'rang", dc_form_d: "Qaysi hujjat va qaysi mahsulot uchun kerakligini yozing — mas'ul menejer siz bilan bog'lanadi.",
+  home_all_docs: "Barcha hujjatlar"
+});
+Object.assign(I18N.ru, {
+  dc_title: "Сертификаты и документы — INNO TEXNO",
+  dc_lead: "Документы для госзакупок и тендеров. Патент и выписку из госреестра скачайте здесь, сертификаты ГОСТ и качества, а также паспорта изделий отправим по запросу.",
+  dc_b1: "В формате PDF", dc_b2: "Для госзакупок и тендеров", dc_b3: "Остальное — по запросу",
+  dc_dl_t: "Документы для скачивания", dc_dl_d: "PDF-копии официальных документов.",
+  dc_k_patent: "Патент", dc_k_reestr: "Госреестр",
+  dc_no: "Номер", dc_issuer: "Выдан", dc_moj: "Министерство юстиции Республики Узбекистан", dc_app: "Заявка",
+  dc_term: "Срок действия", dc_term_v: "10 лет с 29.11.2024", dc_regno: "Рег. номер", dc_bull: "Опубликован в бюллетене",
+  dc_open: "Открыть", dc_download: "Скачать", dc_page1: "1 стр.", dc_pages: "{n} стр.", u_kb: "КБ", u_mb: "МБ",
+  dc_open_aria: "{name}: открыть PDF в новой вкладке", dc_preview: "{name} — первая страница", dc_news: "Подробнее о патенте",
+  dc_req_t: "Документы по запросу", dc_req_d: "Запросите эти документы для тендера или договора — укажите, для какого изделия они нужны.",
+  dr2t: "Сертификаты качества", dr2d: "Документы, подтверждающие качество продукции, — для тендеров и госзакупок.",
+  dr3t: "Паспорта изделий", dr3d: "Технический паспорт на выбранную модель — укажите изделие в форме.",
+  doc_msg: "Запрос документа: {name}",
+  dc_form_t: "Запросите документ", dc_form_d: "Напишите, какой документ и для какого изделия нужен, — ответственный менеджер свяжется с вами.",
+  home_all_docs: "Все документы"
+});
+Object.assign(I18N.en, {
+  dc_title: "Certificates & documents — INNO TEXNO",
+  dc_lead: "Documents for public procurement and tenders. Download the patent and the state register extract here; GOST and quality certificates and product passports are sent on request.",
+  dc_b1: "As PDF", dc_b2: "For procurement and tenders", dc_b3: "Others — on request",
+  dc_dl_t: "Documents to download", dc_dl_d: "PDF copies of the official documents.",
+  dc_k_patent: "Patent", dc_k_reestr: "State register",
+  dc_no: "Number", dc_issuer: "Issued by", dc_moj: "Ministry of Justice of the Republic of Uzbekistan", dc_app: "Application",
+  dc_term: "Term", dc_term_v: "10 years from 29.11.2024", dc_regno: "Reg. number", dc_bull: "Published in the bulletin",
+  dc_open: "Open", dc_download: "Download", dc_page1: "1 page", dc_pages: "{n} pages", u_kb: "KB", u_mb: "MB",
+  dc_open_aria: "{name}: open the PDF in a new tab", dc_preview: "{name} — first page", dc_news: "More about the patent",
+  dc_req_t: "Documents on request", dc_req_d: "Request these documents for a tender or contract — tell us which product they are for.",
+  dr2t: "Quality certificates", dr2d: "Documents confirming product quality — for tenders and public procurement.",
+  dr3t: "Product passports", dr3d: "Technical passport for the chosen model — specify the product in the form.",
+  doc_msg: "Document request: {name}",
+  dc_form_t: "Request a document", dc_form_d: "Tell us which document you need and for which product — the responsible manager will contact you.",
+  home_all_docs: "All documents"
+});
+
 /* ---- language state + formatting: shared by all pages and by tools/build-products.mjs ---- */
 function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
 function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }

@@ -88,8 +88,8 @@ document.addEventListener('click', e => {
   if (!btn) return;
   const select = document.getElementById('fm-product');
   const msg = document.getElementById('fm-msg');
-  if (select && [...select.options].some(o => o.value === btn.dataset.product)) select.value = btn.dataset.product;
-  if (msg && btn.dataset.item) msg.value = t('order_msg').replace('{name}', btn.dataset.item).replace('{price}', btn.dataset.price || t('price_request'));
+  if (select && btn.dataset.product && [...select.options].some(o => o.value === btn.dataset.product)) select.value = btn.dataset.product;
+  if (msg && btn.dataset.item) msg.value = t(btn.dataset.tpl || 'order_msg').replace('{name}', btn.dataset.item).replace('{price}', btn.dataset.price || t('price_request'));
 });
 
 /* ============ form (demo: Telegram-bot/CRM hook point) ============ */

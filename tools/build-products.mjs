@@ -13,10 +13,15 @@ const read = f => fs.readFileSync(path.join(ROOT_DIR, f), 'utf8');
 
 // same renderer as the browser: run the page scripts in one shared context (lang = uz)
 const ctx = vm.createContext({ console });
-for (const f of ['assets/js/i18n.js', 'assets/js/catalog-data.js', 'assets/js/products.js', 'assets/js/product.js', 'assets/js/kompaniya.js', 'assets/js/xizmatlar.js', 'assets/js/lightbox.js', 'assets/js/posts.js']) {
+for (const f of ['assets/js/i18n.js', 'assets/js/catalog-data.js', 'assets/js/products.js', 'assets/js/product.js', 'assets/js/kompaniya.js', 'assets/js/xizmatlar.js', 'assets/js/lightbox.js', 'assets/js/posts.js', 'assets/js/sertifikatlar.js']) {
   vm.runInContext(read(f), ctx, { filename: f });
 }
 const run = code => JSON.parse(vm.runInContext(`JSON.stringify(${code})`, ctx));
+// the documents page prints each PDF's size — fail loudly if a file was replaced without updating DOCS
+for (const [f, bytes] of run('DOCS.map(d => [d.file, d.bytes])')) {
+  const real = fs.statSync(path.join(ROOT_DIR, f)).size;
+  if (real !== bytes) throw new Error(`sertifikatlar.js: ${f} is ${real} bytes, DOCS says ${bytes}`);
+}
 
 // shared chrome (header, mobile menu, order form, footer, toast) taken from katalog.html
 const kat = read('katalog.html');
@@ -134,6 +139,8 @@ const PAGES = [
     scripts: ['assets/js/xizmatlar.js'], orderTitle: ['sv_form_t', 'sv_form_d'], ldExpr: 'servicesLd()' },
   { src: 'tools/pages/yangiliklar.html', out: 'yangiliklar.html', title: 'nw_title', desc: 'nw_lead', order: false,
     scripts: [], pageScripts: ['assets/js/posts.js'], ld: { '@type': 'CollectionPage', name: 'INNO TEXNO', url: `${BASE}yangiliklar.html` } },
+  { src: 'tools/pages/sertifikatlar.html', out: 'sertifikatlar.html', title: 'dc_title', desc: 'dc_lead',
+    scripts: ['assets/js/sertifikatlar.js'], orderTitle: ['dc_form_t', 'dc_form_d'], ldExpr: `docsLd(${JSON.stringify(BASE)})` },
 ];
 for (const pg of PAGES) {
   const url = BASE + pg.out;
