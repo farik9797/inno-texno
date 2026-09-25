@@ -1,20 +1,19 @@
-/* INNO TEXNO — catalogue page (needs i18n.js, catalog-data.js, site.js). */
-const tr = o => o[lang] || o.uz;
-const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-const dec = x => (lang === 'en' ? String(x) : String(x).replace('.', ','));
-const len = x => `${dec(x)} ${t('u_m')}`;
-const sec = s => (s === 'oct' ? t('sec_oct') : `${s} ${t('u_mm')}`);
+/* INNO TEXNO — catalogue page (needs i18n.js, catalog-data.js, products.js, site.js). */
+const pageFor = ref => { const p = PRODUCTS.find(x => x.refs.includes(ref)); return p ? `mahsulot/${p.slug}.html` : '#'; };
 const orderAttrs = (product, name, price) =>
   `href="#buyurtma" data-product="${product}" data-item="${esc(name)}" data-price="${esc(price)}"`;
 
 function renderLights() {
   document.getElementById('lights-grid').innerHTML = CATALOG.lights.map(l => `
     <article class="product-card">
-      <div class="pc-visual"><img src="${l.img}" alt="${esc(tr(l.name))}" loading="lazy"></div>
-      <h3 class="pc-name">${esc(tr(l.name))}</h3>
+      <a class="pc-visual" href="${pageFor('lights:' + l.id)}" tabindex="-1" aria-hidden="true"><img src="${l.img}" alt="${esc(tr(l.name))}" loading="lazy"></a>
+      <h3 class="pc-name"><a href="${pageFor('lights:' + l.id)}">${esc(tr(l.name))}</a></h3>
       <span class="pc-spec">${esc(tr(l.spec))}</span>
       <span class="pc-price">${money(l.price)}</span>
-      <a class="btn sm pc-cta" ${orderAttrs(l.product, tr(l.name), money(l.price))}>${t('btn_order')}</a>
+      <div class="pc-actions">
+        <a class="btn sm" ${orderAttrs(l.product, tr(l.name), money(l.price))}>${t('btn_order')}</a>
+        <a class="btn sm ghost" href="${pageFor('lights:' + l.id)}">${t('pp_more')}</a>
+      </div>
     </article>`).join('');
 }
 
@@ -44,10 +43,11 @@ function renderPoles() {
         <header class="pole-head">
           ${poleSchema(g.shape)}
           <div>
-            <h4>${title}</h4>
+            <h4><a href="${pageFor('poles:' + g.id)}">${title}</a></h4>
             <span class="pole-prof">${t('pr_' + g.profile)}</span>
             <span class="pole-range">${isG ? t('th_console') + ' ' : ''}${range}</span>
           </div>
+          <a class="pole-more" href="${pageFor('poles:' + g.id)}" aria-label="${esc(t('pp_more') + ': ' + title)}"><iconify-icon icon="lucide:arrow-up-right"></iconify-icon></a>
         </header>
         <table class="price-table"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>
       </article>`;
@@ -60,7 +60,7 @@ function renderEquip() {
   document.getElementById('equip-grid').innerHTML = CATALOG.equip.map(e => `
     <article class="equip-card">
       <span class="equip-ic"><iconify-icon icon="${e.icon}"></iconify-icon></span>
-      <h3>${esc(tr(e.name))}</h3>
+      <h3><a href="${pageFor('equip:' + e.id)}">${esc(tr(e.name))}</a></h3>
       <span class="pc-price">${money(e.price)}</span>
       <a class="btn sm ghost" ${orderAttrs('jihoz', tr(e.name), money(e.price))}>${t('btn_order')}</a>
     </article>`).join('');

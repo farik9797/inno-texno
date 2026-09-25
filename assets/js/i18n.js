@@ -318,3 +318,79 @@ Object.assign(I18N.en, {
   order_msg: "Order: {name} — {price}",
   u_m: "m", u_mm: "mm"
 });
+
+/* ---- product pages ---- */
+Object.assign(I18N.uz, {
+  pp_specs: "Texnik ma'lumotlar", pp_variants: "Variantlar va narxlar", pp_variant: "Variant", pp_related: "O'xshash mahsulotlar",
+  pp_back: "Katalogga qaytish", pp_n_variants: "{n} ta variant — barcha narxlar pastda", pp_more: "Batafsil",
+  pp_datasheet: "Batafsil texnik hujjatlar so'rov bo'yicha taqdim etiladi.", pay_note: "To'lov: bank o'tkazmasi yoki naqd",
+  pp_service: "Kafolat, yetkazib berish va to'lov", pp_delivery_t: "Yetkazib berish va o'rnatish", pp_pay_t: "To'lov",
+  price_from: "{p}dan",
+  sk_shape: "Shakl", sk_section: "Kesim", sk_profile: "Profil", sk_height: "Balandlik", sk_mast: "Ustun balandligi",
+  sk_console_sec: "Konsol kesimi", sk_console_len: "Konsol uzunligi", sk_count: "Variantlar soni", sk_sections: "Seksiyalar",
+  sk_light: "Yorug'lik manbai", sk_timer: "Raqamli taymer", sk_use: "Qo'llanilishi", sk_power: "Quvvat", sk_capacity: "Sig'im",
+  sk_pair: "Juftlikda ishlaydi", sk_energy: "Energiya manbai", sk_display: "Displey", sk_patent: "Patent", sk_reg: "Ro'yxatdan o'tgan",
+  v_yes: "Bor", v_no: "Yo'q",
+  shape_i: "I shaklidagi (to'g'ri)", shape_g: "Г shaklidagi (konsolli)",
+  use_cross: "Chorrahalar va magistrallar", use_ped: "Piyodalar o'tish joylari", use_solar: "Avtonom quyosh energiyasi tizimlari",
+  use_ctrl: "Svetofor ob'ektlarini boshqarish", use_wireless: "Tizim elementlari o'rtasida simsiz aloqa",
+  use_charge: "Akkumulyatorni quyosh panelidan zaryadlash",
+  pole_i_title: "I shaklidagi ustun {sec}", pole_g_title: "Г shaklidagi ustun {sec}, {h}",
+  pole_i_desc: "Svetofor va yo'l jihozlarini o'rnatish uchun to'g'ri ustun: {prof}, kesimi {sec}. Balandligini {range} oralig'ida tanlang.",
+  pole_g_desc: "Konsolli ustun svetoforni yo'l qatnov qismi ustiga chiqaradi: ustun {sec}, balandligi {h}. Konsol kesimi va uzunligini tanlang — {range}."
+});
+Object.assign(I18N.ru, {
+  pp_specs: "Технические данные", pp_variants: "Варианты и цены", pp_variant: "Вариант", pp_related: "Похожие товары",
+  pp_back: "Вернуться в каталог", pp_n_variants: "Вариантов: {n} — все цены ниже", pp_more: "Подробнее",
+  pp_datasheet: "Подробная техническая документация — по запросу.", pay_note: "Оплата: банковский перевод или наличные",
+  pp_service: "Гарантия, доставка и оплата", pp_delivery_t: "Доставка и монтаж", pp_pay_t: "Оплата",
+  price_from: "от {p}",
+  sk_shape: "Форма", sk_section: "Сечение", sk_profile: "Профиль", sk_height: "Высота", sk_mast: "Высота опоры",
+  sk_console_sec: "Сечение консоли", sk_console_len: "Длина консоли", sk_count: "Вариантов", sk_sections: "Секции",
+  sk_light: "Источник света", sk_timer: "Цифровой таймер", sk_use: "Применение", sk_power: "Мощность", sk_capacity: "Ёмкость",
+  sk_pair: "Работает в паре с", sk_energy: "Источник энергии", sk_display: "Табло", sk_patent: "Патент", sk_reg: "Зарегистрирован",
+  v_yes: "Есть", v_no: "Нет",
+  shape_i: "I-образная (прямая)", shape_g: "Г-образная (консольная)",
+  use_cross: "Перекрёстки и магистрали", use_ped: "Пешеходные переходы", use_solar: "Автономные солнечные системы",
+  use_ctrl: "Управление светофорными объектами", use_wireless: "Беспроводная связь между элементами системы",
+  use_charge: "Заряд аккумулятора от солнечной панели",
+  pole_i_title: "Прямая опора {sec}", pole_g_title: "Г-образная опора {sec}, {h}",
+  pole_i_desc: "Прямая опора для установки светофоров и дорожного оборудования: {prof}, сечение {sec}. Высота — на выбор, {range}.",
+  pole_g_desc: "Консольная опора выносит светофор над проезжей частью: опора {sec}, высота {h}. Выберите сечение и длину консоли — {range}."
+});
+Object.assign(I18N.en, {
+  pp_specs: "Specifications", pp_variants: "Variants & prices", pp_variant: "Variant", pp_related: "Related products",
+  pp_back: "Back to catalogue", pp_n_variants: "{n} variants — all prices below", pp_more: "Details",
+  pp_datasheet: "Detailed technical documentation is available on request.", pay_note: "Payment: bank transfer or cash",
+  pp_service: "Warranty, delivery & payment", pp_delivery_t: "Delivery & installation", pp_pay_t: "Payment",
+  price_from: "from {p}",
+  sk_shape: "Shape", sk_section: "Section", sk_profile: "Profile", sk_height: "Height", sk_mast: "Pole height",
+  sk_console_sec: "Cantilever section", sk_console_len: "Cantilever length", sk_count: "Variants", sk_sections: "Sections",
+  sk_light: "Light source", sk_timer: "Countdown timer", sk_use: "Application", sk_power: "Power", sk_capacity: "Capacity",
+  sk_pair: "Pairs with", sk_energy: "Power source", sk_display: "Display", sk_patent: "Patent", sk_reg: "Registered",
+  v_yes: "Yes", v_no: "No",
+  shape_i: "I-type (straight)", shape_g: "L-type (cantilever)",
+  use_cross: "Intersections and highways", use_ped: "Pedestrian crossings", use_solar: "Off-grid solar systems",
+  use_ctrl: "Traffic signal control", use_wireless: "Wireless link between system components",
+  use_charge: "Charging the battery from the solar panel",
+  pole_i_title: "Straight pole {sec}", pole_g_title: "L-shaped pole {sec}, {h}",
+  pole_i_desc: "A straight pole for mounting traffic lights and road equipment: {prof}, section {sec}. Choose a height from {range}.",
+  pole_g_desc: "A cantilever pole carries the signal head over the carriageway: pole {sec}, height {h}. Choose the cantilever section and length — {range}."
+});
+
+/* ---- language state + formatting: shared by all pages and by tools/build-products.mjs ---- */
+function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
+function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }
+let lang = storageGet('it-lang') || 'uz';
+function t(key) { return (I18N[lang] && I18N[lang][key]) || I18N.uz[key] || key; }
+function fmt(n) {
+  const s = Math.round(n).toLocaleString(lang === 'en' ? 'en-US' : 'ru-RU');
+  return lang === 'en' ? s : s.replace(/[\s  ]/g, ' ');
+}
+function money(n) { return `${fmt(n)} ${t('calc_sum')}`; }
+/* text field: {uz,ru,en} object, "@i18n_key", or a literal string */
+const tr = o => (typeof o === 'string' ? (o[0] === '@' ? t(o.slice(1)) : o) : (o[lang] || o.uz));
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+const dec = x => (lang === 'en' ? String(x) : String(x).replace('.', ','));
+const len = x => `${dec(x)} ${t('u_m')}`;
+const sec = s => (s === 'oct' ? t('sec_oct') : `${s} ${t('u_mm')}`);

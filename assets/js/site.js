@@ -1,15 +1,6 @@
 /* INNO TEXNO — behaviour shared by every page (load after i18n.js, before page scripts). */
 
-/* ============ i18n ============ */
-function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
-function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }
-let lang = storageGet('it-lang') || 'uz';
-function t(key) { return (I18N[lang] && I18N[lang][key]) || I18N.uz[key] || key; }
-function fmt(n) {
-  const s = Math.round(n).toLocaleString(lang === 'en' ? 'en-US' : 'ru-RU');
-  return lang === 'en' ? s : s.replace(/[\s  ]/g, ' ');
-}
-function money(n) { return `${fmt(n)} ${t('calc_sum')}`; }
+/* ============ i18n: language state and t()/fmt()/money() live in i18n.js ============ */
 function applyLang(l) {
   lang = l;
   storageSet('it-lang', l);
