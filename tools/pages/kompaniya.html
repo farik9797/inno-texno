@@ -1,0 +1,127 @@
+<!-- Body of kompaniya.html (inside <main>). Built by tools/build-products.mjs: shared header/footer/order form
+     come from katalog.html. {{js:…}} is evaluated with the site scripts (lang = uz) for the static SEO text. -->
+<div class="page-hero ab-hero">
+  <div class="wrap ab-hero-in">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html" data-i18n="crumb_home">Bosh sahifa</a>
+        <iconify-icon icon="lucide:chevron-right" aria-hidden="true"></iconify-icon>
+        <span aria-current="page" data-i18n="nav_about">Biz haqimizda</span>
+      </nav>
+      <h1 data-i18n="ab_h1">Biz haqimizda</h1>
+      <p class="ab-lead" data-i18n="ab_lead">{{js:t('ab_lead')}}</p>
+      <p class="ab-lead2" data-i18n="ab_lead2">{{js:t('ab_lead2')}}</p>
+      <div class="hero-ctas">
+        <a class="btn" href="katalog.html"><span data-i18n="hero_cta1">Katalogni ko'rish</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
+        <a class="btn ghost" href="#buyurtma" data-i18n="nav_order">Buyurtma berish</a>
+      </div>
+    </div>
+    <ul class="ab-facts">
+      <li><b class="ab-fv" id="ab-count">{{js:aboutCount()}}</b><span data-i18n="ab_f1">{{js:t('ab_f1')}}</span></li>
+      <li><b class="ab-fv" data-i18n="ab_f2v">1 yil</b><span data-i18n="ab_f2">rasmiy kafolat</span></li>
+      <li><b class="ab-fv" data-i18n="ab_f3v">0 so'm</b><span data-i18n="ab_f3">yetkazib berish va o'rnatish</span></li>
+      <li><b class="ab-fv" data-i18n="ab_f4v">SAP 2888</b><span data-i18n="ab_f4">sanoat namunasi patenti</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="ab-mission">
+  <div class="wrap">
+    <span class="ab-mission-l"><span class="logo-dots" aria-hidden="true"><i></i><i></i><i></i></span><span data-i18n="ab_mission_l">Bizning maqsad</span></span>
+    <blockquote data-i18n="ab_mission">{{js:t('ab_mission')}}</blockquote>
+  </div>
+</section>
+
+<section class="k-sec alt" id="yonalishlar">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="ab_dir_t">Faoliyat yo'nalishlari</h2></div>
+    <div class="ab-grid4">
+      <article class="ab-card"><span class="equip-ic"><iconify-icon icon="lucide:factory"></iconify-icon></span><h3 data-i18n="ab_d1t">{{js:t('ab_d1t')}}</h3><p data-i18n="ab_d1d">{{js:t('ab_d1d')}}</p></article>
+      <article class="ab-card"><span class="equip-ic"><iconify-icon icon="lucide:truck"></iconify-icon></span><h3 data-i18n="ab_d2t">{{js:t('ab_d2t')}}</h3><p data-i18n="ab_d2d">{{js:t('ab_d2d')}}</p></article>
+      <article class="ab-card"><span class="equip-ic"><iconify-icon icon="lucide:wrench"></iconify-icon></span><h3 data-i18n="ab_d3t">{{js:t('ab_d3t')}}</h3><p data-i18n="ab_d3d">{{js:t('ab_d3d')}}</p></article>
+      <article class="ab-card"><span class="equip-ic"><iconify-icon icon="lucide:circuit-board"></iconify-icon></span><h3 data-i18n="ab_d4t">{{js:t('ab_d4t')}}</h3><p data-i18n="ab_d4d">{{js:t('ab_d4d')}}</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="k-sec" id="tuzilma">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="ab_str_t">Kompaniya tuzilishi</h2>
+      <p data-i18n="ab_str_d">{{js:t('ab_str_d')}}</p>
+    </div>
+    <ul class="ab-struct">
+      <li><span class="ab-node"><iconify-icon icon="lucide:briefcase"></iconify-icon></span><span data-i18n="ab_s1">{{js:t('ab_s1')}}</span></li>
+      <li><span class="ab-node"><iconify-icon icon="lucide:drafting-compass"></iconify-icon></span><span data-i18n="ab_s2">{{js:t('ab_s2')}}</span></li>
+      <li><span class="ab-node"><iconify-icon icon="lucide:factory"></iconify-icon></span><span data-i18n="ab_s3">{{js:t('ab_s3')}}</span></li>
+      <li><span class="ab-node"><iconify-icon icon="lucide:badge-check"></iconify-icon></span><span data-i18n="ab_s4">{{js:t('ab_s4')}}</span></li>
+      <li><span class="ab-node"><iconify-icon icon="lucide:headset"></iconify-icon></span><span data-i18n="ab_s5">{{js:t('ab_s5')}}</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="k-sec alt" id="innovatsiyalar">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="ab_inno_t">Innovatsiyalar va hamkorlik</h2></div>
+    <div class="ab-inno">
+      <a class="ab-inno-card" href="mahsulot/aqlli-yol-belgisi.html">
+        <div class="ab-inno-media"><img src="assets/img/products/p-smart-sign.webp" width="302" height="900" alt="Aqlli yo'l belgisi" loading="lazy"></div>
+        <div class="ab-inno-body">
+          <span class="badge"><iconify-icon icon="lucide:award"></iconify-icon><span data-i18n="badge_patent">Patent UZ SAP 2888</span></span>
+          <h3 data-i18n="ab_i1t">{{js:t('ab_i1t')}}</h3>
+          <p data-i18n="ab_i1d">{{js:t('ab_i1d')}}</p>
+          <span class="ab-more"><span data-i18n="pp_more">Batafsil</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></span>
+        </div>
+      </a>
+      <a class="ab-inno-card" href="mahsulot/aqlli-piyodalar-otish-joyi.html">
+        <div class="ab-inno-media"><img class="is-photo" src="assets/img/products/p-crossing-night.webp" width="656" height="314" alt="Aqlli piyodalar o'tish joyi tunda" loading="lazy"></div>
+        <div class="ab-inno-body">
+          <span class="badge"><iconify-icon icon="lucide:brain-circuit"></iconify-icon><span data-i18n="badge_ai">Sun'iy intellekt</span></span>
+          <h3 data-i18n="ab_i2t">{{js:t('ab_i2t')}}</h3>
+          <p data-i18n="ab_i2d">{{js:t('ab_i2d')}}</p>
+          <img class="ab-partner-mini" src="assets/img/partners/fdtu.webp" width="700" height="301" alt="Farg'ona davlat texnika universiteti" loading="lazy">
+          <span class="ab-more"><span data-i18n="pp_more">Batafsil</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="k-sec" id="geografiya">
+  <div class="wrap ab-geo">
+    <div class="sec-head">
+      <h2 data-i18n="ab_geo_t">Yetkazib berish geografiyasi</h2>
+      <p data-i18n="ab_geo_d">{{js:t('ab_geo_d')}}</p>
+    </div>
+    <ul class="ab-regions" id="ab-regions">{{js:regionsHtml()}}</ul>
+  </div>
+</section>
+
+<section class="certs k-sec alt" id="sertifikatlar">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="cert_title">Sertifikatlar va hujjatlar</h2>
+      <p data-i18n="cert_sub">{{js:t('cert_sub')}}</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <iconify-icon icon="lucide:award"></iconify-icon>
+        <h3 data-i18n="c1t">{{js:t('c1t')}}</h3>
+        <p data-i18n="c1d">{{js:t('c1d')}}</p>
+        <a href="assets/docs/patent-uz-sap-2888.pdf" target="_blank" rel="noopener" download><iconify-icon icon="lucide:download"></iconify-icon><span data-i18n="cert_dl">PDF yuklab olish</span></a>
+      </div>
+      <div class="cert-card">
+        <iconify-icon icon="lucide:file-text"></iconify-icon>
+        <h3 data-i18n="c2t">{{js:t('c2t')}}</h3>
+        <p data-i18n="c2d">{{js:t('c2d')}}</p>
+        <a href="assets/docs/reestr-uz-sap-2888.pdf" target="_blank" rel="noopener" download><iconify-icon icon="lucide:download"></iconify-icon><span data-i18n="cert_dl2">PDF yuklab olish</span></a>
+      </div>
+      <div class="cert-card">
+        <iconify-icon icon="lucide:badge-check"></iconify-icon>
+        <h3 data-i18n="c3t">{{js:t('c3t')}}</h3>
+        <p data-i18n="c3d">{{js:t('c3d')}}</p>
+        <a href="#buyurtma"><iconify-icon icon="lucide:mail"></iconify-icon><span data-i18n="cert_req">So'rov qoldirish</span></a>
+      </div>
+    </div>
+  </div>
+</section>

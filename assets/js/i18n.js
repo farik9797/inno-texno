@@ -413,6 +413,71 @@ Object.assign(I18N.en, {
   g_ai_cols: "Control columns: “YURING” (go) and “TO'XTANG” (stop)", g_ai_mod: "LED modules: 240 cm and 40 cm"
 });
 
+/* ---- about page (content from the client's brief) ---- */
+Object.assign(I18N.uz, {
+  nav_about: "Biz haqimizda", ab_title: "Biz haqimizda — INNO TEXNO", ab_h1: "Biz haqimizda",
+  ab_lead: "INNO TEXNO yo'l harakati xavfsizligini ta'minlash va zamonaviy svetofor qurilmalarini ishlab chiqarish maqsadida tashkil etilgan. Ishlab chiqarish bazamiz so'nggi texnologiyalar bilan jihozlangan.",
+  ab_lead2: "Svetoforlar, LED yo'l belgilari va yo'l harakatini boshqarish tizimlarini ishlab chiqaramiz, yetkazib beramiz, o'rnatamiz va ta'mirlaymiz — O'zbekistonning barcha viloyatlarida va MDH mamlakatlarida.",
+  ab_f1: "mahsulot va variant katalogda", ab_f2v: "1 yil", ab_f2: "rasmiy kafolat", ab_f3v: "0 so'm", ab_f3: "yetkazib berish va o'rnatish",
+  ab_f4v: "SAP 2888", ab_f4: "sanoat namunasi patenti",
+  ab_mission_l: "Bizning maqsad", ab_mission: "Yo'llarda xavfsizlikni ta'minlaydigan ishonchli va uzoq muddat xizmat qiluvchi mahsulot.",
+  ab_dir_t: "Faoliyat yo'nalishlari",
+  ab_d1t: "Ishlab chiqarish", ab_d1d: "Transport, piyodalar va quyosh panelli svetoforlar, LED belgilar va yo'l harakatini boshqarish tizimlari.",
+  ab_d2t: "Yetkazib berish va o'rnatish", ab_d2d: "Ulgurji va shartnoma asosida — O'zbekistonning barcha viloyatlariga va MDH mamlakatlariga.",
+  ab_d3t: "Servis va ta'mirlash", ab_d3d: "Kafolatli xizmat ko'rsatish, mahsulotlarni ta'mirlash va doimiy ehtiyot qismlar bazasi.",
+  ab_d4t: "Individual buyurtmalar", ab_d4d: "Tayyor korpuslar, ehtiyot qismlar va individual buyurtma bo'yicha svetofor platalarini yig'ish.",
+  ab_str_t: "Kompaniya tuzilishi", ab_str_d: "Loyihalashdan o'rnatishgacha — barcha bosqichlar o'z jamoamiz ichida.",
+  ab_s1: "Boshqaruv bo'limi", ab_s2: "Muhandislik-konstruktorlik bo'limi", ab_s3: "Ishlab chiqarish sexi", ab_s4: "Sifat nazorati bo'limi", ab_s5: "Sotuv va mijozlarni qo'llab-quvvatlash bo'limi",
+  ab_inno_t: "Innovatsiyalar va hamkorlik",
+  ab_i1t: "Patentlangan aqlli yo'l belgisi", ab_i1d: "Sanoat namunasi patenti № SAP 2888 — O'zbekiston Respublikasi Adliya vazirligi, 03.07.2026.",
+  ab_i2t: "Sun'iy intellektli piyodalar o'tish joyi", ab_i2d: "Farg'ona davlat texnika universiteti bilan hamkorlikda ishlab chiqilgan va real sharoitda o'rnatilgan tizim.",
+  ab_geo_t: "Yetkazib berish geografiyasi", ab_geo_d: "O'zbekistonning barcha viloyatlari va MDH mamlakatlari — ulgurji va shartnoma asosida.",
+  regions: "Toshkent sh.|Toshkent vil.|Andijon|Buxoro|Farg'ona|Jizzax|Xorazm|Namangan|Navoiy|Qashqadaryo|Qoraqalpog'iston Resp.|Samarqand|Sirdaryo|Surxondaryo|MDH mamlakatlari",
+  ab_cta_t: "Loyihangizni muhokama qilamiz", ab_cta_d: "Ob'ekt, muddat va hajmni yozing — texnik talablarni kelishib, tijorat taklifini tayyorlaymiz."
+});
+Object.assign(I18N.ru, {
+  nav_about: "О компании", ab_title: "О компании — INNO TEXNO", ab_h1: "О компании",
+  ab_lead: "INNO TEXNO создана, чтобы обеспечивать безопасность дорожного движения и выпускать современные светофоры. Наша производственная база оснащена новейшими технологиями.",
+  ab_lead2: "Производим, поставляем, монтируем и ремонтируем светофоры, LED-знаки и системы управления дорожным движением — во всех областях Узбекистана и в странах СНГ.",
+  ab_f1: "товаров и вариантов в каталоге", ab_f2v: "1 год", ab_f2: "официальной гарантии", ab_f3v: "0 сум", ab_f3: "доставка и монтаж",
+  ab_f4v: "SAP 2888", ab_f4: "патент на промышленный образец",
+  ab_mission_l: "Наша цель", ab_mission: "Надёжная и долговечная продукция, которая обеспечивает безопасность на дорогах.",
+  ab_dir_t: "Направления деятельности",
+  ab_d1t: "Производство", ab_d1d: "Транспортные, пешеходные и солнечные светофоры, LED-знаки и системы управления дорожным движением.",
+  ab_d2t: "Доставка и монтаж", ab_d2d: "Оптом и по договору — во все области Узбекистана и в страны СНГ.",
+  ab_d3t: "Сервис и ремонт", ab_d3d: "Гарантийное обслуживание, ремонт продукции и постоянный склад запчастей.",
+  ab_d4t: "Индивидуальные заказы", ab_d4d: "Готовые корпуса, запчасти и сборка плат светофоров по индивидуальному заказу.",
+  ab_str_t: "Структура компании", ab_str_d: "От проектирования до монтажа — все этапы внутри нашей команды.",
+  ab_s1: "Отдел управления", ab_s2: "Инженерно-конструкторский отдел", ab_s3: "Производственный цех", ab_s4: "Отдел контроля качества", ab_s5: "Отдел продаж и поддержки клиентов",
+  ab_inno_t: "Инновации и партнёрство",
+  ab_i1t: "Запатентованный умный дорожный знак", ab_i1d: "Патент на промышленный образец № SAP 2888 — Министерство юстиции Республики Узбекистан, 03.07.2026.",
+  ab_i2t: "Пешеходный переход с искусственным интеллектом", ab_i2d: "Система разработана совместно с Ферганским государственным техническим университетом и установлена в реальных условиях.",
+  ab_geo_t: "География поставок", ab_geo_d: "Все области Узбекистана и страны СНГ — оптом и по договору.",
+  regions: "г. Ташкент|Ташкентская обл.|Андижан|Бухара|Фергана|Джизак|Хорезм|Наманган|Навои|Кашкадарья|Респ. Каракалпакстан|Самарканд|Сырдарья|Сурхандарья|Страны СНГ",
+  ab_cta_t: "Обсудим ваш проект", ab_cta_d: "Напишите объект, сроки и объём — согласуем технические требования и подготовим коммерческое предложение."
+});
+Object.assign(I18N.en, {
+  nav_about: "About us", ab_title: "About us — INNO TEXNO", ab_h1: "About us",
+  ab_lead: "INNO TEXNO was founded to keep road traffic safe and to manufacture modern traffic signal equipment. Our production facility is equipped with the latest technology.",
+  ab_lead2: "We manufacture, supply, install and repair traffic lights, LED road signs and traffic control systems — across every region of Uzbekistan and in the CIS.",
+  ab_f1: "products & variants in the catalogue", ab_f2v: "1 year", ab_f2: "official warranty", ab_f3v: "0 UZS", ab_f3: "delivery & installation",
+  ab_f4v: "SAP 2888", ab_f4: "industrial design patent",
+  ab_mission_l: "Our goal", ab_mission: "Reliable, long-lasting products that keep the roads safe.",
+  ab_dir_t: "What we do",
+  ab_d1t: "Manufacturing", ab_d1d: "Vehicle, pedestrian and solar traffic lights, LED signs and traffic control systems.",
+  ab_d2t: "Delivery & installation", ab_d2d: "Wholesale and under contract — to every region of Uzbekistan and to CIS countries.",
+  ab_d3t: "Service & repair", ab_d3d: "Warranty service, product repair and a permanent stock of spare parts.",
+  ab_d4t: "Custom orders", ab_d4d: "Ready-made housings, spare parts and traffic light boards assembled to order.",
+  ab_str_t: "Company structure", ab_str_d: "From design to installation — every stage stays within our own team.",
+  ab_s1: "Management", ab_s2: "Engineering & design", ab_s3: "Production shop", ab_s4: "Quality control", ab_s5: "Sales & customer support",
+  ab_inno_t: "Innovation & partnership",
+  ab_i1t: "Patented smart road sign", ab_i1d: "Industrial design patent No. SAP 2888 — Ministry of Justice of the Republic of Uzbekistan, 03.07.2026.",
+  ab_i2t: "AI-driven pedestrian crossing", ab_i2d: "Developed together with Fergana State Technical University and installed in real conditions.",
+  ab_geo_t: "Where we deliver", ab_geo_d: "Every region of Uzbekistan and CIS countries — wholesale and under contract.",
+  regions: "Tashkent city|Tashkent region|Andijan|Bukhara|Fergana|Jizzakh|Khorezm|Namangan|Navoi|Kashkadarya|Rep. of Karakalpakstan|Samarkand|Syrdarya|Surkhandarya|CIS countries",
+  ab_cta_t: "Let's discuss your project", ab_cta_d: "Tell us the site, timing and volume — we'll agree the technical requirements and prepare a commercial offer."
+});
+
 /* ---- language state + formatting: shared by all pages and by tools/build-products.mjs ---- */
 function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
 function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }

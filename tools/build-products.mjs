@@ -1,5 +1,5 @@
-// Builds one static page per product into mahsulot/ + sitemap.xml.
-// Usage: node tools/build-products.mjs   (re-run after changing catalog-data.js, products.js, i18n.js or katalog.html chrome)
+// Builds one static page per product into mahsulot/, the content pages from tools/pages/ (e.g. kompaniya.html) + sitemap.xml.
+// Usage: node tools/build-products.mjs   (re-run after changing catalog-data.js, products.js, i18n.js, tools/pages/* or katalog.html chrome)
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -12,7 +12,7 @@ const read = f => fs.readFileSync(path.join(ROOT_DIR, f), 'utf8');
 
 // same renderer as the browser: run the page scripts in one shared context (lang = uz)
 const ctx = vm.createContext({ console });
-for (const f of ['assets/js/i18n.js', 'assets/js/catalog-data.js', 'assets/js/products.js', 'assets/js/product.js']) {
+for (const f of ['assets/js/i18n.js', 'assets/js/catalog-data.js', 'assets/js/products.js', 'assets/js/product.js', 'assets/js/kompaniya.js']) {
   vm.runInContext(read(f), ctx, { filename: f });
 }
 const run = code => JSON.parse(vm.runInContext(`JSON.stringify(${code})`, ctx));
@@ -25,11 +25,21 @@ const slice = (a, b) => {
   return kat.slice(i, j);
 };
 const toRoot = h => h
-  .replace(/(href|src)="(index\.html|katalog\.html|assets\/)/g, '$1="../$2')
+  .replace(/(href|src)="((?:index|katalog|kompaniya)\.html|assets\/)/g, '$1="../$2')
   .replace(/ aria-current="page"/g, '');          // catalogue link stays highlighted, but this is not that page
-const chrome = toRoot(slice('<a class="skip-link"', '<main id="main">'));
-const order = toRoot(slice('<!-- ORDER -->', '</main>'));
-const footer = toRoot(slice('<footer class="site-footer">', '<script src='));
+const chromeRaw = slice('<a class="skip-link"', '<main id="main">');
+const orderRaw = slice('<!-- ORDER -->', '</main>');
+const footerRaw = slice('<footer class="site-footer">', '<script src=');
+const chrome = toRoot(chromeRaw), order = toRoot(orderRaw), footer = toRoot(footerRaw);
+const iconTags = root => `<link rel="icon" href="${root}favicon.ico" sizes="32x32">
+<link rel="icon" href="${root}favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${root}apple-touch-icon.png">
+<link rel="manifest" href="${root}site.webmanifest">
+<meta name="theme-color" content="#0a0e11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="${root}assets/css/style.css">`;
 const escAttr = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 fs.mkdirSync(OUT, { recursive: true });
@@ -66,15 +76,7 @@ for (const slug of slugs) {
 <meta property="og:title" content="${escAttr(d.name)} — INNO TEXNO">
 <meta property="og:description" content="${escAttr(metaDesc)}">
 <meta property="og:url" content="${url}">${d.img ? `\n<meta property="og:image" content="${BASE}${d.img}">` : ''}
-<link rel="icon" href="../favicon.ico" sizes="32x32">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="manifest" href="../site.webmanifest">
-<meta name="theme-color" content="#0a0e11">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
+${iconTags('../')}
 <script type="application/ld+json">${JSON.stringify(product)}</script>
 <script type="application/ld+json">${JSON.stringify(crumbsLd)}</script>
 </head>
@@ -113,9 +115,61 @@ ${footer}<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-ico
   fs.writeFileSync(path.join(OUT, `${slug}.html`), html);
 }
 
+// ---- content pages: tools/pages/<out>.html is the <main> body; chrome/order/footer come from katalog.html ----
+const PAGES = [
+  { src: 'tools/pages/kompaniya.html', out: 'kompaniya.html', title: 'ab_title', desc: 'ab_lead',
+    scripts: ['assets/js/catalog-data.js', 'assets/js/kompaniya.js'], orderTitle: ['ab_cta_t', 'ab_cta_d'],
+    ld: { '@type': 'Organization', name: 'INNO TEXNO', url: BASE, logo: `${BASE}assets/img/icon-512.png` } },
+];
+for (const pg of PAGES) {
+  const url = BASE + pg.out;
+  const title = run(`t(${JSON.stringify(pg.title)})`), desc = run(`t(${JSON.stringify(pg.desc)})`);
+  const body = read(pg.src).replace(/^<!--[\s\S]*?-->\n/, '')                 // drop the authoring note
+    .replace(/\{\{js:([^}]+)\}\}/g, (_, expr) => String(run(expr)));        // static UZ text for SEO
+  const chromePg = chromeRaw
+    .replace(/ class="active" aria-current="page"/g, '')                      // katalog.html marks itself active
+    .replace(new RegExp(`<a href="${pg.out.replace('.', '\\.')}"`, 'g'), `<a href="${pg.out}" class="active" aria-current="page"`);
+  let orderPg = orderRaw;
+  if (pg.orderTitle) orderPg = orderPg
+    .replace(/data-i18n="ct_title">[^<]*/, `data-i18n="${pg.orderTitle[0]}">${run(`t(${JSON.stringify(pg.orderTitle[0])})`)}`)
+    .replace(/data-i18n="ct_sub">[^<]*/, `data-i18n="${pg.orderTitle[1]}">${run(`t(${JSON.stringify(pg.orderTitle[1])})`)}`);
+  const ld = { '@context': 'https://schema.org', ...pg.ld, description: desc };
+  const html = `<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escAttr(title)}</title>
+<meta name="description" content="${escAttr(desc)}">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${escAttr(title)}">
+<meta property="og:description" content="${escAttr(desc)}">
+<meta property="og:url" content="${url}">
+${iconTags('')}
+<script type="application/ld+json">${JSON.stringify(ld)}</script>
+</head>
+<body class="catalog-page">
+<!-- generated by tools/build-products.mjs from ${pg.src} — edit that file and rebuild -->
+
+${chromePg}<main id="main">
+${body}
+${orderPg}</main>
+
+${footerRaw}<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script src="assets/js/i18n.js"></script>
+${pg.scripts.filter(f => !f.endsWith(pg.out.replace('.html', '.js'))).map(f => `<script src="${f}"></script>`).join('\n')}
+<script src="assets/js/site.js"></script>
+${pg.scripts.filter(f => f.endsWith(pg.out.replace('.html', '.js'))).map(f => `<script src="${f}"></script>`).join('\n')}
+</body>
+</html>
+`;
+  fs.writeFileSync(path.join(ROOT_DIR, pg.out), html);
+}
+
 const today = new Date().toISOString().slice(0, 10);
-const urls = ['', 'katalog.html', ...slugs.map(s => `mahsulot/${s}.html`)];
+const urls = ['', 'katalog.html', ...PAGES.map(p => p.out), ...slugs.map(s => `mahsulot/${s}.html`)];
 fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
   + urls.map(u => `  <url><loc>${BASE}${u}</loc><lastmod>${today}</lastmod></url>`).join('\n') + '\n</urlset>\n');
-console.log(`built ${slugs.length} product pages → mahsulot/, sitemap.xml (${urls.length} urls)`);
+console.log(`built ${slugs.length} product pages → mahsulot/, ${PAGES.length} content page(s), sitemap.xml (${urls.length} urls)`);
