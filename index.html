@@ -39,6 +39,7 @@
     <nav class="main-nav" aria-label="Asosiy navigatsiya">
       <a href="katalog.html" data-i18n="nav_catalog">Katalog</a>
       <a href="xizmatlar.html" data-i18n="nav_services">Xizmatlar</a>
+      <a href="yangiliklar.html" data-i18n="nav_news">Yangiliklar</a>
       <a href="kompaniya.html" data-i18n="nav_about">Biz haqimizda</a>
       <a href="#kalkulyator" data-i18n="nav_calc">Kalkulyator</a>
       <a href="aloqa.html" data-i18n="nav_contact">Aloqa</a>
@@ -66,6 +67,7 @@
   <nav data-i18n-aria="menu_label" aria-label="Menyu">
     <a href="katalog.html" data-i18n="nav_catalog">Katalog</a>
     <a href="xizmatlar.html" data-i18n="nav_services">Xizmatlar</a>
+    <a href="yangiliklar.html" data-i18n="nav_news">Yangiliklar</a>
     <a href="kompaniya.html" data-i18n="nav_about">Biz haqimizda</a>
     <a href="#kalkulyator" data-i18n="nav_calc">Kalkulyator</a>
     <a href="aloqa.html" data-i18n="nav_contact">Aloqa</a>
@@ -327,22 +329,30 @@
 <section id="loyihalar">
   <div class="wrap">
     <div class="sec-head">
-      <h2 data-i18n="proj_title">Amalga oshirilgan loyihalar</h2>
-      <p data-i18n="proj_sub">Shahar chorrahalari va magistrallarda o'rnatilgan tizimlarimiz har kuni minglab haydovchiga xizmat qiladi.</p>
+      <h2 data-i18n="proj_title">Loyihalar va yangiliklar</h2>
+      <p data-i18n="proj_sub">O'rnatilgan tizimlar va yangi ishlanmalarimiz.</p>
     </div>
-    <div class="proj-grid">
-      <figure class="proj-card">
-        <img src="assets/img/project-1.webp" alt="Aqlli chorraha tizimi o'rnatilgan shahar kesishmasi" loading="lazy">
-        <figcaption data-i18n="proj1">Toshkent · aqlli chorraha tizimi</figcaption>
-      </figure>
-      <figure class="proj-card">
-        <img src="assets/img/project-2.webp" alt="Magistralda adaptiv svetofor boshqaruvi" loading="lazy">
-        <figcaption data-i18n="proj2">Magistral · adaptiv boshqaruv</figcaption>
-      </figure>
-      <figure class="proj-card">
-        <img src="assets/img/project-3.webp" alt="Markaziy kesishmada LED svetoforlar" loading="lazy">
-        <figcaption data-i18n="proj3">Markaziy kesishma · LED svetoforlar</figcaption>
-      </figure>
+    <div class="post-grid" id="home-posts"><!--posts:start-->
+    <article class="post-card" data-type="news">
+      <a class="post-cover" href="yangiliklar/aqlli-yol-belgisi-patentlandi.html" tabindex="-1" aria-hidden="true"><img src="assets/img/products/p-smart-sign.webp" alt="" loading="lazy"></a>
+      <div class="post-card-body">
+        <div class="post-meta"><span class="badge">Yangilik</span><time datetime="2026-07-03">03.07.2026</time></div>
+        <h3><a href="yangiliklar/aqlli-yol-belgisi-patentlandi.html">«Aqlli yo'l belgisi» sanoat namunasi sifatida patentlandi</a></h3>
+        <p>O'zbekiston Respublikasi Adliya vazirligi «Aqlli yo'l belgisi» uchun № SAP 2888 sanoat namunasi patentini berdi va uni davlat reestriga kiritdi.</p>
+        <a class="post-more" href="yangiliklar/aqlli-yol-belgisi-patentlandi.html"><span>Batafsil</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
+      </div>
+    </article>
+    <article class="post-card" data-type="project">
+      <a class="post-cover is-photo" href="yangiliklar/aqlli-piyodalar-otish-joyi.html" tabindex="-1" aria-hidden="true"><img src="assets/img/gallery/aqlli-piyodalar-otish-joyi-2.webp" alt="" loading="lazy"></a>
+      <div class="post-card-body">
+        <div class="post-meta"><span class="badge">Loyiha</span></div>
+        <h3><a href="yangiliklar/aqlli-piyodalar-otish-joyi.html">Sun'iy intellektli piyodalar o'tish joyi real sharoitda</a></h3>
+        <p>Farg'ona davlat texnika universiteti bilan hamkorlikda ishlab chiqilgan tizim o'rnatildi: piyoda tugmani bosadi, datchiklar uni aniqlaydi, LED modullar haydovchilarni ogohlantiradi.</p>
+        <a class="post-more" href="yangiliklar/aqlli-piyodalar-otish-joyi.html"><span>Batafsil</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
+      </div>
+    </article><!--posts:end--></div>
+    <div class="cat-more">
+      <a class="btn ghost" href="yangiliklar.html"><span data-i18n="home_all_posts">Barcha yangiliklar va loyihalar</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
     </div>
   </div>
 </section>
@@ -505,6 +515,7 @@
       <nav class="footer-nav" aria-label="Footer">
         <a href="katalog.html" data-i18n="nav_catalog2">Katalog</a>
         <a href="xizmatlar.html" data-i18n="nav_services">Xizmatlar</a>
+        <a href="yangiliklar.html" data-i18n="nav_news">Yangiliklar</a>
         <a href="kompaniya.html" data-i18n="nav_about">Biz haqimizda</a>
         <a href="#kalkulyator" data-i18n="nav_calc2">Kalkulyator</a>
         <a href="#sertifikatlar" data-i18n="nav_certs2">Sertifikatlar</a>
@@ -538,6 +549,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="assets/js/i18n.js"></script>
+<script src="assets/js/posts.js"></script>
 <script src="assets/js/site.js"></script>
 <script>
 /* ============ Zdog 3D traffic light ============ */
@@ -707,6 +719,9 @@ document.getElementById('calc-order').addEventListener('click', () => {
 });
 renderCalc();
 document.addEventListener('langchange', renderCalc);
+
+/* ============ latest posts teaser (static copy baked by the build) ============ */
+document.addEventListener('langchange', () => { document.getElementById('home-posts').innerHTML = sortedPosts().slice(0, 3).map(p => postCardHtml(p, '')).join(''); });
 
 /* ============ hero background video: play only in viewport, desktop/tablet only ============ */
 const heroVideo = document.getElementById('hero-video');

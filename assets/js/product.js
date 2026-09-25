@@ -206,8 +206,8 @@ function renderRelated(p) {
       </article>`).join('') + '</div>';
 }
 
-/* ---- browser: mount + re-render on language change ---- */
-if (typeof document !== 'undefined') {
+/* ---- browser: mount + re-render on language change (product pages only; posts reuse the builders) ---- */
+if (typeof document !== 'undefined' && document.body.dataset.slug) {
   const P = findProduct(document.body.dataset.slug);
   const G = gallery(P);
   let vi = 0, gi = 0;
@@ -232,7 +232,6 @@ if (typeof document !== 'undefined') {
       if (on) b.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
     });
     new Image().src = ROOT + G[(gi + 1) % G.length].src; /* warm the next one */
-    if (lb && !lb.hidden) paintLightbox();
   }
   heroEl.addEventListener('click', e => {
     const to = e.target.closest('[data-gal-to]'), step = e.target.closest('[data-gal-step]');
@@ -244,61 +243,15 @@ if (typeof document !== 'undefined') {
     if (!e.target.closest('.gal') || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
     e.preventDefault(); showPhoto(gi + (e.key === 'ArrowRight' ? 1 : -1));
   });
-  function onSwipe(el, fn, only) {
-    let x0 = null;
-    el.addEventListener('pointerdown', e => { x0 = !only || e.target.closest(only) ? e.clientX : null; });
-    el.addEventListener('pointerup', e => { if (x0 !== null && Math.abs(e.clientX - x0) > 45) fn(e.clientX < x0 ? 1 : -1); x0 = null; });
-  }
   onSwipe(heroEl, d => showPhoto(gi + d), '.gal-stage');
 
-  /* lightbox: full-screen view, keyboard + swipe, focus returns to the opener */
-  let lb = null, opener = null;
-  function paintLightbox() {
-    const it = G[gi], img = lb.querySelector('img');
-    img.src = ROOT + it.src; img.alt = galAlt(P, it);
-    lb.querySelector('figcaption').textContent = tr(it.cap);
-    lb.querySelector('.lb-count').textContent = t('g_photo').replace('{i}', gi + 1).replace('{n}', G.length);
-    lb.setAttribute('aria-label', `${t('g_gallery')}: ${productName(P)}`);
-    lb.querySelector('.lb-close').setAttribute('aria-label', t('g_close'));
-    lb.querySelector('.lb-nav.prev').setAttribute('aria-label', t('g_prev'));
-    lb.querySelector('.lb-nav.next').setAttribute('aria-label', t('g_next'));
-  }
+  const galItems = () => G.map(it => ({ src: ROOT + it.src, alt: galAlt(P, it), cap: tr(it.cap) }));
   function openLightbox(from) {
-    if (!lb) {
-      lb = document.createElement('div');
-      lb.className = 'lightbox'; lb.hidden = true;
-      lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true');
-      lb.innerHTML = `<span class="lb-count"></span>
-        <button type="button" class="lb-close"><iconify-icon icon="lucide:x"></iconify-icon></button>
-        <button type="button" class="lb-nav prev"><iconify-icon icon="lucide:chevron-left"></iconify-icon></button>
-        <figure><img alt=""><figcaption></figcaption></figure>
-        <button type="button" class="lb-nav next"><iconify-icon icon="lucide:chevron-right"></iconify-icon></button>`;
-      document.body.appendChild(lb);
-      lb.addEventListener('click', e => {
-        if (e.target.closest('.lb-close') || e.target === lb) closeLightbox();
-        else if (e.target.closest('.lb-nav')) showPhoto(gi + (e.target.closest('.next') ? 1 : -1));
-      });
-      onSwipe(lb.querySelector('figure'), d => showPhoto(gi + d));
-      lb.addEventListener('keydown', e => {
-        if (e.key === 'Escape') closeLightbox();
-        else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') showPhoto(gi + (e.key === 'ArrowRight' ? 1 : -1));
-        else if (e.key === 'Tab') { /* keep focus inside the dialog */
-          const f = [...lb.querySelectorAll('button')], i = f.indexOf(document.activeElement);
-          e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
-        }
-      });
-    }
-    opener = from;
-    paintLightbox();
-    lb.hidden = false;
-    document.body.classList.add('lb-open');
-    lb.querySelector('.lb-close').focus();
-  }
-  function closeLightbox() {
-    lb.hidden = true;
-    document.body.classList.remove('lb-open');
-    const back = document.querySelector('[data-gal-open]') || opener;
-    if (back) back.focus();
+    Lightbox.open(galItems, gi, {
+      label: () => `${t('g_gallery')}: ${productName(P)}`,
+      onChange: showPhoto,
+      returnFocus: () => document.querySelector('[data-gal-open]') || from
+    });
   }
   function mount() {
     document.title = `${productName(P)} — INNO TEXNO`;
@@ -306,7 +259,7 @@ if (typeof document !== 'undefined') {
     mountHero();
     document.getElementById('pp-details').innerHTML = renderDetails(P);
     document.getElementById('pp-related').innerHTML = renderRelated(P);
-    if (lb && !lb.hidden) paintLightbox();
+    Lightbox.repaint();
   }
   mount();
   document.addEventListener('langchange', mount);

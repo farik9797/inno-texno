@@ -72,7 +72,7 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('rv-in'); io.unobserve(en.target); } });
   }, { rootMargin: '0px 0px -10% 0px' });
-  document.querySelectorAll('.cat-grid, .why-rows, .proc-grid, .cert-grid, .testi-grid, .proj-grid, .sec-head, .ab-grid4, .ab-struct, .ab-inno, .cp-cards, .sv-grid').forEach(grid => {
+  document.querySelectorAll('.cat-grid, .why-rows, .proc-grid, .cert-grid, .testi-grid, .proj-grid, .sec-head, .ab-grid4, .ab-struct, .ab-inno, .cp-cards, .sv-grid, .post-grid').forEach(grid => {
     if (grid.getBoundingClientRect().top < innerHeight * 0.9) return; /* already on screen — stay visible */
     [...grid.children].forEach((el, i) => {
       el.classList.add('rv');

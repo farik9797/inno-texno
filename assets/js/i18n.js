@@ -35,8 +35,6 @@ const I18N = {
     c2t:"Davlat reestridan ko'chirma", c2d:"Sanoat namunalari davlat reyestrida 03.07.2026 yilda ro'yxatdan o'tkazilgan.",
     c3t:"GOST muvofiqlik sertifikati", c3d:"Svetoforlarning davlat standartlariga muvofiqligi — hujjatlar so'rov bo'yicha taqdim etiladi.",
     cert_dl:"PDF yuklab olish", cert_dl2:"PDF yuklab olish",
-    proj_title:"Amalga oshirilgan loyihalar", proj_sub:"Shahar chorrahalari va magistrallarda o'rnatilgan tizimlarimiz har kuni minglab haydovchiga xizmat qiladi.",
-    proj1:"Toshkent · aqlli chorraha tizimi", proj2:"Magistral · adaptiv boshqaruv", proj3:"Markaziy kesishma · LED svetoforlar",
     vid_title:"Ishlab chiqarish jarayoni", vid_sub:"Sexdagi jarayonlar, svetoforlarni sinovdan o'tkazish va tayyor ob'ektlar — YouTube kanalimizda.",
     vid_cta:"YouTube'da ko'rish", vid_cap:"INNO TEXNO · aqlli chorraha yechimlari",
     testi_title:"Mijozlar fikri",
@@ -97,8 +95,6 @@ const I18N = {
     c2t:"Выписка из госреестра", c2d:"Зарегистрирован в Государственном реестре промышленных образцов 03.07.2026.",
     c3t:"Сертификат соответствия ГОСТ", c3d:"Соответствие светофоров госстандартам — документы предоставляются по запросу.",
     cert_dl:"Скачать PDF", cert_dl2:"Скачать PDF",
-    proj_title:"Реализованные проекты", proj_sub:"Наши системы на городских перекрёстках и магистралях ежедневно обслуживают тысячи водителей.",
-    proj1:"Ташкент · система умного перекрёстка", proj2:"Магистраль · адаптивное управление", proj3:"Центральный перекрёсток · LED-светофоры",
     vid_title:"Как мы производим", vid_sub:"Процессы в цеху, испытания светофоров и готовые объекты — на нашем YouTube-канале.",
     vid_cta:"Смотреть на YouTube", vid_cap:"INNO TEXNO · умные решения для перекрёстков",
     testi_title:"Отзывы клиентов",
@@ -159,8 +155,6 @@ const I18N = {
     c2t:"State register extract", c2d:"Registered in the State Register of Industrial Designs on 03.07.2026.",
     c3t:"GOST conformity certificate", c3d:"Our traffic lights conform to state standards — documents available on request.",
     cert_dl:"Download PDF", cert_dl2:"Download PDF",
-    proj_title:"Delivered projects", proj_sub:"Our systems at city intersections and highways serve thousands of drivers every day.",
-    proj1:"Tashkent · smart intersection system", proj2:"Highway · adaptive control", proj3:"Central junction · LED traffic lights",
     vid_title:"Inside our production", vid_sub:"Shop-floor processes, traffic light testing and completed installations — on our YouTube channel.",
     vid_cta:"Watch on YouTube", vid_cap:"INNO TEXNO · smart intersection solutions",
     testi_title:"What clients say",
@@ -573,6 +567,38 @@ Object.assign(I18N.en, {
   sv_docs_d: "Industrial design patent and state register extract — as PDF.",
   sv_form_t: "Order a service", sv_form_d: "Tell us which service you need — the responsible manager will contact you and agree the terms.",
   fm_p8: "Service (installation, maintenance, repair)"
+});
+
+/* ---- news & projects ---- */
+Object.assign(I18N.uz, {
+  nav_news: "Yangiliklar", nw_title: "Yangiliklar va loyihalar — INNO TEXNO", nw_h1: "Yangiliklar va loyihalar",
+  nw_lead: "O'rnatilgan tizimlar, yangi ishlanmalar va kompaniya hayotidagi muhim voqealar.",
+  nw_all: "Barchasi", nw_f_projects: "Loyihalar", nw_f_news: "Yangiliklar", nw_project: "Loyiha", nw_news: "Yangilik",
+  nw_read: "Batafsil", nw_others: "Boshqa materiallar", nw_back: "Barcha yangiliklar va loyihalar",
+  nw_facts: "Qisqacha", nw_status: "Holat", nw_partner: "Hamkor", nw_product: "Mahsulot", nw_date: "Sana", nw_docs: "Hujjatlar",
+  nw_photos: "Fotosuratlar", nw_cta: "Shunga o'xshash loyihani muhokama qilish", nw_empty: "Bu bo'limda hozircha materiallar yo'q.",
+  nw_st_installed: "Real sharoitda o'rnatilgan", nw_st_registered: "Davlat reestriga kiritilgan",
+  proj_title: "Loyihalar va yangiliklar", proj_sub: "O'rnatilgan tizimlar va yangi ishlanmalarimiz.", home_all_posts: "Barcha yangiliklar va loyihalar"
+});
+Object.assign(I18N.ru, {
+  nav_news: "Новости", nw_title: "Новости и проекты — INNO TEXNO", nw_h1: "Новости и проекты",
+  nw_lead: "Установленные системы, новые разработки и важные события компании.",
+  nw_all: "Все", nw_f_projects: "Проекты", nw_f_news: "Новости", nw_project: "Проект", nw_news: "Новость",
+  nw_read: "Подробнее", nw_others: "Другие материалы", nw_back: "Все новости и проекты",
+  nw_facts: "Коротко", nw_status: "Статус", nw_partner: "Партнёр", nw_product: "Продукт", nw_date: "Дата", nw_docs: "Документы",
+  nw_photos: "Фотографии", nw_cta: "Обсудить похожий проект", nw_empty: "В этом разделе пока нет материалов.",
+  nw_st_installed: "Установлен в реальных условиях", nw_st_registered: "Внесён в госреестр",
+  proj_title: "Проекты и новости", proj_sub: "Установленные системы и наши новые разработки.", home_all_posts: "Все новости и проекты"
+});
+Object.assign(I18N.en, {
+  nav_news: "News", nw_title: "News & projects — INNO TEXNO", nw_h1: "News & projects",
+  nw_lead: "Installed systems, new developments and key company events.",
+  nw_all: "All", nw_f_projects: "Projects", nw_f_news: "News", nw_project: "Project", nw_news: "News",
+  nw_read: "Read more", nw_others: "More stories", nw_back: "All news & projects",
+  nw_facts: "At a glance", nw_status: "Status", nw_partner: "Partner", nw_product: "Product", nw_date: "Date", nw_docs: "Documents",
+  nw_photos: "Photos", nw_cta: "Discuss a similar project", nw_empty: "Nothing in this section yet.",
+  nw_st_installed: "Installed in real conditions", nw_st_registered: "Entered in the state register",
+  proj_title: "Projects & news", proj_sub: "Installed systems and our new developments.", home_all_posts: "All news & projects"
 });
 
 /* ---- language state + formatting: shared by all pages and by tools/build-products.mjs ---- */

@@ -1,0 +1,25 @@
+<!-- Body of yangiliklar.html (inside <main>). Built by tools/build-products.mjs from assets/js/posts.js.
+     {{js:…}} → escaped text, {{html:…}} → raw markup; both evaluated with the site scripts (lang = uz). -->
+<div class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html" data-i18n="crumb_home">Bosh sahifa</a>
+      <iconify-icon icon="lucide:chevron-right" aria-hidden="true"></iconify-icon>
+      <span aria-current="page" data-i18n="nw_h1">Yangiliklar va loyihalar</span>
+    </nav>
+    <h1 data-i18n="nw_h1">Yangiliklar va loyihalar</h1>
+    <p data-i18n="nw_lead">{{js:t('nw_lead')}}</p>
+    <div class="post-filters" role="group" aria-label="Filter">
+      <button type="button" data-filter="all" aria-pressed="true"><span data-i18n="nw_all">Barchasi</span><span class="n">{{js:postCounts().all}}</span></button>
+      <button type="button" data-filter="project" aria-pressed="false"><span data-i18n="nw_f_projects">Loyihalar</span><span class="n">{{js:postCounts().project}}</span></button>
+      <button type="button" data-filter="news" aria-pressed="false"><span data-i18n="nw_f_news">Yangiliklar</span><span class="n">{{js:postCounts().news}}</span></button>
+    </div>
+  </div>
+</div>
+
+<section class="k-sec alt posts-sec">
+  <div class="wrap">
+    <div class="post-grid" id="posts-list">{{html:postsListHtml('')}}</div>
+    <p class="post-empty" id="posts-empty" hidden data-i18n="nw_empty">{{js:t('nw_empty')}}</p>
+  </div>
+</section>

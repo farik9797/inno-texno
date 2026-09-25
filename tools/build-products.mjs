@@ -1,4 +1,5 @@
-// Builds one static page per product into mahsulot/, the content pages from tools/pages/ (e.g. kompaniya.html) + sitemap.xml.
+// Builds product pages (mahsulot/), content pages (tools/pages/ → kompaniya.html, …), news/project pages (yangiliklar/),
+// the home-page posts teaser and sitemap.xml.
 // Usage: node tools/build-products.mjs   (re-run after changing catalog-data.js, products.js, i18n.js, tools/pages/* or katalog.html chrome)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,7 +13,7 @@ const read = f => fs.readFileSync(path.join(ROOT_DIR, f), 'utf8');
 
 // same renderer as the browser: run the page scripts in one shared context (lang = uz)
 const ctx = vm.createContext({ console });
-for (const f of ['assets/js/i18n.js', 'assets/js/catalog-data.js', 'assets/js/products.js', 'assets/js/product.js', 'assets/js/kompaniya.js', 'assets/js/xizmatlar.js']) {
+for (const f of ['assets/js/i18n.js', 'assets/js/catalog-data.js', 'assets/js/products.js', 'assets/js/product.js', 'assets/js/kompaniya.js', 'assets/js/xizmatlar.js', 'assets/js/lightbox.js', 'assets/js/posts.js']) {
   vm.runInContext(read(f), ctx, { filename: f });
 }
 const run = code => JSON.parse(vm.runInContext(`JSON.stringify(${code})`, ctx));
@@ -41,6 +42,10 @@ const iconTags = root => `<link rel="icon" href="${root}favicon.ico" sizes="32x3
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${root}assets/css/style.css">`;
+// mark one menu link active (katalog.html marks itself active in its own chrome)
+const activeNav = (html, href) => html
+  .replace(/ class="active" aria-current="page"/g, '')
+  .replace(new RegExp(`<a href="${href.replace(/[.]/g, '\\.')}"`, 'g'), `<a href="${href}" class="active" aria-current="page"`);
 const escAttr = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 fs.mkdirSync(OUT, { recursive: true });
@@ -109,6 +114,7 @@ ${footer}<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-ico
 <script src="../assets/js/catalog-data.js"></script>
 <script src="../assets/js/products.js"></script>
 <script src="../assets/js/site.js"></script>
+<script src="../assets/js/lightbox.js"></script>
 <script src="../assets/js/product.js"></script>
 </body>
 </html>
@@ -126,6 +132,8 @@ const PAGES = [
     scripts: ['assets/js/aloqa.js'], ld: { '@type': 'ContactPage', name: 'INNO TEXNO', url: `${BASE}aloqa.html` } },
   { src: 'tools/pages/xizmatlar.html', out: 'xizmatlar.html', title: 'sv_title', desc: 'sv_lead',
     scripts: ['assets/js/xizmatlar.js'], orderTitle: ['sv_form_t', 'sv_form_d'], ldExpr: 'servicesLd()' },
+  { src: 'tools/pages/yangiliklar.html', out: 'yangiliklar.html', title: 'nw_title', desc: 'nw_lead', order: false,
+    scripts: [], pageScripts: ['assets/js/posts.js'], ld: { '@type': 'CollectionPage', name: 'INNO TEXNO', url: `${BASE}yangiliklar.html` } },
 ];
 for (const pg of PAGES) {
   const url = BASE + pg.out;
@@ -134,9 +142,7 @@ for (const pg of PAGES) {
     .replace('{{form}}', formRaw)
     .replace(/\{\{html:([^}]+)\}\}/g, (_, expr) => String(run(expr)))       // markup built by a page script
     .replace(/\{\{js:([^}]+)\}\}/g, (_, expr) => escAttr(run(expr)));       // static UZ text (escaped) for SEO
-  const chromePg = chromeRaw
-    .replace(/ class="active" aria-current="page"/g, '')                      // katalog.html marks itself active
-    .replace(new RegExp(`<a href="${pg.out.replace('.', '\\.')}"`, 'g'), `<a href="${pg.out}" class="active" aria-current="page"`);
+  const chromePg = activeNav(chromeRaw, pg.out);
   let orderPg = orderRaw;
   if (pg.orderTitle) orderPg = orderPg
     .replace(/data-i18n="ct_title">[^<]*/, `data-i18n="${pg.orderTitle[0]}">${run(`t(${JSON.stringify(pg.orderTitle[0])})`)}`)
@@ -168,16 +174,86 @@ ${footerRaw}<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-
 <script src="assets/js/i18n.js"></script>
 ${pg.scripts.filter(f => !f.endsWith(pg.out.replace('.html', '.js'))).map(f => `<script src="${f}"></script>`).join('\n')}
 <script src="assets/js/site.js"></script>
-${pg.scripts.filter(f => f.endsWith(pg.out.replace('.html', '.js'))).map(f => `<script src="${f}"></script>`).join('\n')}
+${[...pg.scripts.filter(f => f.endsWith(pg.out.replace('.html', '.js'))), ...(pg.pageScripts || [])].map(f => `<script src="${f}"></script>`).join('\n')}
 </body>
 </html>
 `;
   fs.writeFileSync(path.join(ROOT_DIR, pg.out), html);
 }
 
+// ---- news & project pages: yangiliklar/<slug>.html from assets/js/posts.js ----
+const POST_OUT = path.join(ROOT_DIR, 'yangiliklar');
+fs.mkdirSync(POST_OUT, { recursive: true });
+for (const f of fs.readdirSync(POST_OUT)) if (f.endsWith('.html')) fs.unlinkSync(path.join(POST_OUT, f));
+const postSlugs = run('POSTS.map(p => p.slug)');
+const chromePost = toRoot(activeNav(chromeRaw, 'yangiliklar.html'));
+for (const slug of postSlugs) {
+  const d = run(`(() => { const p = findPost(${JSON.stringify(slug)});
+    return { title: tr(p.title), lead: tr(p.lead), cover: p.cover, date: p.date, ld: postLd(p, ${JSON.stringify(BASE)}),
+      crumbs: renderPostCrumbs(p), head: renderPostHead(p), body: renderPostBody(p), aside: renderPostAside(p), others: renderPostOthers(p) }; })()`);
+  const url = `${BASE}yangiliklar/${slug}.html`;
+  const html = `<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escAttr(d.title)} — INNO TEXNO</title>
+<meta name="description" content="${escAttr(d.lead)}">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${escAttr(d.title)}">
+<meta property="og:description" content="${escAttr(d.lead)}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${BASE}${d.cover}">${d.date ? `\n<meta property="article:published_time" content="${d.date}">` : ''}
+${iconTags('../')}
+<script type="application/ld+json">${JSON.stringify(d.ld)}</script>
+</head>
+<body class="catalog-page post-page" data-post="${slug}">
+<!-- generated by tools/build-products.mjs from assets/js/posts.js — edit that file and rebuild -->
+
+${chromePost}<main id="main">
+
+<div class="pp-top">
+  <div class="wrap"><nav class="crumbs" id="post-crumbs" aria-label="Breadcrumb">${d.crumbs}</nav></div>
+</div>
+
+<article class="post">
+  <header class="wrap post-head" id="post-head">${d.head}</header>
+  <div class="wrap post-layout">
+    <div class="post-body" id="post-body">${d.body}</div>
+    <aside class="post-aside" id="post-aside">${d.aside}</aside>
+  </div>
+</article>
+
+<section class="k-sec alt">
+  <div class="wrap" id="post-others">${d.others}</div>
+</section>
+
+${order}</main>
+
+${footer}<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script src="../assets/js/i18n.js"></script>
+<script src="../assets/js/catalog-data.js"></script>
+<script src="../assets/js/products.js"></script>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/lightbox.js"></script>
+<script src="../assets/js/product.js"></script>
+<script src="../assets/js/posts.js"></script>
+</body>
+</html>
+`;
+  fs.writeFileSync(path.join(POST_OUT, `${slug}.html`), html);
+}
+
+// home page teaser: the latest posts between markers in index.html (hand-maintained file, only this block is generated)
+const homePath = path.join(ROOT_DIR, 'index.html');
+const home = fs.readFileSync(homePath, 'utf8');
+const homeNext = home.replace(/(<!--posts:start-->)[\s\S]*?(<!--posts:end-->)/, `$1${run(`sortedPosts().slice(0, 3).map(p => postCardHtml(p, '')).join('')`)}$2`);
+if (homeNext !== home) fs.writeFileSync(homePath, homeNext);
+
 const today = new Date().toISOString().slice(0, 10);
-const urls = ['', 'katalog.html', ...PAGES.map(p => p.out), ...slugs.map(s => `mahsulot/${s}.html`)];
+const urls = ['', 'katalog.html', ...PAGES.map(p => p.out), ...slugs.map(s => `mahsulot/${s}.html`), ...postSlugs.map(s => `yangiliklar/${s}.html`)];
 fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
   + urls.map(u => `  <url><loc>${BASE}${u}</loc><lastmod>${today}</lastmod></url>`).join('\n') + '\n</urlset>\n');
-console.log(`built ${slugs.length} product pages → mahsulot/, ${PAGES.length} content page(s), sitemap.xml (${urls.length} urls)`);
+console.log(`built ${slugs.length} product pages → mahsulot/, ${PAGES.length} content page(s), ${postSlugs.length} post(s) → yangiliklar/, sitemap.xml (${urls.length} urls)`);
