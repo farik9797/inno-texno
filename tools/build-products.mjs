@@ -39,14 +39,14 @@ const slugs = run('PRODUCTS.map(p => p.slug)');
 for (const slug of slugs) {
   const d = run(`(() => { const p = findProduct(${JSON.stringify(slug)}); const vs = variants(p);
     return { name: productName(p), desc: productDesc(p), cat: t(CAT_LABEL[p.cat]), anchor: CAT_ANCHOR[p.cat],
-      img: productImage(p), prices: vs.map(v => v.price),
+      img: productImage(p), imgs: productImages(p), prices: vs.map(v => v.price),
       crumbs: renderCrumbs(p), hero: renderHero(p, 0), details: renderDetails(p), related: renderRelated(p) }; })()`);
   const url = `${BASE}mahsulot/${slug}.html`;
   const metaDesc = d.desc.length > 158 ? d.desc.slice(0, 155).replace(/\s+\S*$/, '') + '…' : d.desc;
 
   const product = { '@context': 'https://schema.org', '@type': 'Product', name: d.name, description: d.desc,
     brand: { '@type': 'Brand', name: 'INNO TEXNO' }, category: d.cat, url };
-  if (d.img) product.image = BASE + d.img;
+  if (d.imgs.length) product.image = d.imgs.map(i => BASE + i);
   if (d.prices.length === 1) product.offers = { '@type': 'Offer', price: d.prices[0], priceCurrency: 'UZS', url };
   else if (d.prices.length > 1) product.offers = { '@type': 'AggregateOffer', priceCurrency: 'UZS',
     lowPrice: Math.min(...d.prices), highPrice: Math.max(...d.prices), offerCount: d.prices.length };

@@ -68,6 +68,28 @@ function poleSchemaHtml(shape) {
 }
 function iconOf(p) { return refItem(p.refs[0]).icon; }
 function productImage(p) { return p.thumb || (p.media.kind === 'img' ? p.media.src : null); }
+const gallery = p => p.gallery || [];
+function productImages(p) { return gallery(p).length ? gallery(p).map(g => g.src) : [productImage(p)].filter(Boolean); }
+const galAlt = (p, it) => `${productName(p)} — ${tr(it.cap)}`;
+
+function galleryHtml(p, gi) {
+  const g = gallery(p), n = g.length, cur = g[gi];
+  return `
+    <div class="gal">
+      <div class="gal-stage">
+        <button type="button" class="gal-main" data-gal-open aria-label="${esc(t('g_zoom'))}">
+          <img id="gal-img" src="${ROOT}${cur.src}" alt="${esc(galAlt(p, cur))}"${cur.photo ? ' class="is-photo"' : ''}>
+        </button>
+        <button type="button" class="gal-nav prev" data-gal-step="-1" aria-label="${esc(t('g_prev'))}"><iconify-icon icon="lucide:chevron-left"></iconify-icon></button>
+        <button type="button" class="gal-nav next" data-gal-step="1" aria-label="${esc(t('g_next'))}"><iconify-icon icon="lucide:chevron-right"></iconify-icon></button>
+        <span class="gal-count" id="gal-count">${gi + 1} / ${n}</span>
+      </div>
+      <p class="gal-cap" id="gal-cap">${esc(tr(cur.cap))}</p>
+      <div class="gal-thumbs" role="group" aria-label="${esc(t('g_gallery'))}">
+        ${g.map((it, i) => `<button type="button" class="gal-thumb${it.photo ? ' is-photo' : ''}" data-gal-to="${i}" aria-label="${esc(t('g_photo').replace('{i}', i + 1).replace('{n}', n) + ': ' + tr(it.cap))}"${i === gi ? ' aria-current="true"' : ''}><img src="${ROOT}${it.src}" alt="" loading="lazy"></button>`).join('')}
+      </div>
+    </div>`;
+}
 
 /* small visual for related cards */
 function thumbHtml(p) {
@@ -90,12 +112,15 @@ function renderCrumbs(p) {
     + `<a href="${ROOT}katalog.html#${CAT_ANCHOR[p.cat]}">${t(CAT_LABEL[p.cat])}</a>${sep}<span aria-current="page">${esc(productName(p))}</span>`;
 }
 
-function renderHero(p, vi) {
+function renderHero(p, vi, gi = 0) {
   const vs = variants(p);
   const name = productName(p);
   const cur = vs[vi] || vs[0];
+  const hasGallery = gallery(p).length > 1;
   let media;
-  if (p.media.kind === 'ai') {
+  if (hasGallery) {
+    media = galleryHtml(p, gi);
+  } else if (p.media.kind === 'ai') {
     media = `<figure class="feature-photo"><img src="${ROOT}assets/img/products/p-crossing-night.webp" width="656" height="314" alt="${esc(name)}"><figcaption>${t('ai_photo')}</figcaption></figure>`
       + `<img class="feature-cutout" src="${ROOT}assets/img/products/p-crossing-columns.webp" width="876" height="388" alt="" loading="lazy">`;
   } else if (p.media.kind === 'pole') {
@@ -115,7 +140,7 @@ function renderHero(p, vi) {
   const price = cur ? money(cur.price) : t('price_request');
   const note = vs.length > 1 ? `<a class="pp-price-note" href="#variantlar">${t('pp_n_variants').replace('{n}', vs.length)}</a>` : '';
   return `
-    <div class="pp-media ${p.media.kind}">${media}</div>
+    <div class="pp-media ${hasGallery ? 'gallery' : p.media.kind}">${media}</div>
     <div class="pp-info">
       <a class="badge" href="${ROOT}katalog.html#${CAT_ANCHOR[p.cat]}">${t(CAT_LABEL[p.cat])}</a>
       <h1>${esc(name)}</h1>
@@ -184,12 +209,96 @@ function renderRelated(p) {
 /* ---- browser: mount + re-render on language change ---- */
 if (typeof document !== 'undefined') {
   const P = findProduct(document.body.dataset.slug);
-  let vi = 0;
+  const G = gallery(P);
+  let vi = 0, gi = 0;
   const heroEl = document.getElementById('pp-hero');
   function mountHero() {
-    heroEl.innerHTML = renderHero(P, vi);
+    heroEl.innerHTML = renderHero(P, vi, gi);
     const sel = document.getElementById('pp-variant');
     if (sel) sel.addEventListener('change', () => { vi = +sel.value; mountHero(); document.getElementById('pp-variant').focus(); });
+  }
+
+  /* gallery: swap the stage in place (no re-render → focus and scroll stay put) */
+  function showPhoto(i) {
+    gi = (i + G.length) % G.length;
+    const it = G[gi], img = document.getElementById('gal-img');
+    if (!img) return;
+    img.src = ROOT + it.src; img.alt = galAlt(P, it); img.classList.toggle('is-photo', !!it.photo);
+    document.getElementById('gal-cap').textContent = tr(it.cap);
+    document.getElementById('gal-count').textContent = `${gi + 1} / ${G.length}`;
+    heroEl.querySelectorAll('[data-gal-to]').forEach(b => {
+      const on = +b.dataset.galTo === gi;
+      b.toggleAttribute('aria-current', on);
+      if (on) b.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+    new Image().src = ROOT + G[(gi + 1) % G.length].src; /* warm the next one */
+    if (lb && !lb.hidden) paintLightbox();
+  }
+  heroEl.addEventListener('click', e => {
+    const to = e.target.closest('[data-gal-to]'), step = e.target.closest('[data-gal-step]');
+    if (to) showPhoto(+to.dataset.galTo);
+    else if (step) showPhoto(gi + +step.dataset.galStep);
+    else if (e.target.closest('[data-gal-open]')) openLightbox(e.target.closest('[data-gal-open]'));
+  });
+  heroEl.addEventListener('keydown', e => {
+    if (!e.target.closest('.gal') || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+    e.preventDefault(); showPhoto(gi + (e.key === 'ArrowRight' ? 1 : -1));
+  });
+  function onSwipe(el, fn, only) {
+    let x0 = null;
+    el.addEventListener('pointerdown', e => { x0 = !only || e.target.closest(only) ? e.clientX : null; });
+    el.addEventListener('pointerup', e => { if (x0 !== null && Math.abs(e.clientX - x0) > 45) fn(e.clientX < x0 ? 1 : -1); x0 = null; });
+  }
+  onSwipe(heroEl, d => showPhoto(gi + d), '.gal-stage');
+
+  /* lightbox: full-screen view, keyboard + swipe, focus returns to the opener */
+  let lb = null, opener = null;
+  function paintLightbox() {
+    const it = G[gi], img = lb.querySelector('img');
+    img.src = ROOT + it.src; img.alt = galAlt(P, it);
+    lb.querySelector('figcaption').textContent = tr(it.cap);
+    lb.querySelector('.lb-count').textContent = t('g_photo').replace('{i}', gi + 1).replace('{n}', G.length);
+    lb.setAttribute('aria-label', `${t('g_gallery')}: ${productName(P)}`);
+    lb.querySelector('.lb-close').setAttribute('aria-label', t('g_close'));
+    lb.querySelector('.lb-nav.prev').setAttribute('aria-label', t('g_prev'));
+    lb.querySelector('.lb-nav.next').setAttribute('aria-label', t('g_next'));
+  }
+  function openLightbox(from) {
+    if (!lb) {
+      lb = document.createElement('div');
+      lb.className = 'lightbox'; lb.hidden = true;
+      lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true');
+      lb.innerHTML = `<span class="lb-count"></span>
+        <button type="button" class="lb-close"><iconify-icon icon="lucide:x"></iconify-icon></button>
+        <button type="button" class="lb-nav prev"><iconify-icon icon="lucide:chevron-left"></iconify-icon></button>
+        <figure><img alt=""><figcaption></figcaption></figure>
+        <button type="button" class="lb-nav next"><iconify-icon icon="lucide:chevron-right"></iconify-icon></button>`;
+      document.body.appendChild(lb);
+      lb.addEventListener('click', e => {
+        if (e.target.closest('.lb-close') || e.target === lb) closeLightbox();
+        else if (e.target.closest('.lb-nav')) showPhoto(gi + (e.target.closest('.next') ? 1 : -1));
+      });
+      onSwipe(lb.querySelector('figure'), d => showPhoto(gi + d));
+      lb.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') showPhoto(gi + (e.key === 'ArrowRight' ? 1 : -1));
+        else if (e.key === 'Tab') { /* keep focus inside the dialog */
+          const f = [...lb.querySelectorAll('button')], i = f.indexOf(document.activeElement);
+          e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+        }
+      });
+    }
+    opener = from;
+    paintLightbox();
+    lb.hidden = false;
+    document.body.classList.add('lb-open');
+    lb.querySelector('.lb-close').focus();
+  }
+  function closeLightbox() {
+    lb.hidden = true;
+    document.body.classList.remove('lb-open');
+    const back = document.querySelector('[data-gal-open]') || opener;
+    if (back) back.focus();
   }
   function mount() {
     document.title = `${productName(P)} — INNO TEXNO`;
@@ -197,6 +306,7 @@ if (typeof document !== 'undefined') {
     mountHero();
     document.getElementById('pp-details').innerHTML = renderDetails(P);
     document.getElementById('pp-related').innerHTML = renderRelated(P);
+    if (lb && !lb.hidden) paintLightbox();
   }
   mount();
   document.addEventListener('langchange', mount);

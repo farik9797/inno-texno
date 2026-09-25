@@ -378,6 +378,41 @@ Object.assign(I18N.en, {
   pole_g_desc: "A cantilever pole carries the signal head over the carriageway: pole {sec}, height {h}. Choose the cantilever section and length — {range}."
 });
 
+/* ---- product gallery ---- */
+Object.assign(I18N.uz, {
+  g_gallery: "Fotogalereya", g_zoom: "Kattalashtirish", g_prev: "Oldingi foto", g_next: "Keyingi foto", g_close: "Yopish",
+  g_photo: "Foto {i} / {n}",
+  g_view_main: "Umumiy ko'rinish", g_side: "Yon tomondan", g_back: "Orqa tomondan", g_on: "Yoqilgan holatda", g_off: "O'chirilgan holatda",
+  g_timer: "Raqamli taymer ishlamoqda", g_ped_red: "Qizil signal va taymer",
+  g_ss_front: "Old tomondan", g_ss_top: "Yuqoridan, yon tomondan", g_ss_mount: "Quyosh paneli ustuni",
+  g_ai_day1: "Kunduzi: piyodalar o'tish joyida", g_ai_day2: "So'rov tugmasi boshqaruv ustunida",
+  g_ai_red: "Qizil signal: piyodalar kutadi", g_ai_green: "Yashil signal: o'tish mumkin",
+  g_ai_close1: "Boshqaruv ustuni yaqindan", g_ai_close2: "O'tish joyi va boshqaruv ustuni",
+  g_ai_cols: "Boshqaruv ustunlari: «YURING» va «TO'XTANG»", g_ai_mod: "LED modullar: 240 sm va 40 sm"
+});
+Object.assign(I18N.ru, {
+  g_gallery: "Фотогалерея", g_zoom: "Увеличить", g_prev: "Предыдущее фото", g_next: "Следующее фото", g_close: "Закрыть",
+  g_photo: "Фото {i} из {n}",
+  g_view_main: "Общий вид", g_side: "Вид сбоку", g_back: "Вид сзади", g_on: "Во включённом состоянии", g_off: "В выключенном состоянии",
+  g_timer: "Работает цифровой таймер", g_ped_red: "Красный сигнал и таймер",
+  g_ss_front: "Вид спереди", g_ss_top: "Вид сверху и сбоку", g_ss_mount: "Опора с солнечной панелью",
+  g_ai_day1: "Днём: пешеходы на переходе", g_ai_day2: "Кнопка запроса на колонне управления",
+  g_ai_red: "Красный сигнал: пешеходы ждут", g_ai_green: "Зелёный сигнал: можно переходить",
+  g_ai_close1: "Колонна управления крупным планом", g_ai_close2: "Переход и колонна управления",
+  g_ai_cols: "Колонны управления: «YURING» и «TO'XTANG»", g_ai_mod: "LED-модули: 240 см и 40 см"
+});
+Object.assign(I18N.en, {
+  g_gallery: "Photo gallery", g_zoom: "Enlarge", g_prev: "Previous photo", g_next: "Next photo", g_close: "Close",
+  g_photo: "Photo {i} of {n}",
+  g_view_main: "General view", g_side: "Side view", g_back: "Rear view", g_on: "Switched on", g_off: "Switched off",
+  g_timer: "Countdown timer running", g_ped_red: "Red signal with timer",
+  g_ss_front: "Front view", g_ss_top: "Top-side view", g_ss_mount: "Solar panel mount",
+  g_ai_day1: "Daytime: pedestrians on the crossing", g_ai_day2: "Request button on the control column",
+  g_ai_red: "Red signal: pedestrians wait", g_ai_green: "Green signal: crossing allowed",
+  g_ai_close1: "Control column close-up", g_ai_close2: "The crossing and a control column",
+  g_ai_cols: "Control columns: “YURING” (go) and “TO'XTANG” (stop)", g_ai_mod: "LED modules: 240 cm and 40 cm"
+});
+
 /* ---- language state + formatting: shared by all pages and by tools/build-products.mjs ---- */
 function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
 function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }

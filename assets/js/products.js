@@ -1,9 +1,21 @@
 /* INNO TEXNO — product pages: one page per product model; variants (heights, cantilevers, W, Ah) share a page.
    refs point into CATALOG as "<list>:<id>" (prices come from there only).
-   Text fields: {uz,ru,en}, "@i18n_key", or a literal string. Pole names/descriptions/specs are generated. */
+   Text fields: {uz,ru,en}, "@i18n_key", or a literal string. Pole names/descriptions/specs are generated.
+   gallery (optional, ≥2 items → photo gallery on the page): [{ src, cap, photo? }] — photo: rectangular shot, else a cut-out. */
 const PRODUCTS = [
   {
     slug: 'aqlli-piyodalar-otish-joyi', cat: 'smart', form: 'aqlli-otish', refs: ['systems:ai-crossing'],
+    gallery: [
+      { src: 'assets/img/products/p-crossing-night.webp', cap: '@ai_photo', photo: true },
+      { src: 'assets/img/gallery/aqlli-piyodalar-otish-joyi-2.webp', cap: '@g_ai_day1', photo: true },
+      { src: 'assets/img/gallery/aqlli-piyodalar-otish-joyi-3.webp', cap: '@g_ai_day2', photo: true },
+      { src: 'assets/img/gallery/aqlli-piyodalar-otish-joyi-4.webp', cap: '@g_ai_red', photo: true },
+      { src: 'assets/img/gallery/aqlli-piyodalar-otish-joyi-5.webp', cap: '@g_ai_green', photo: true },
+      { src: 'assets/img/gallery/aqlli-piyodalar-otish-joyi-6.webp', cap: '@g_ai_close1', photo: true },
+      { src: 'assets/img/gallery/aqlli-piyodalar-otish-joyi-7.webp', cap: '@g_ai_close2', photo: true },
+      { src: 'assets/img/products/p-crossing-columns.webp', cap: '@g_ai_cols' },
+      { src: 'assets/img/gallery/aqlli-piyodalar-otish-joyi-9.webp', cap: '@g_ai_mod' }
+    ],
     media: { kind: 'ai' }, thumb: 'assets/img/products/p-crossing-night.webp', photo: true,
     name: '@ai_name', desc: '@ai_goal', extra: 'ai',
     specs: [['@sp1', '@sv1'], ['@sp2', '@sv2'], ['@sp3', '@sv3'], ['@sp4', '@sv4'], ['@sp5', '@sv5'], ['@sp6', '@sv6'], ['@sp7', '@sv7']],
@@ -11,6 +23,12 @@ const PRODUCTS = [
   },
   {
     slug: 'aqlli-yol-belgisi', cat: 'smart', form: 'aqlli-belgi', refs: [],
+    gallery: [
+      { src: 'assets/img/products/p-smart-sign.webp', cap: '@g_view_main' },
+      { src: 'assets/img/gallery/aqlli-yol-belgisi-2.webp', cap: '@g_ss_front' },
+      { src: 'assets/img/gallery/aqlli-yol-belgisi-3.webp', cap: '@g_ss_top' },
+      { src: 'assets/img/gallery/aqlli-yol-belgisi-4.webp', cap: '@g_ss_mount' }
+    ],
     media: { kind: 'img', src: 'assets/img/products/p-smart-sign.webp' },
     name: '@ss_name', desc: '@ss_desc', extra: 'sign',
     specs: [['@sk_energy', '@ss_f1'], ['@sk_display', '@ss_f3'], ['@sk_patent', '№ SAP 2888'], ['@sk_reg', '03.07.2026']],
@@ -18,6 +36,11 @@ const PRODUCTS = [
   },
   {
     slug: 'svetofor-taymerli', cat: 'lights', form: 'transport', refs: ['lights:light-timer'],
+    gallery: [
+      { src: 'assets/img/products/p-light-timer.webp', cap: '@g_view_main' },
+      { src: 'assets/img/gallery/svetofor-taymerli-2.webp', cap: '@g_timer' },
+      { src: 'assets/img/gallery/svetofor-taymerli-3.webp', cap: '@g_side' }
+    ],
     media: { kind: 'img', src: 'assets/img/products/p-light-timer.webp' },
     desc: {
       uz: "Chorrahalar va magistrallar uchun uch seksiyali LED transport svetofori raqamli taymer bilan: haydovchi signal almashishiga qancha vaqt qolganini ko'radi.",
@@ -29,6 +52,12 @@ const PRODUCTS = [
   },
   {
     slug: 'svetofor-taymersiz', cat: 'lights', form: 'transport', refs: ['lights:light'],
+    gallery: [
+      { src: 'assets/img/products/p-light.webp', cap: '@g_view_main' },
+      { src: 'assets/img/gallery/svetofor-taymersiz-2.webp', cap: '@g_on' },
+      { src: 'assets/img/gallery/svetofor-taymersiz-3.webp', cap: '@g_off' },
+      { src: 'assets/img/gallery/svetofor-taymersiz-4.webp', cap: '@g_side' }
+    ],
     media: { kind: 'img', src: 'assets/img/products/p-light.webp' },
     desc: {
       uz: "Chorrahalar va magistrallar uchun klassik uch seksiyali LED transport svetofori: qizil, sariq va yashil signallar.",
@@ -40,6 +69,12 @@ const PRODUCTS = [
   },
   {
     slug: 'piyodalar-svetofori', cat: 'lights', form: 'piyoda', refs: ['lights:light-ped'],
+    gallery: [
+      { src: 'assets/img/products/p-ped.webp', cap: '@g_view_main' },
+      { src: 'assets/img/gallery/piyodalar-svetofori-2.webp', cap: '@g_ped_red' },
+      { src: 'assets/img/gallery/piyodalar-svetofori-3.webp', cap: '@g_off' },
+      { src: 'assets/img/gallery/piyodalar-svetofori-4.webp', cap: '@g_back' }
+    ],
     media: { kind: 'img', src: 'assets/img/products/p-ped.webp' },
     desc: {
       uz: "Piyodalar o'tish joylari uchun LED svetofor: «to'xtang» va «yuring» signallari piyodalarga aniq ko'rinadi.",
