@@ -507,6 +507,74 @@ Object.assign(I18N.en, {
   cp_steps_t: "What happens after your request"
 });
 
+/* ---- services page (content from the client's brief) ---- */
+Object.assign(I18N.uz, {
+  nav_services: "Xizmatlar", sv_title: "Xizmatlar — INNO TEXNO", sv_h1: "Xizmatlar",
+  sv_lead: "Texnik maslahatdan o'rnatish va kafolatli xizmatgacha — svetofor ob'ektini to'liq tayyorlab beramiz.",
+  sv_free: "Bepul", sv_b1: "Yetkazib berish — bepul", sv_b2: "O'rnatish — bepul", sv_b3: "Servis — bepul", sv_b4: "Kafolat — 1 yil",
+  sv_tag_service: "Servis bepul", sv_list_t: "Nimalarni bajaramiz", sv_cta: "So'rov yuborish",
+  sv1t: "Texnik maslahat va tijorat taklifi", sv1d: "Ob'ektingiz uchun texnik talablarni kelishamiz, mos mahsulotlarni tanlaymiz va tijorat taklifini tayyorlaymiz.",
+  sv1a: "Texnik talablarni kelishish", sv1b: "Mahsulot va variantlarni tanlash", sv1c: "Tijorat taklifi va shartnoma",
+  sv2t: "Yetkazib berish", sv2d: "O'zbekistonning barcha viloyatlariga bepul yetkazib beramiz, MDH mamlakatlariga — shartnoma asosida.",
+  sv2a: "Barcha viloyatlarga — bepul", sv2b: "Ulgurji va shartnoma asosida", sv2c: "MDH mamlakatlariga",
+  sv3t: "O'rnatish va sozlash", sv3d: "Svetoforlar va jihozlarni ob'ektda o'rnatamiz va sozlaymiz — bepul.",
+  sv3a: "Ob'ektda montaj", sv3b: "Sozlash va tekshirish", sv3c: "Barcha viloyatlarda",
+  sv4t: "Kafolat", sv4d: "Barcha mahsulotlarga 1 yil rasmiy kafolat. Ishlab chiqarish nuqsoni aniqlansa — mahsulot almashtirib beriladi.",
+  sv4a: "1 yil rasmiy kafolat", sv4b: "Nuqsonli mahsulotni almashtirish", sv4c: "Kafolatdan keyin ham servis",
+  sv5t: "Servis va ta'mirlash", sv5d: "Svetoforlar va yo'l jihozlariga servis xizmati ko'rsatamiz va ularni ta'mirlaymiz. Servis xizmati — bepul.",
+  sv5a: "Bepul servis xizmati", sv5b: "Svetoforlar va jihozlarni ta'mirlash", sv5c: "Doimiy ehtiyot qismlar bazasi",
+  sv6t: "Ehtiyot qismlar va individual buyurtmalar", sv6d: "Tayyor korpuslar va ehtiyot qismlarni alohida sotamiz, svetofor platalarini individual talablar bo'yicha yig'amiz.",
+  sv6a: "Tayyor korpuslar", sv6b: "Ehtiyot qismlar", sv6c: "Individual platalarni yig'ish",
+  sv_terms_t: "Shartlar", sv_disc_t: "Chegirmalar", sv_geo_t: "Geografiya", sv_docs_t: "Hujjatlar",
+  sv_docs_d: "Sanoat namunasi patenti va davlat reestridan ko'chirma — PDF formatida.",
+  sv_form_t: "Xizmatga buyurtma bering", sv_form_d: "Qaysi xizmat kerakligini yozing — mas'ul xodim siz bilan bog'lanib, shartlarni kelishadi.",
+  fm_p8: "Xizmat (o'rnatish, servis, ta'mirlash)"
+});
+Object.assign(I18N.ru, {
+  nav_services: "Услуги", sv_title: "Услуги — INNO TEXNO", sv_h1: "Услуги",
+  sv_lead: "От технической консультации до монтажа и гарантийного обслуживания — подготовим светофорный объект под ключ.",
+  sv_free: "Бесплатно", sv_b1: "Доставка — бесплатно", sv_b2: "Монтаж — бесплатно", sv_b3: "Сервис — бесплатно", sv_b4: "Гарантия — 1 год",
+  sv_tag_service: "Сервис бесплатно", sv_list_t: "Что мы делаем", sv_cta: "Отправить запрос",
+  sv1t: "Техническая консультация и КП", sv1d: "Согласуем технические требования объекта, подберём подходящую продукцию и подготовим коммерческое предложение.",
+  sv1a: "Согласование техтребований", sv1b: "Подбор продукции и вариантов", sv1c: "Коммерческое предложение и договор",
+  sv2t: "Доставка", sv2d: "Бесплатно доставляем во все области Узбекистана, в страны СНГ — по договору.",
+  sv2a: "Во все области — бесплатно", sv2b: "Оптом и по договору", sv2c: "В страны СНГ",
+  sv3t: "Монтаж и настройка", sv3d: "Устанавливаем и настраиваем светофоры и оборудование на объекте — бесплатно.",
+  sv3a: "Монтаж на объекте", sv3b: "Настройка и проверка", sv3c: "Во всех областях",
+  sv4t: "Гарантия", sv4d: "Официальная гарантия 1 год на всю продукцию. При производственном браке изделие заменяем.",
+  sv4a: "Официальная гарантия 1 год", sv4b: "Замена изделия при браке", sv4c: "Сервис и после гарантии",
+  sv5t: "Сервис и ремонт", sv5d: "Обслуживаем и ремонтируем светофоры и дорожное оборудование. Сервисное обслуживание — бесплатно.",
+  sv5a: "Бесплатное сервисное обслуживание", sv5b: "Ремонт светофоров и оборудования", sv5c: "Постоянный склад запчастей",
+  sv6t: "Запчасти и индивидуальные заказы", sv6d: "Продаём готовые корпуса и запчасти отдельно, собираем платы светофоров по индивидуальным требованиям.",
+  sv6a: "Готовые корпуса", sv6b: "Запчасти", sv6c: "Сборка плат под заказ",
+  sv_terms_t: "Условия", sv_disc_t: "Скидки", sv_geo_t: "География", sv_docs_t: "Документы",
+  sv_docs_d: "Патент на промышленный образец и выписка из госреестра — в PDF.",
+  sv_form_t: "Закажите услугу", sv_form_d: "Напишите, какая услуга нужна, — ответственный сотрудник свяжется с вами и согласует условия.",
+  fm_p8: "Услуга (монтаж, сервис, ремонт)"
+});
+Object.assign(I18N.en, {
+  nav_services: "Services", sv_title: "Services — INNO TEXNO", sv_h1: "Services",
+  sv_lead: "From technical consulting to installation and warranty service — we deliver the traffic signal site turnkey.",
+  sv_free: "Free", sv_b1: "Delivery — free", sv_b2: "Installation — free", sv_b3: "Service — free", sv_b4: "Warranty — 1 year",
+  sv_tag_service: "Free service", sv_list_t: "What we do", sv_cta: "Send a request",
+  sv1t: "Technical consulting & quote", sv1d: "We agree the technical requirements of your site, select the right products and prepare a commercial offer.",
+  sv1a: "Agreeing technical requirements", sv1b: "Selecting products and variants", sv1c: "Commercial offer and contract",
+  sv2t: "Delivery", sv2d: "Free delivery to every region of Uzbekistan; to CIS countries — under contract.",
+  sv2a: "Every region — free", sv2b: "Wholesale and under contract", sv2c: "To CIS countries",
+  sv3t: "Installation & setup", sv3d: "We install and set up traffic lights and equipment on site — free of charge.",
+  sv3a: "On-site installation", sv3b: "Setup and checks", sv3c: "In every region",
+  sv4t: "Warranty", sv4d: "A 1-year official warranty on all products. Manufacturing defects — we replace the unit.",
+  sv4a: "1-year official warranty", sv4b: "Replacement of defective units", sv4c: "Service after the warranty too",
+  sv5t: "Service & repair", sv5d: "We service and repair traffic lights and road equipment. Maintenance service is free.",
+  sv5a: "Free maintenance service", sv5b: "Repair of traffic lights and equipment", sv5c: "Permanent spare-parts stock",
+  sv6t: "Spare parts & custom orders", sv6d: "Ready-made housings and spare parts sold separately; traffic light boards assembled to individual requirements.",
+  sv6a: "Ready-made housings", sv6b: "Spare parts", sv6c: "Custom board assembly",
+  sv_terms_t: "Terms", sv_disc_t: "Discounts", sv_geo_t: "Coverage", sv_docs_t: "Documents",
+  sv_docs_d: "Industrial design patent and state register extract — as PDF.",
+  sv_form_t: "Order a service", sv_form_d: "Tell us which service you need — the responsible manager will contact you and agree the terms.",
+  fm_p8: "Service (installation, maintenance, repair)"
+});
+
 /* ---- language state + formatting: shared by all pages and by tools/build-products.mjs ---- */
 function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
 function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }

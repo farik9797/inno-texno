@@ -1,5 +1,5 @@
 <!-- Body of kompaniya.html (inside <main>). Built by tools/build-products.mjs: shared header/footer/order form
-     come from katalog.html. {{js:…}} is evaluated with the site scripts (lang = uz) for the static SEO text. -->
+     come from katalog.html. {{js:…}} → escaped text, {{html:…}} → raw markup; both evaluated with the site scripts (lang = uz). -->
 <div class="page-hero ab-hero">
   <div class="wrap ab-hero-in">
     <div>
@@ -93,7 +93,7 @@
       <h2 data-i18n="ab_geo_t">Yetkazib berish geografiyasi</h2>
       <p data-i18n="ab_geo_d">{{js:t('ab_geo_d')}}</p>
     </div>
-    <ul class="ab-regions" id="ab-regions">{{js:regionsHtml()}}</ul>
+    <ul class="ab-regions" id="ab-regions">{{html:regionsHtml()}}</ul>
   </div>
 </section>
 

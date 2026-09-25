@@ -12,7 +12,7 @@ const read = f => fs.readFileSync(path.join(ROOT_DIR, f), 'utf8');
 
 // same renderer as the browser: run the page scripts in one shared context (lang = uz)
 const ctx = vm.createContext({ console });
-for (const f of ['assets/js/i18n.js', 'assets/js/catalog-data.js', 'assets/js/products.js', 'assets/js/product.js', 'assets/js/kompaniya.js']) {
+for (const f of ['assets/js/i18n.js', 'assets/js/catalog-data.js', 'assets/js/products.js', 'assets/js/product.js', 'assets/js/kompaniya.js', 'assets/js/xizmatlar.js']) {
   vm.runInContext(read(f), ctx, { filename: f });
 }
 const run = code => JSON.parse(vm.runInContext(`JSON.stringify(${code})`, ctx));
@@ -124,13 +124,16 @@ const PAGES = [
   // the form is placed in the body via {{form}}; contact data are still placeholders → not put into JSON-LD
   { src: 'tools/pages/aloqa.html', out: 'aloqa.html', title: 'cp_title', desc: 'cp_lead', order: false,
     scripts: ['assets/js/aloqa.js'], ld: { '@type': 'ContactPage', name: 'INNO TEXNO', url: `${BASE}aloqa.html` } },
+  { src: 'tools/pages/xizmatlar.html', out: 'xizmatlar.html', title: 'sv_title', desc: 'sv_lead',
+    scripts: ['assets/js/xizmatlar.js'], orderTitle: ['sv_form_t', 'sv_form_d'], ldExpr: 'servicesLd()' },
 ];
 for (const pg of PAGES) {
   const url = BASE + pg.out;
   const title = run(`t(${JSON.stringify(pg.title)})`), desc = run(`t(${JSON.stringify(pg.desc)})`);
   const body = read(pg.src).replace(/^<!--[\s\S]*?-->\n/, '')                 // drop the authoring note
     .replace('{{form}}', formRaw)
-    .replace(/\{\{js:([^}]+)\}\}/g, (_, expr) => escAttr(run(expr)));       // static UZ text for SEO
+    .replace(/\{\{html:([^}]+)\}\}/g, (_, expr) => String(run(expr)))       // markup built by a page script
+    .replace(/\{\{js:([^}]+)\}\}/g, (_, expr) => escAttr(run(expr)));       // static UZ text (escaped) for SEO
   const chromePg = chromeRaw
     .replace(/ class="active" aria-current="page"/g, '')                      // katalog.html marks itself active
     .replace(new RegExp(`<a href="${pg.out.replace('.', '\\.')}"`, 'g'), `<a href="${pg.out}" class="active" aria-current="page"`);
@@ -138,7 +141,7 @@ for (const pg of PAGES) {
   if (pg.orderTitle) orderPg = orderPg
     .replace(/data-i18n="ct_title">[^<]*/, `data-i18n="${pg.orderTitle[0]}">${run(`t(${JSON.stringify(pg.orderTitle[0])})`)}`)
     .replace(/data-i18n="ct_sub">[^<]*/, `data-i18n="${pg.orderTitle[1]}">${run(`t(${JSON.stringify(pg.orderTitle[1])})`)}`);
-  const ld = { '@context': 'https://schema.org', ...pg.ld, description: desc };
+  const ld = { '@context': 'https://schema.org', ...(pg.ldExpr ? run(pg.ldExpr) : { ...pg.ld, description: desc }) };
   const html = `<!DOCTYPE html>
 <html lang="uz">
 <head>

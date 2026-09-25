@@ -1,0 +1,65 @@
+<!-- Body of xizmatlar.html (inside <main>). Built by tools/build-products.mjs: header/footer/order form come from katalog.html.
+     {{js:…}} → escaped text, {{html:…}} → raw markup; both evaluated with the site scripts (lang = uz). Content: the client's brief. -->
+<div class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html" data-i18n="crumb_home">Bosh sahifa</a>
+      <iconify-icon icon="lucide:chevron-right" aria-hidden="true"></iconify-icon>
+      <span aria-current="page" data-i18n="nav_services">Xizmatlar</span>
+    </nav>
+    <h1 data-i18n="sv_h1">Xizmatlar</h1>
+    <p data-i18n="sv_lead">{{js:t('sv_lead')}}</p>
+    <ul class="sv-badges">
+      <li><iconify-icon icon="lucide:truck"></iconify-icon><span data-i18n="sv_b1">{{js:t('sv_b1')}}</span></li>
+      <li><iconify-icon icon="lucide:hard-hat"></iconify-icon><span data-i18n="sv_b2">{{js:t('sv_b2')}}</span></li>
+      <li><iconify-icon icon="lucide:wrench"></iconify-icon><span data-i18n="sv_b3">{{js:t('sv_b3')}}</span></li>
+      <li><iconify-icon icon="lucide:shield-check"></iconify-icon><span data-i18n="sv_b4">{{js:t('sv_b4')}}</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="k-sec alt" id="xizmatlar">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="sv_list_t">Nimalarni bajaramiz</h2></div>
+    <div class="sv-grid">{{html:servicesHtml()}}
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="proc_title">{{js:t('proc_title')}}</h2></div>
+    <div class="proc-grid">
+      <div class="proc-step"><h3 data-i18n="s1t">{{js:t('s1t')}}</h3><p data-i18n="s1d">{{js:t('s1d')}}</p></div>
+      <div class="proc-step"><h3 data-i18n="s2t">{{js:t('s2t')}}</h3><p data-i18n="s2d">{{js:t('s2d')}}</p></div>
+      <div class="proc-step"><h3 data-i18n="s3t">{{js:t('s3t')}}</h3><p data-i18n="s3d">{{js:t('s3d')}}</p></div>
+      <div class="proc-step"><h3 data-i18n="s4t">{{js:t('s4t')}}</h3><p data-i18n="s4d">{{js:t('s4d')}}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="k-sec" id="shartlar">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="sv_terms_t">Shartlar</h2></div>
+    <ul class="service-list sv-terms">
+      <li><iconify-icon icon="lucide:wallet"></iconify-icon><div><b data-i18n="pp_pay_t">{{js:t('pp_pay_t')}}</b><p data-i18n="f3a">{{js:t('f3a')}}</p></div></li>
+      <li><iconify-icon icon="lucide:badge-percent"></iconify-icon><div><b data-i18n="sv_disc_t">{{js:t('sv_disc_t')}}</b><p data-i18n="f5a">{{js:t('f5a')}}</p></div></li>
+      <li><iconify-icon icon="lucide:map"></iconify-icon><div><b data-i18n="sv_geo_t">{{js:t('sv_geo_t')}}</b><p data-i18n="ab_geo_d">{{js:t('ab_geo_d')}}</p></div></li>
+      <li><iconify-icon icon="lucide:file-text"></iconify-icon><div><b data-i18n="sv_docs_t">{{js:t('sv_docs_t')}}</b><p data-i18n="sv_docs_d">{{js:t('sv_docs_d')}}</p>
+        <a class="sv-doc-link" href="kompaniya.html#sertifikatlar"><span data-i18n="cert_title">{{js:t('cert_title')}}</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="k-sec alt" id="savollar">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="faq_title">{{js:t('faq_title')}}</h2></div>
+    <div class="faq-list">
+      <details class="faq-item"><summary><span data-i18n="f1q">{{js:t('f1q')}}</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><p class="faq-a" data-i18n="f1a">{{js:t('f1a')}}</p></details>
+      <details class="faq-item"><summary><span data-i18n="f2q">{{js:t('f2q')}}</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><p class="faq-a" data-i18n="f2a">{{js:t('f2a')}}</p></details>
+      <details class="faq-item"><summary><span data-i18n="f3q">{{js:t('f3q')}}</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><p class="faq-a" data-i18n="f3a">{{js:t('f3a')}}</p></details>
+      <details class="faq-item"><summary><span data-i18n="f4q">{{js:t('f4q')}}</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><p class="faq-a" data-i18n="f4a">{{js:t('f4a')}}</p></details>
+      <details class="faq-item"><summary><span data-i18n="f5q">{{js:t('f5q')}}</span><iconify-icon icon="lucide:chevron-down"></iconify-icon></summary><p class="faq-a" data-i18n="f5a">{{js:t('f5a')}}</p></details>
+    </div>
+  </div>
+</section>

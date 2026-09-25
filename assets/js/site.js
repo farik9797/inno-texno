@@ -9,6 +9,7 @@ function applyLang(l) {
   document.querySelectorAll('[data-i18n-ph]').forEach(el => { const v = t(el.dataset.i18nPh); if (v) el.placeholder = v; });
   document.querySelectorAll('[data-i18n-aria]').forEach(el => { const v = t(el.dataset.i18nAria); if (v) el.setAttribute('aria-label', v); });
   document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+  document.querySelectorAll('[data-item-key]').forEach(b => { b.dataset.item = t(b.dataset.itemKey); if (b.dataset.priceKey) b.dataset.price = t(b.dataset.priceKey); });
   document.dispatchEvent(new CustomEvent('langchange', { detail: l })); /* pages re-render their dynamic text */
 }
 document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
@@ -71,7 +72,7 @@ if (!reduceMotion && 'IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('rv-in'); io.unobserve(en.target); } });
   }, { rootMargin: '0px 0px -10% 0px' });
-  document.querySelectorAll('.cat-grid, .why-rows, .proc-grid, .cert-grid, .testi-grid, .proj-grid, .sec-head, .ab-grid4, .ab-struct, .ab-inno, .cp-cards').forEach(grid => {
+  document.querySelectorAll('.cat-grid, .why-rows, .proc-grid, .cert-grid, .testi-grid, .proj-grid, .sec-head, .ab-grid4, .ab-struct, .ab-inno, .cp-cards, .sv-grid').forEach(grid => {
     if (grid.getBoundingClientRect().top < innerHeight * 0.9) return; /* already on screen — stay visible */
     [...grid.children].forEach((el, i) => {
       el.classList.add('rv');
