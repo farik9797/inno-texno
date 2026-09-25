@@ -478,6 +478,35 @@ Object.assign(I18N.en, {
   ab_cta_t: "Let's discuss your project", ab_cta_d: "Tell us the site, timing and volume — we'll agree the technical requirements and prepare a commercial offer."
 });
 
+/* ---- contacts page ---- */
+Object.assign(I18N.uz, {
+  cp_title: "Aloqa — INNO TEXNO", cp_h1: "Aloqa",
+  cp_lead: "Savol, buyurtma yoki tijorat taklifi bo'yicha biz bilan bog'laning — o'zingizga qulay usulni tanlang.",
+  cp_call: "Qo'ng'iroq qilish", cp_tg: "Telegram'da yozish", cp_mail: "Xat yozish", cp_map: "Xaritada ko'rish",
+  cp_form_t: "Xabar yoki buyurtma yuboring", cp_form_d: "Ma'lumotlaringizni qoldiring — mas'ul xodim siz bilan bog'lanadi.",
+  cp_map_t: "Bizning manzil", cp_map_load: "Xaritani yuklash", cp_map_note: "Xarita bosilgandan keyin Google Maps'dan yuklanadi.",
+  cp_open_google: "Google Maps'da ochish", cp_open_yandex: "Yandex Xaritalarda ochish",
+  cp_steps_t: "So'rovdan keyin nima bo'ladi"
+});
+Object.assign(I18N.ru, {
+  cp_title: "Контакты — INNO TEXNO", cp_h1: "Контакты",
+  cp_lead: "Вопрос, заказ или коммерческое предложение — выберите удобный способ связи.",
+  cp_call: "Позвонить", cp_tg: "Написать в Telegram", cp_mail: "Написать письмо", cp_map: "Показать на карте",
+  cp_form_t: "Отправьте сообщение или заявку", cp_form_d: "Оставьте свои данные — ответственный сотрудник свяжется с вами.",
+  cp_map_t: "Наш адрес", cp_map_load: "Загрузить карту", cp_map_note: "Карта загружается с Google Maps после нажатия.",
+  cp_open_google: "Открыть в Google Maps", cp_open_yandex: "Открыть в Яндекс Картах",
+  cp_steps_t: "Что будет после заявки"
+});
+Object.assign(I18N.en, {
+  cp_title: "Contacts — INNO TEXNO", cp_h1: "Contacts",
+  cp_lead: "Questions, orders or a commercial offer — choose the way to reach us that suits you.",
+  cp_call: "Call us", cp_tg: "Message on Telegram", cp_mail: "Send an email", cp_map: "Show on the map",
+  cp_form_t: "Send a message or an order", cp_form_d: "Leave your details — the responsible manager will get back to you.",
+  cp_map_t: "Our address", cp_map_load: "Load the map", cp_map_note: "The map loads from Google Maps once you click.",
+  cp_open_google: "Open in Google Maps", cp_open_yandex: "Open in Yandex Maps",
+  cp_steps_t: "What happens after your request"
+});
+
 /* ---- language state + formatting: shared by all pages and by tools/build-products.mjs ---- */
 function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
 function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }

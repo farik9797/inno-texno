@@ -25,11 +25,12 @@ const slice = (a, b) => {
   return kat.slice(i, j);
 };
 const toRoot = h => h
-  .replace(/(href|src)="((?:index|katalog|kompaniya)\.html|assets\/)/g, '$1="../$2')
+  .replace(/(href|src)="([a-z0-9-]+\.html|assets\/)/g, '$1="../$2')   // root-level pages + assets
   .replace(/ aria-current="page"/g, '');          // catalogue link stays highlighted, but this is not that page
 const chromeRaw = slice('<a class="skip-link"', '<main id="main">');
 const orderRaw = slice('<!-- ORDER -->', '</main>');
 const footerRaw = slice('<footer class="site-footer">', '<script src=');
+const formRaw = slice('<form class="contact-form" id="order-form">', '</form>') + '</form>';
 const chrome = toRoot(chromeRaw), order = toRoot(orderRaw), footer = toRoot(footerRaw);
 const iconTags = root => `<link rel="icon" href="${root}favicon.ico" sizes="32x32">
 <link rel="icon" href="${root}favicon.svg" type="image/svg+xml">
@@ -120,12 +121,16 @@ const PAGES = [
   { src: 'tools/pages/kompaniya.html', out: 'kompaniya.html', title: 'ab_title', desc: 'ab_lead',
     scripts: ['assets/js/catalog-data.js', 'assets/js/kompaniya.js'], orderTitle: ['ab_cta_t', 'ab_cta_d'],
     ld: { '@type': 'Organization', name: 'INNO TEXNO', url: BASE, logo: `${BASE}assets/img/icon-512.png` } },
+  // the form is placed in the body via {{form}}; contact data are still placeholders → not put into JSON-LD
+  { src: 'tools/pages/aloqa.html', out: 'aloqa.html', title: 'cp_title', desc: 'cp_lead', order: false,
+    scripts: ['assets/js/aloqa.js'], ld: { '@type': 'ContactPage', name: 'INNO TEXNO', url: `${BASE}aloqa.html` } },
 ];
 for (const pg of PAGES) {
   const url = BASE + pg.out;
   const title = run(`t(${JSON.stringify(pg.title)})`), desc = run(`t(${JSON.stringify(pg.desc)})`);
   const body = read(pg.src).replace(/^<!--[\s\S]*?-->\n/, '')                 // drop the authoring note
-    .replace(/\{\{js:([^}]+)\}\}/g, (_, expr) => String(run(expr)));        // static UZ text for SEO
+    .replace('{{form}}', formRaw)
+    .replace(/\{\{js:([^}]+)\}\}/g, (_, expr) => escAttr(run(expr)));       // static UZ text for SEO
   const chromePg = chromeRaw
     .replace(/ class="active" aria-current="page"/g, '')                      // katalog.html marks itself active
     .replace(new RegExp(`<a href="${pg.out.replace('.', '\\.')}"`, 'g'), `<a href="${pg.out}" class="active" aria-current="page"`);
@@ -154,7 +159,7 @@ ${iconTags('')}
 
 ${chromePg}<main id="main">
 ${body}
-${orderPg}</main>
+${pg.order === false ? '' : orderPg}</main>
 
 ${footerRaw}<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 <script src="assets/js/i18n.js"></script>

@@ -39,10 +39,11 @@
   - Schema.org `image` — массив всех фото товара
 - **Favicon (2026-09-25)**: знак логотипа (три сигнала) на тёмной плашке, собран из примитивов (rect + 3 circle, цвета = OKLCH-токены сайта → sRGB). Файлы: `favicon.svg`, `favicon.ico` (16/32/48), `apple-touch-icon.png` (180, без скругления — iOS маскирует сам), `assets/img/icon-192.png`, `icon-512.png`, `icon-512-maskable.png` (в безопасной зоне), `site.webmanifest`, `theme-color`. Подключён на всех 19 страницах (для товаров — в шаблоне `tools/build-products.mjs`)
 - **Страница «Biz haqimizda» (2026-09-25)**: `kompaniya.html` — контент только из брифа и материалов клиента: история, 4 направления деятельности, структура из 5 отделов, миссия, инновации (патент SAP 2888, ИИ-переход с ФерГТУ), география (14 регионов + СНГ), сертификаты, форма «Loyihangizni muhokama qilamiz». Факты-цифры: 65 позиций (считается из `CATALOG`), 1 год гарантии, 0 сум доставка/монтаж, патент. Schema.org Organization. Собирается сборщиком из `tools/pages/kompaniya.html` (шапка/форма/футер — из `katalog.html`). В меню «Nima uchun biz» заменён на «Biz haqimizda» (секция на главной осталась)
+- **Страница «Aloqa» (2026-09-25)**: `aloqa.html` — 4 карточки-действия (позвонить, Telegram, e-mail, адрес→карта), часы работы, форма заявки (та же, из `katalog.html` через `{{form}}`), карта по клику (Google Maps embed по тексту адреса `ci_addr_v`, до клика — ни одного запроса к Google), ссылки «открыть в Google/Yandex», 4 шага «что будет после заявки», соцсети. JSON-LD: только ContactPage (контакты-заглушки в разметку не выводим). Пункт меню «Aloqa» на всех страницах → `aloqa.html` (кнопка «Buyurtma berish» по-прежнему ведёт к форме на текущей странице)
 - GitHub: https://github.com/farik9797/inno-texno → Pages: https://farik9797.github.io/inno-texno/
 
 ## Следующие шаги
-- Заменить плейсхолдеры: телефон +998 71 200-00-00, адрес (Сергели, Санoat 12), email, соцсети (@innotexno), часы работы
+- Заменить плейсхолдеры: телефон +998 71 200-00-00, адрес (Сергели, Санoat 12), email, соцсети (@innotexno), часы работы — они в `index.html`, `katalog.html`, `tools/pages/aloqa.html` и `ci_addr_v`/`ci_hours_v` в `i18n.js`; затем `node tools/build-products.mjs`. Карта на «Aloqa» сама перейдёт на новый адрес; можно добавить contactPoint в JSON-LD
 - Бэкенд формы: POST → Telegram Bot API + CRM webhook (сейчас demo-toast); нужен токен бота и CRM от клиента
 - Фото светофоров — собственные (сейчас фото поставщика, см. «Права на фото»)
 - Цена «Aqlli yo'l belgisi» — нет в прайсе, сейчас «по запросу»

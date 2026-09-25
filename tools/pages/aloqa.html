@@ -1,0 +1,95 @@
+<!-- Body of aloqa.html (inside <main>). Built by tools/build-products.mjs: header/footer and the {{form}} come from
+     katalog.html; {{js:…}} is evaluated with the site scripts (lang = uz). The map follows the address text (ci_addr_v).
+     Phone / e-mail / social links below are the same placeholders as in index.html and katalog.html — replace all together. -->
+<div class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html" data-i18n="crumb_home">Bosh sahifa</a>
+      <iconify-icon icon="lucide:chevron-right" aria-hidden="true"></iconify-icon>
+      <span aria-current="page" data-i18n="nav_contact">Aloqa</span>
+    </nav>
+    <h1 data-i18n="cp_h1">Aloqa</h1>
+    <p data-i18n="cp_lead">{{js:t('cp_lead')}}</p>
+  </div>
+</div>
+
+<section class="cp-quick">
+  <div class="wrap">
+    <div class="cp-cards">
+      <a class="cp-card" href="tel:+998712000000">
+        <span class="equip-ic"><iconify-icon icon="lucide:phone"></iconify-icon></span>
+        <span class="cp-label" data-i18n="ci_phone">Telefon</span>
+        <b class="cp-val">+998 71 200-00-00</b>
+        <span class="cp-act"><span data-i18n="cp_call">Qo'ng'iroq qilish</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></span>
+      </a>
+      <a class="cp-card" href="https://t.me/innotexno" target="_blank" rel="noopener">
+        <span class="equip-ic"><img src="https://cdn.simpleicons.org/telegram/F5C40D" width="22" height="22" alt=""></span>
+        <span class="cp-label">Telegram</span>
+        <b class="cp-val">@innotexno</b>
+        <span class="cp-act"><span data-i18n="cp_tg">Telegram'da yozish</span><iconify-icon icon="lucide:arrow-up-right"></iconify-icon></span>
+      </a>
+      <a class="cp-card" href="mailto:info@innotexno.uz">
+        <span class="equip-ic"><iconify-icon icon="lucide:mail"></iconify-icon></span>
+        <span class="cp-label">E-mail</span>
+        <b class="cp-val">info@innotexno.uz</b>
+        <span class="cp-act"><span data-i18n="cp_mail">Xat yozish</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></span>
+      </a>
+      <a class="cp-card" href="#xarita">
+        <span class="equip-ic"><iconify-icon icon="lucide:map-pin"></iconify-icon></span>
+        <span class="cp-label" data-i18n="ci_addr">Manzil</span>
+        <b class="cp-val" data-i18n="ci_addr_v">{{js:t('ci_addr_v')}}</b>
+        <span class="cp-act"><span data-i18n="cp_map">Xaritada ko'rish</span><iconify-icon icon="lucide:arrow-down"></iconify-icon></span>
+      </a>
+    </div>
+    <p class="cp-hours"><iconify-icon icon="lucide:clock"></iconify-icon><span><span data-i18n="ci_hours">Ish vaqti</span>:</span><b data-i18n="ci_hours_v">{{js:t('ci_hours_v')}}</b></p>
+  </div>
+</section>
+
+<section class="k-sec alt" id="buyurtma">
+  <div class="wrap cp-main">
+    <div>
+      <div class="sec-head">
+        <h2 data-i18n="cp_form_t">Xabar yoki buyurtma yuboring</h2>
+        <p data-i18n="cp_form_d">{{js:t('cp_form_d')}}</p>
+      </div>
+      {{form}}
+    </div>
+    <div id="xarita" class="cp-map-col">
+      <div class="sec-head">
+        <h2 data-i18n="cp_map_t">Bizning manzil</h2>
+        <p data-i18n="ci_addr_v">{{js:t('ci_addr_v')}}</p>
+      </div>
+      <div class="cp-map" id="map" data-query="{{js:t('ci_addr_v')}}">
+        <div class="cp-map-facade">
+          <span class="cp-pin"><iconify-icon icon="lucide:map-pin"></iconify-icon></span>
+          <button type="button" class="btn" id="map-load"><iconify-icon icon="lucide:map"></iconify-icon><span data-i18n="cp_map_load">Xaritani yuklash</span></button>
+          <span class="cp-map-note" data-i18n="cp_map_note">{{js:t('cp_map_note')}}</span>
+        </div>
+      </div>
+      <div class="doc-links cp-map-links">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query={{js:encodeURIComponent(I18N.uz.ci_addr_v)}}" target="_blank" rel="noopener"><iconify-icon icon="lucide:external-link"></iconify-icon><span data-i18n="cp_open_google">Google Maps'da ochish</span></a>
+        <a href="https://yandex.uz/maps/?text={{js:encodeURIComponent(I18N.uz.ci_addr_v)}}" target="_blank" rel="noopener"><iconify-icon icon="lucide:external-link"></iconify-icon><span data-i18n="cp_open_yandex">Yandex Xaritalarda ochish</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="k-sec">
+  <div class="wrap">
+    <div class="sec-head"><h2 data-i18n="cp_steps_t">So'rovdan keyin nima bo'ladi</h2></div>
+    <div class="proc-grid">
+      <div class="proc-step"><h3 data-i18n="s1t">{{js:t('s1t')}}</h3><p data-i18n="s1d">{{js:t('s1d')}}</p></div>
+      <div class="proc-step"><h3 data-i18n="s2t">{{js:t('s2t')}}</h3><p data-i18n="s2d">{{js:t('s2d')}}</p></div>
+      <div class="proc-step"><h3 data-i18n="s3t">{{js:t('s3t')}}</h3><p data-i18n="s3d">{{js:t('s3d')}}</p></div>
+      <div class="proc-step"><h3 data-i18n="s4t">{{js:t('s4t')}}</h3><p data-i18n="s4d">{{js:t('s4d')}}</p></div>
+    </div>
+    <div class="cp-social">
+      <span class="ci-label" data-i18n="ci_soc">Ijtimoiy tarmoqlar</span>
+      <div class="contact-socials">
+        <a href="https://t.me/innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/telegram/EDEDF0" width="16" height="16" alt="">Telegram</a>
+        <a href="https://instagram.com/innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/EDEDF0" width="16" height="16" alt="">Instagram</a>
+        <a href="https://youtube.com/@innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/EDEDF0" width="16" height="16" alt="">YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
