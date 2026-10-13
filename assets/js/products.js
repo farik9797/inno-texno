@@ -1,5 +1,5 @@
 /* INNO TEXNO — product pages: one page per product model; variants (heights, cantilevers, W, Ah) share a page.
-   refs point into CATALOG as "<list>:<id>" (prices come from there only).
+   refs point into CATALOG as "<list>:<id>" (no prices anywhere: «narxi kelishiladi»).
    Text fields: {uz,ru,en}, "@i18n_key", or a literal string. Pole names/descriptions/specs are generated.
    gallery (optional, ≥2 items → photo gallery on the page): [{ src, cap, photo? }] — photo: rectangular shot, else a cut-out. */
 const PRODUCTS = [

@@ -1,6 +1,6 @@
 /* INNO TEXNO — behaviour shared by every page (load after i18n.js, before page scripts). */
 
-/* ============ i18n: language state and t()/fmt()/money() live in i18n.js ============ */
+/* ============ i18n: language state and t() live in i18n.js ============ */
 function applyLang(l) {
   lang = l;
   storageSet('it-lang', l);
@@ -9,7 +9,7 @@ function applyLang(l) {
   document.querySelectorAll('[data-i18n-ph]').forEach(el => { const v = t(el.dataset.i18nPh); if (v) el.placeholder = v; });
   document.querySelectorAll('[data-i18n-aria]').forEach(el => { const v = t(el.dataset.i18nAria); if (v) el.setAttribute('aria-label', v); });
   document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
-  document.querySelectorAll('[data-item-key]').forEach(b => { b.dataset.item = t(b.dataset.itemKey); if (b.dataset.priceKey) b.dataset.price = t(b.dataset.priceKey); });
+  document.querySelectorAll('[data-item-key]').forEach(b => { b.dataset.item = t(b.dataset.itemKey); });
   document.dispatchEvent(new CustomEvent('langchange', { detail: l })); /* pages re-render their dynamic text */
 }
 document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
@@ -89,7 +89,7 @@ document.addEventListener('click', e => {
   const select = document.getElementById('fm-product');
   const msg = document.getElementById('fm-msg');
   if (select && btn.dataset.product && [...select.options].some(o => o.value === btn.dataset.product)) select.value = btn.dataset.product;
-  if (msg && btn.dataset.item) msg.value = t(btn.dataset.tpl || 'order_msg').replace('{name}', btn.dataset.item).replace('{price}', btn.dataset.price || t('price_request'));
+  if (msg && btn.dataset.item) msg.value = t(btn.dataset.tpl || 'order_msg').replace('{name}', btn.dataset.item);
 });
 
 /* ============ form (demo: Telegram-bot/CRM hook point) ============ */

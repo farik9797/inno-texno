@@ -1,7 +1,7 @@
 /* INNO TEXNO — about page (needs i18n.js, catalog-data.js; site.js in the browser).
    aboutCount() and regionsHtml() are also used by tools/build-products.mjs for the static page. */
 function aboutCount() {
-  return CATALOG.lights.length + CATALOG.equip.length + Object.keys(CATALOG.systems).length
+  return CATALOG.lights.length + CATALOG.equip.length + 1 /* the AI crossing system */
     + CATALOG.poles.reduce((s, g) => s + g.rows.length, 0);
 }
 function regionsHtml() {

@@ -1,6 +1,6 @@
 {
-  "name": "INNO TEXNO — LED svetoforlar",
-  "short_name": "INNO TEXNO",
+  "name": "Svetofor.uz — LED svetoforlar",
+  "short_name": "Svetofor.uz",
   "icons": [
     { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" },

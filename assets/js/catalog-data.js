@@ -1,5 +1,5 @@
-/* INNO TEXNO — product catalogue. Prices: UZS, from the client's price list ("katalog" column only).
-   poles[].rows — I-type: [height m, price]; Г-type: [cantilever section, cantilever length m, price]. */
+/* INNO TEXNO — product catalogue from the client's price list. Prices are NOT published (client: «цена договорная»).
+   poles[].rows — I-type: [height m]; Г-type: [cantilever section, cantilever length m]. */
 const CATALOG = {
  "lights": [
   {
@@ -15,8 +15,7 @@ const CATALOG = {
     "uz": "3 seksiya · LED · taymer",
     "ru": "3 секции · LED · таймер",
     "en": "3 sections · LED · timer"
-   },
-   "price": 6496000
+   }
   },
   {
    "id": "light",
@@ -31,8 +30,7 @@ const CATALOG = {
     "uz": "3 seksiya · LED",
     "ru": "3 секции · LED",
     "en": "3 sections · LED"
-   },
-   "price": 5936000
+   }
   },
   {
    "id": "light-ped",
@@ -47,8 +45,7 @@ const CATALOG = {
     "uz": "Piyodalar o'tish joylari uchun",
     "ru": "Для пешеходных переходов",
     "en": "For pedestrian crossings"
-   },
-   "price": 3920000
+   }
   }
  ],
  "poles": [
@@ -59,36 +56,28 @@ const CATALOG = {
    "profile": "round",
    "rows": [
     [
-     4.0,
-     296479
+     4.0
     ],
     [
-     4.5,
-     330000
+     4.5
     ],
     [
-     5.0,
-     363000
+     5.0
     ],
     [
-     5.5,
-     396000
+     5.5
     ],
     [
-     6.0,
-     430000
+     6.0
     ],
     [
-     6.5,
-     463000
+     6.5
     ],
     [
-     7.0,
-     496000
+     7.0
     ],
     [
-     7.5,
-     530000
+     7.5
     ]
    ]
   },
@@ -99,32 +88,25 @@ const CATALOG = {
    "profile": "square",
    "rows": [
     [
-     4.5,
-     280000
+     4.5
     ],
     [
-     5.0,
-     307000
+     5.0
     ],
     [
-     5.5,
-     335000
+     5.5
     ],
     [
-     6.0,
-     363000
+     6.0
     ],
     [
-     6.5,
-     390000
+     6.5
     ],
     [
-     7.0,
-     418000
+     7.0
     ],
     [
-     7.5,
-     446000
+     7.5
     ]
    ]
   },
@@ -135,32 +117,25 @@ const CATALOG = {
    "profile": "square",
    "rows": [
     [
-     4.5,
-     586103
+     4.5
     ],
     [
-     5.0,
-     647000
+     5.0
     ],
     [
-     5.5,
-     709000
+     5.5
     ],
     [
-     6.0,
-     771000
+     6.0
     ],
     [
-     6.5,
-     833260
+     6.5
     ],
     [
-     7.0,
-     895000
+     7.0
     ],
     [
-     7.5,
-     956000
+     7.5
     ]
    ]
   },
@@ -173,68 +148,55 @@ const CATALOG = {
    "rows": [
     [
      "d-55",
-     6.87,
-     1246931
+     6.87
     ],
     [
      "d-100",
-     2.0,
-     1194489
+     2.0
     ],
     [
      "d-100",
-     3.0,
-     1261109
+     3.0
     ],
     [
      "d-100",
-     4.5,
-     1361039
+     4.5
     ],
     [
      "100×100",
-     3.0,
-     1227788
+     3.0
     ],
     [
      "100×100",
-     4.5,
-     1311057
+     4.5
     ],
     [
      "100×100",
-     5.5,
-     1366570
+     5.5
     ],
     [
      "125×125",
-     3.0,
-     1368250
+     3.0
     ],
     [
      "125×125",
-     4.5,
-     1521250
+     4.5
     ],
     [
      "125×125",
-     5.5,
-     1624250
+     5.5
     ],
     [
      "150×150",
-     3.0,
-     1432250
+     3.0
     ],
     [
      "150×150",
-     4.5,
-     1618250
+     4.5
     ],
     [
      "150×150",
-     5.5,
-     1741250
+     5.5
     ]
    ]
   },
@@ -247,48 +209,39 @@ const CATALOG = {
    "rows": [
     [
      "100×100",
-     3.0,
-     8192000
+     3.0
     ],
     [
      "100×100",
-     4.5,
-     8275000
+     4.5
     ],
     [
      "100×100",
-     5.5,
-     8331000
+     5.5
     ],
     [
      "125×125",
-     3.0,
-     8332000
+     3.0
     ],
     [
      "125×125",
-     4.5,
-     8486000
+     4.5
     ],
     [
      "125×125",
-     5.5,
-     8588000
+     5.5
     ],
     [
      "150×150",
-     3.0,
-     8396000
+     3.0
     ],
     [
      "150×150",
-     4.5,
-     8582000
+     4.5
     ],
     [
      "150×150",
-     5.5,
-     8705000
+     5.5
     ]
    ]
   },
@@ -301,48 +254,39 @@ const CATALOG = {
    "rows": [
     [
      "100×100",
-     3.0,
-     1969000
+     3.0
     ],
     [
      "100×100",
-     4.5,
-     2052000
+     4.5
     ],
     [
      "100×100",
-     5.5,
-     2108000
+     5.5
     ],
     [
      "125×125",
-     3.0,
-     2109000
+     3.0
     ],
     [
      "125×125",
-     4.5,
-     2263000
+     4.5
     ],
     [
      "125×125",
-     5.5,
-     2365000
+     5.5
     ],
     [
      "150×150",
-     3.0,
-     2173000
+     3.0
     ],
     [
      "150×150",
-     4.5,
-     2359000
+     4.5
     ],
     [
      "150×150",
-     5.5,
-     2481000
+     5.5
     ]
    ]
   }
@@ -355,8 +299,7 @@ const CATALOG = {
     "uz": "Boshqaruv bloki",
     "ru": "Блок управления",
     "en": "Control unit"
-   },
-   "price": 12880000
+   }
   },
   {
    "id": "tx",
@@ -365,8 +308,7 @@ const CATALOG = {
     "uz": "To'lqin tarqatuvchi blok",
     "ru": "Радиопередающий блок",
     "en": "Wireless transmitter unit"
-   },
-   "price": 11200000
+   }
   },
   {
    "id": "rx",
@@ -375,8 +317,7 @@ const CATALOG = {
     "uz": "To'lqin qabul qiluvchi blok",
     "ru": "Радиоприёмный блок",
     "en": "Wireless receiver unit"
-   },
-   "price": 7840000
+   }
   },
   {
    "id": "solar-100",
@@ -385,8 +326,7 @@ const CATALOG = {
     "uz": "Quyosh paneli 100 Vt",
     "ru": "Солнечная панель 100 Вт",
     "en": "Solar panel 100 W"
-   },
-   "price": 950000
+   }
   },
   {
    "id": "solar-60",
@@ -395,8 +335,7 @@ const CATALOG = {
     "uz": "Quyosh paneli 60 Vt",
     "ru": "Солнечная панель 60 Вт",
     "en": "Solar panel 60 W"
-   },
-   "price": 630000
+   }
   },
   {
    "id": "akb-100",
@@ -405,8 +344,7 @@ const CATALOG = {
     "uz": "Akkumulyator 100 A·s",
     "ru": "Аккумулятор 100 А·ч",
     "en": "Battery 100 Ah"
-   },
-   "price": 1532000
+   }
   },
   {
    "id": "akb-58",
@@ -415,8 +353,7 @@ const CATALOG = {
     "uz": "Akkumulyator 58 A·s",
     "ru": "Аккумулятор 58 А·ч",
     "en": "Battery 58 Ah"
-   },
-   "price": 1064000
+   }
   },
   {
    "id": "solar-ctrl",
@@ -425,11 +362,7 @@ const CATALOG = {
     "uz": "Quyosh paneli kontrolleri",
     "ru": "Контроллер солнечной панели",
     "en": "Solar charge controller"
-   },
-   "price": 840000
+   }
   }
- ],
- "systems": {
-  "ai-crossing": 50000000
- }
+ ]
 };

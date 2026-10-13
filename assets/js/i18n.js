@@ -1,21 +1,21 @@
-/* INNO TEXNO — UI strings (uz / ru / en). Shared by every page. */
+/* Svetofor.uz — UI strings (uz / ru / en). Shared by every page. */
 const I18N = {
   uz: {
-    nav_catalog:"Katalog", nav_why:"Nima uchun biz", nav_calc:"Kalkulyator", nav_certs:"Sertifikatlar", nav_contact:"Aloqa", nav_order:"Buyurtma berish",
+    nav_catalog:"Katalog", nav_why:"Nima uchun biz", nav_calc:"Konfigurator", nav_certs:"Sertifikatlar", nav_contact:"Aloqa", nav_order:"Buyurtma berish",
     skip:"Kontentga o'tish", menu_label:"Menyu", loading:"yuklanmoqda",
     hero_h1a:"Zamonaviy", hero_h1b:"LED svetoforlar", hero_h1c:"ishlab chiqaramiz",
     hero_sub:"Transport, piyodalar va quyosh panelli svetoforlar, LED yo'l belgilari hamda boshqaruv tizimlari. Mahalliy ishlab chiqarish — import narxidan arzon, 1 yil kafolat, bepul yetkazib berish va o'rnatish.",
-    hero_cta1:"Katalogni ko'rish", hero_cta2:"Narxni hisoblash",
+    hero_cta1:"Katalogni ko'rish", hero_cta2:"Buyurtma tuzish",
     trust1:"1 yil kafolat", trust2:"Bepul yetkazib berish va o'rnatish", trust3:"O'zbekiston va MDH bo'ylab",
     hero_hint:"Svetoforni aylantirib ko'ring",
     cat_title:"Mahsulotlar katalogi", cat_sub:"Svetoforlar, ustunlar, boshqaruv bloklari va aqlli yo'l tizimlari — barchasi o'z ishlab chiqarish bazamizda tayyorlanadi.",
-    p1n:"Transport svetoforlari", p1d:"Chorrahalar va magistrallar uchun uch seksiyali LED svetoforlar. Yorqin quyoshda ham aniq ko'rinadi.", p1p:"5 936 000 so'mdan",
-    p2n:"Piyodalar svetofori", p2s:"Piyodalar o'tish joylari uchun", p2p:"3 920 000 so'm",
-    p3n:"Aqlli yo'l belgisi", p3s:"Patent UZ SAP 2888 · quyosh paneli", p3p:"Narxi so'rov bo'yicha",
-    p4n:"Svetofor ustunlari", p4p:"280 000 so'mdan",
-    p5n:"Boshqaruv bloklari va jihozlar", p5s:"Boshqaruv, radio modullar, quyosh energiyasi", p5p:"630 000 so'mdan",
-    p6n:"Aqlli piyodalar o'tish joyi tizimi", p6s:"Sun'iy intellekt · lazer sensorlari", p6p:"50 000 000 so'm",
-    why_title:"Nima uchun INNO TEXNO?",
+    p1n:"Transport svetoforlari", p1d:"Chorrahalar va magistrallar uchun uch seksiyali LED svetoforlar. Yorqin quyoshda ham aniq ko'rinadi.",
+    p2n:"Piyodalar svetofori", p2s:"Piyodalar o'tish joylari uchun",
+    p3n:"Aqlli yo'l belgisi", p3s:"Patent UZ SAP 2888 · quyosh paneli",
+    p4n:"Svetofor ustunlari",
+    p5n:"Boshqaruv bloklari va jihozlar", p5s:"Boshqaruv, radio modullar, quyosh energiyasi",
+    p6n:"Aqlli piyodalar o'tish joyi tizimi", p6s:"Sun'iy intellekt · lazer sensorlari",
+    why_title:"Nima uchun Svetofor.uz?",
     w1t:"Mahalliy ishlab chiqarish", w1d:"Import analoglaridan arzon narx va tezkor yetkazib berish — mahsulot omborda tayyor turadi, bojxona kutilmaydi.",
     w2t:"Energiya tejamkor LED", w2d:"Sifatli diodlar kam quvvat sarflaydi va yorqin quyoshda ham aniq ko'rinadi.",
     w3t:"Mustahkam korpus", w3d:"Po'lat korpus va IP65 himoya — jazirama issiqda ham, qor-yomg'irda ham uzluksiz ishlaydi.",
@@ -25,18 +25,18 @@ const I18N = {
     s2t:"Texnik talablar", s2d:"Ob'ektingiz uchun texnik talablar kelishiladi.",
     s3t:"Shartnoma", s3d:"Narx va muddatlar shartnomada yozma kafolatlanadi.",
     s4t:"O'rnatish", s4d:"Yetkazib beramiz, o'rnatamiz va sozlaymiz — bepul.",
-    calc_title:"Narx kalkulyatori", calc_sub:"Konfiguratsiyani tanlang — taxminiy narxni darhol ko'rasiz. Aniq taklifni so'rovdan keyin taqdim etamiz.",
+    calc_title:"Buyurtma konfiguratori", calc_sub:"Turi, komplekti va sonini tanlang — so'rov o'zi to'ldiriladi. Narxni menejer bilan kelishasiz.",
     calc_type:"Svetofor turi", ct1:"Transport, taymerli", ct2:"Transport, taymersiz", ct3:"Piyodalar",
     calc_qty:"Soni", calc_disc_hint:"Katta partiyalar uchun chegirmalar — menejer bilan kelishiladi",
-    calc_result:"Taxminiy narx", calc_note:"Narxlar katalog bo'yicha. Yakuniy narx texnik talablarga bog'liq. Yetkazib berish va o'rnatish — bepul.",
-    calc_cta:"Shu konfiguratsiya bilan buyurtma berish", calc_per:"dona narxi", calc_sum:"so'm",
+    calc_result:"Sizning buyurtmangiz", calc_note:"Narxi kelishiladi — buyurtma hajmi va texnik talablarga bog'liq. Yetkazib berish va o'rnatish — bepul.",
+    calc_cta:"Shu konfiguratsiya bilan buyurtma berish", calc_pcs:"dona",
     cert_title:"Sertifikatlar va hujjatlar", cert_sub:"Davlat xaridlari va tenderlar uchun hujjatlar — PDF formatida yuklab oling.",
     c1t:"Sanoat namunasi patenti № SAP 2888", c1d:"«Aqlli yo'l belgisi» uchun O'zbekiston Respublikasi Adliya vazirligi tomonidan berilgan patent.",
     c2t:"Davlat reestridan ko'chirma", c2d:"Sanoat namunalari davlat reyestrida 03.07.2026 yilda ro'yxatdan o'tkazilgan.",
     c3t:"GOST muvofiqlik sertifikati", c3d:"Svetoforlarning davlat standartlariga muvofiqligi — hujjatlar so'rov bo'yicha taqdim etiladi.",
     cert_dl:"PDF yuklab olish", cert_dl2:"PDF yuklab olish",
-    vid_title:"Ishlab chiqarish jarayoni", vid_sub:"Sexdagi jarayonlar, svetoforlarni sinovdan o'tkazish va tayyor ob'ektlar — YouTube kanalimizda.",
-    vid_cta:"YouTube'da ko'rish", vid_cap:"INNO TEXNO · aqlli chorraha yechimlari",
+    vid_title:"Ishlab chiqarish jarayoni", vid_sub:"Ishlab chiqarish, sinovlar va tayyor ob'ektlar haqidagi yangiliklar — Telegram-kanalimizda.",
+    vid_cta:"Telegram-kanalga o'tish", vid_cap:"Svetofor.uz · aqlli chorraha yechimlari",
     testi_title:"Mijozlar fikri",
     q1:"Narxi import analogidan sezilarli arzon, sifati esa kam emas. 40 ta chorraha uchun buyurtma berdik — hammasi muddatida yetkazildi va o'rnatildi.", a1:"Bosh muhandis, yo'l qurilish kompaniyasi",
     q2:"Quyosh panelli svetoforlar elektr tarmog'i yo'q hududda ikkinchi yil uzluksiz ishlab turibdi. Servis bilan muammo bo'lgani yo'q.", a2:"Tuman obodonlashtirish bo'limi",
@@ -51,31 +51,31 @@ const I18N = {
     fm_name:"Ismingiz", fm_phone:"Telefon raqamingiz", fm_msg:"Xabar (ixtiyoriy)", fm_send:"Yuborish",
     fm_p0:"Qiziqtirgan mahsulot", fm_p1:"Transport svetoforlari", fm_p2:"Piyodalar svetofori", fm_p3:"Aqlli yo'l belgisi", fm_p4:"Aqlli piyodalar o'tish joyi", fm_p5:"Svetofor ustunlari", fm_p6:"Boshqaruv bloklari va jihozlar", fm_p7:"Boshqa",
     fm_note:"Ma'lumotlaringiz faqat buyurtmani qayta ishlash uchun ishlatiladi.",
-    ci_addr:"Manzil", ci_addr_v:"Toshkent sh., Sergeli tumani, Sanoat ko'chasi, 12",
-    ci_phone:"Telefon", ci_hours:"Ish vaqti", ci_hours_v:"Dushanba–Shanba, 9:00–18:00", ci_soc:"Ijtimoiy tarmoqlar",
+    ci_addr:"Manzil", ci_addr_v:"Farg'ona viloyati, Oltiariq tumani, Oltiariq innovatsion binosi",
+    ci_phone:"Telefon", ci_hours:"Ish vaqti", ci_hours_v:"Dushanba–Shanba, 8:00–17:00", ci_soc:"Ijtimoiy tarmoqlar",
     ft_tag:"Yo'l harakati xavfsizligi uchun zamonaviy yechimlar — svetoforlar, LED belgilar va boshqaruv tizimlari.",
-    nav_catalog2:"Katalog", nav_why2:"Nima uchun biz", nav_calc2:"Kalkulyator", nav_certs2:"Sertifikatlar", nav_contact2:"Aloqa",
-    ft_rights:"© 2026 INNO TEXNO. Barcha huquqlar himoyalangan.",
+    nav_catalog2:"Katalog", nav_why2:"Nima uchun biz", nav_calc2:"Konfigurator", nav_certs2:"Sertifikatlar", nav_contact2:"Aloqa",
+    ft_rights:"© 2026 Svetofor.uz · «Oltiariq innovatsion» MChJ. Barcha huquqlar himoyalangan.",
     toast_ok:"Rahmat! So'rovingiz qabul qilindi — tez orada bog'lanamiz.",
-    calc_msg:"Kalkulyatordan: {type}, quyosh to'plami: {kit}, {qty} dona — ≈ {sum} so'm",
-    p1s:"Raqamli taymerli va taymersiz modellar", p4s:"I va Г shaklidagi · 4–7,5 m", pc_more:"Batafsil", cat_all:"Barcha mahsulotlar va narxlar", partner_t:"Ilmiy-texnik hamkor", partner_d:"Aqlli piyodalar o'tish joyi tizimi Farg'ona davlat texnika universiteti bilan hamkorlikda ishlab chiqilgan.", calc_solar:"Quyosh energiyasi to'plami", calc_solar_hint:"Panel + akkumulyator + kontroller", cs0:"Kerak emas", cs1:"60 Vt + 58 A·s", cs2:"100 Vt + 100 A·s", cert_req:"So'rov qoldirish"
+    calc_msg: "Konfiguratordan: {type}, quyosh to'plami: {kit}, {qty} dona",
+    p1s:"Raqamli taymerli va taymersiz modellar", p4s:"I va Г shaklidagi · 4–7,5 m", pc_more:"Batafsil", cat_all:"Barcha mahsulotlar", partner_t:"Ilmiy-texnik hamkor", partner_d:"Aqlli piyodalar o'tish joyi tizimi Farg'ona davlat texnika universiteti bilan hamkorlikda ishlab chiqilgan.", calc_solar:"Quyosh energiyasi to'plami", calc_solar_hint:"Panel + akkumulyator + kontroller", cs0:"Kerak emas", cs1:"60 Vt + 58 A·s", cs2:"100 Vt + 100 A·s", cert_req:"So'rov qoldirish"
   },
   ru: {
-    nav_catalog:"Каталог", nav_why:"Почему мы", nav_calc:"Калькулятор", nav_certs:"Сертификаты", nav_contact:"Контакты", nav_order:"Заказать",
+    nav_catalog:"Каталог", nav_why:"Почему мы", nav_calc:"Конфигуратор", nav_certs:"Сертификаты", nav_contact:"Контакты", nav_order:"Заказать",
     skip:"Перейти к содержимому", menu_label:"Меню", loading:"загрузка",
     hero_h1a:"Производим", hero_h1b:"LED-светофоры", hero_h1c:"нового поколения",
     hero_sub:"Транспортные, пешеходные и автономные светофоры на солнечных панелях, LED-знаки и системы управления. Местное производство — дешевле импорта, гарантия 1 год, бесплатная доставка и монтаж.",
-    hero_cta1:"Смотреть каталог", hero_cta2:"Рассчитать цену",
+    hero_cta1:"Смотреть каталог", hero_cta2:"Собрать заказ",
     trust1:"Гарантия 1 год", trust2:"Бесплатная доставка и монтаж", trust3:"По Узбекистану и СНГ",
     hero_hint:"Покрутите светофор",
     cat_title:"Каталог продукции", cat_sub:"Светофоры, опоры, блоки управления и умные дорожные системы — всё изготавливается на собственной производственной базе.",
-    p1n:"Транспортные светофоры", p1d:"Трёхсекционные LED-светофоры для перекрёстков и магистралей. Отлично читаются даже на ярком солнце.", p1p:"от 5 936 000 сум",
-    p2n:"Пешеходные светофоры", p2s:"Для пешеходных переходов", p2p:"3 920 000 сум",
-    p3n:"Умный дорожный знак", p3s:"Патент UZ SAP 2888 · солнечная панель", p3p:"Цена по запросу",
-    p4n:"Опоры для светофоров", p4p:"от 280 000 сум",
-    p5n:"Блоки управления и оборудование", p5s:"Управление, радиомодули, солнечная энергия", p5p:"от 630 000 сум",
-    p6n:"Умный пешеходный переход", p6s:"Искусственный интеллект · лазерные датчики", p6p:"50 000 000 сум",
-    why_title:"Почему INNO TEXNO?",
+    p1n:"Транспортные светофоры", p1d:"Трёхсекционные LED-светофоры для перекрёстков и магистралей. Отлично читаются даже на ярком солнце.",
+    p2n:"Пешеходные светофоры", p2s:"Для пешеходных переходов",
+    p3n:"Умный дорожный знак", p3s:"Патент UZ SAP 2888 · солнечная панель",
+    p4n:"Опоры для светофоров",
+    p5n:"Блоки управления и оборудование", p5s:"Управление, радиомодули, солнечная энергия",
+    p6n:"Умный пешеходный переход", p6s:"Искусственный интеллект · лазерные датчики",
+    why_title:"Почему Svetofor.uz?",
     w1t:"Местное производство", w1d:"Цена ниже импортных аналогов и быстрая поставка — продукция готова на складе, без ожидания таможни.",
     w2t:"Энергоэффективные LED", w2d:"Качественные диоды потребляют мало энергии и отлично читаются даже на ярком солнце.",
     w3t:"Прочный корпус", w3d:"Стальной корпус и защита IP65 — работает без перебоев и в жару, и в снег.",
@@ -85,18 +85,18 @@ const I18N = {
     s2t:"Техтребования", s2d:"Согласовываем технические требования объекта.",
     s3t:"Договор", s3d:"Цена и сроки фиксируются в договоре.",
     s4t:"Монтаж", s4d:"Доставим, установим и настроим — бесплатно.",
-    calc_title:"Калькулятор цены", calc_sub:"Выберите конфигурацию — примерная цена рассчитается сразу. Точное предложение вышлем после заявки.",
+    calc_title:"Конфигуратор заказа", calc_sub:"Выберите тип, комплектацию и количество — заявка заполнится сама. Цену согласуете с менеджером.",
     calc_type:"Тип светофора", ct1:"Транспортный, с таймером", ct2:"Транспортный, без таймера", ct3:"Пешеходный",
     calc_qty:"Количество", calc_disc_hint:"Скидки на крупные партии — по согласованию с менеджером",
-    calc_result:"Примерная цена", calc_note:"Цены по каталогу. Итоговая цена зависит от техтребований. Доставка и монтаж — бесплатно.",
-    calc_cta:"Заказать эту конфигурацию", calc_per:"цена за шт", calc_sum:"сум",
+    calc_result:"Ваш заказ", calc_note:"Цена договорная — зависит от объёма заказа и технических требований. Доставка и монтаж — бесплатно.",
+    calc_cta:"Заказать эту конфигурацию", calc_pcs:"шт",
     cert_title:"Сертификаты и документы", cert_sub:"Документы для госзакупок и тендеров — скачайте в PDF.",
     c1t:"Патент на промышленный образец № SAP 2888", c1d:"Патент на «Умный дорожный знак», выданный Министерством юстиции Республики Узбекистан.",
     c2t:"Выписка из госреестра", c2d:"Зарегистрирован в Государственном реестре промышленных образцов 03.07.2026.",
     c3t:"Сертификат соответствия ГОСТ", c3d:"Соответствие светофоров госстандартам — документы предоставляются по запросу.",
     cert_dl:"Скачать PDF", cert_dl2:"Скачать PDF",
-    vid_title:"Как мы производим", vid_sub:"Процессы в цеху, испытания светофоров и готовые объекты — на нашем YouTube-канале.",
-    vid_cta:"Смотреть на YouTube", vid_cap:"INNO TEXNO · умные решения для перекрёстков",
+    vid_title:"Как мы производим", vid_sub:"Новости о производстве, испытаниях и готовых объектах — в нашем Telegram-канале.",
+    vid_cta:"Перейти в Telegram-канал", vid_cap:"Svetofor.uz · умные решения для перекрёстков",
     testi_title:"Отзывы клиентов",
     q1:"Цена заметно ниже импортного аналога, а качество не уступает. Заказали на 40 перекрёстков — всё доставили и смонтировали в срок.", a1:"Главный инженер, дорожно-строительная компания",
     q2:"Светофоры на солнечных панелях второй год работают без перебоев там, где нет электросети. С сервисом проблем не было.", a2:"Районный отдел благоустройства",
@@ -111,31 +111,31 @@ const I18N = {
     fm_name:"Ваше имя", fm_phone:"Ваш телефон", fm_msg:"Сообщение (необязательно)", fm_send:"Отправить",
     fm_p0:"Интересующий продукт", fm_p1:"Транспортные светофоры", fm_p2:"Пешеходные светофоры", fm_p3:"Умный дорожный знак", fm_p4:"Умный пешеходный переход", fm_p5:"Опоры для светофоров", fm_p6:"Блоки управления и оборудование", fm_p7:"Другое",
     fm_note:"Ваши данные используются только для обработки заявки.",
-    ci_addr:"Адрес", ci_addr_v:"г. Ташкент, Сергелийский район, ул. Саноат, 12",
-    ci_phone:"Телефон", ci_hours:"Режим работы", ci_hours_v:"Понедельник–Суббота, 9:00–18:00", ci_soc:"Социальные сети",
+    ci_addr:"Адрес", ci_addr_v:"Ферганская область, Алтыарыкский район, здание Oltiariq innovatsion",
+    ci_phone:"Телефон", ci_hours:"Режим работы", ci_hours_v:"Понедельник–Суббота, 8:00–17:00", ci_soc:"Социальные сети",
     ft_tag:"Современные решения для безопасности дорожного движения — светофоры, LED-знаки и системы управления.",
-    nav_catalog2:"Каталог", nav_why2:"Почему мы", nav_calc2:"Калькулятор", nav_certs2:"Сертификаты", nav_contact2:"Контакты",
-    ft_rights:"© 2026 INNO TEXNO. Все права защищены.",
+    nav_catalog2:"Каталог", nav_why2:"Почему мы", nav_calc2:"Конфигуратор", nav_certs2:"Сертификаты", nav_contact2:"Контакты",
+    ft_rights:"© 2026 Svetofor.uz · ООО «Oltiariq innovatsion». Все права защищены.",
     toast_ok:"Спасибо! Заявка принята — скоро свяжемся с вами.",
-    calc_msg:"Из калькулятора: {type}, солнечный комплект: {kit}, {qty} шт — ≈ {sum} сум",
-    p1s:"Модели с цифровым таймером и без", p4s:"Прямые и Г-образные · 4–7,5 м", pc_more:"Подробнее", cat_all:"Все товары и цены", partner_t:"Научно-технический партнёр", partner_d:"Умная система пешеходного перехода разработана совместно с Ферганским государственным техническим университетом.", calc_solar:"Солнечный комплект", calc_solar_hint:"Панель + аккумулятор + контроллер", cs0:"Не нужен", cs1:"60 Вт + 58 А·ч", cs2:"100 Вт + 100 А·ч", cert_req:"Запросить"
+    calc_msg: "Из конфигуратора: {type}, солнечный комплект: {kit}, {qty} шт",
+    p1s:"Модели с цифровым таймером и без", p4s:"Прямые и Г-образные · 4–7,5 м", pc_more:"Подробнее", cat_all:"Все товары", partner_t:"Научно-технический партнёр", partner_d:"Умная система пешеходного перехода разработана совместно с Ферганским государственным техническим университетом.", calc_solar:"Солнечный комплект", calc_solar_hint:"Панель + аккумулятор + контроллер", cs0:"Не нужен", cs1:"60 Вт + 58 А·ч", cs2:"100 Вт + 100 А·ч", cert_req:"Запросить"
   },
   en: {
-    nav_catalog:"Catalog", nav_why:"Why us", nav_calc:"Calculator", nav_certs:"Certificates", nav_contact:"Contact", nav_order:"Place an order",
+    nav_catalog:"Catalog", nav_why:"Why us", nav_calc:"Configurator", nav_certs:"Certificates", nav_contact:"Contact", nav_order:"Place an order",
     skip:"Skip to content", menu_label:"Menu", loading:"loading",
     hero_h1a:"We manufacture", hero_h1b:"LED traffic lights", hero_h1c:"of the new generation",
     hero_sub:"Vehicle, pedestrian and solar-powered traffic lights, LED road signs and control systems. Local production — cheaper than imports, 1-year warranty, free delivery and installation.",
-    hero_cta1:"View catalog", hero_cta2:"Calculate price",
+    hero_cta1:"View catalog", hero_cta2:"Build an order",
     trust1:"1-year warranty", trust2:"Free delivery & installation", trust3:"Across Uzbekistan & CIS",
     hero_hint:"Drag to rotate the traffic light",
     cat_title:"Product catalog", cat_sub:"Traffic lights, poles, control units and smart road systems — all made at our own production facility.",
-    p1n:"Vehicle traffic lights", p1d:"Three-section LED traffic lights for intersections and highways. Clearly visible even in bright sunlight.", p1p:"from 5,936,000 UZS",
-    p2n:"Pedestrian traffic lights", p2s:"For pedestrian crossings", p2p:"3,920,000 UZS",
-    p3n:"Smart road sign", p3s:"Patent UZ SAP 2888 · solar panel", p3p:"Price on request",
-    p4n:"Traffic light poles", p4p:"from 280,000 UZS",
-    p5n:"Control units & equipment", p5s:"Control, wireless modules, solar power", p5p:"from 630,000 UZS",
-    p6n:"Smart pedestrian crossing", p6s:"Artificial intelligence · laser sensors", p6p:"50,000,000 UZS",
-    why_title:"Why INNO TEXNO?",
+    p1n:"Vehicle traffic lights", p1d:"Three-section LED traffic lights for intersections and highways. Clearly visible even in bright sunlight.",
+    p2n:"Pedestrian traffic lights", p2s:"For pedestrian crossings",
+    p3n:"Smart road sign", p3s:"Patent UZ SAP 2888 · solar panel",
+    p4n:"Traffic light poles",
+    p5n:"Control units & equipment", p5s:"Control, wireless modules, solar power",
+    p6n:"Smart pedestrian crossing", p6s:"Artificial intelligence · laser sensors",
+    why_title:"Why Svetofor.uz?",
     w1t:"Local production", w1d:"Lower prices than imported analogs and fast delivery — products are in stock, no customs delays.",
     w2t:"Energy-efficient LEDs", w2d:"Quality diodes consume little power and stay clearly visible even in bright sunlight.",
     w3t:"Rugged housing", w3d:"Steel housing with IP65 protection — runs non-stop in scorching heat and snow alike.",
@@ -145,18 +145,18 @@ const I18N = {
     s2t:"Requirements", s2d:"We agree on the technical requirements of your site.",
     s3t:"Contract", s3d:"Price and deadlines are fixed in the contract.",
     s4t:"Installation", s4d:"We deliver, install and configure — free of charge.",
-    calc_title:"Price calculator", calc_sub:"Pick a configuration — the estimate updates instantly. A precise quote follows your request.",
+    calc_title:"Order configurator", calc_sub:"Choose the type, kit and quantity — the request fills itself in. The price is agreed with the manager.",
     calc_type:"Traffic light type", ct1:"Vehicle, with timer", ct2:"Vehicle, no timer", ct3:"Pedestrian",
     calc_qty:"Quantity", calc_disc_hint:"Bulk discounts — agreed with a manager",
-    calc_result:"Estimated price", calc_note:"Catalogue prices. The final price depends on technical requirements. Delivery and installation are free.",
-    calc_cta:"Order this configuration", calc_per:"per unit", calc_sum:"UZS",
+    calc_result:"Your order", calc_note:"Price negotiable — depends on order volume and technical requirements. Delivery and installation are free.",
+    calc_cta:"Order this configuration", calc_pcs:"pcs",
     cert_title:"Certificates & documents", cert_sub:"Documents for public procurement and tenders — download as PDF.",
     c1t:"Industrial design patent No. SAP 2888", c1d:"Patent for the “Smart road sign”, issued by the Ministry of Justice of the Republic of Uzbekistan.",
     c2t:"State register extract", c2d:"Registered in the State Register of Industrial Designs on 03.07.2026.",
     c3t:"GOST conformity certificate", c3d:"Our traffic lights conform to state standards — documents available on request.",
     cert_dl:"Download PDF", cert_dl2:"Download PDF",
-    vid_title:"Inside our production", vid_sub:"Shop-floor processes, traffic light testing and completed installations — on our YouTube channel.",
-    vid_cta:"Watch on YouTube", vid_cap:"INNO TEXNO · smart intersection solutions",
+    vid_title:"Inside our production", vid_sub:"News on production, testing and completed sites — on our Telegram channel.",
+    vid_cta:"Open the Telegram channel", vid_cap:"Svetofor.uz · smart intersection solutions",
     testi_title:"What clients say",
     q1:"Noticeably cheaper than the imported analog with no compromise on quality. We ordered for 40 intersections — everything was delivered and installed on time.", a1:"Chief engineer, road construction company",
     q2:"The solar-powered traffic lights have run flawlessly for two years in an area with no power grid. No issues with service.", a2:"District public works department",
@@ -171,23 +171,23 @@ const I18N = {
     fm_name:"Your name", fm_phone:"Your phone", fm_msg:"Message (optional)", fm_send:"Send",
     fm_p0:"Product of interest", fm_p1:"Vehicle traffic lights", fm_p2:"Pedestrian traffic lights", fm_p3:"Smart road sign", fm_p4:"Smart pedestrian crossing", fm_p5:"Traffic light poles", fm_p6:"Control units & equipment", fm_p7:"Other",
     fm_note:"Your data is used only to process the request.",
-    ci_addr:"Address", ci_addr_v:"12 Sanoat st., Sergeli district, Tashkent",
-    ci_phone:"Phone", ci_hours:"Working hours", ci_hours_v:"Monday–Saturday, 9:00–18:00", ci_soc:"Social media",
+    ci_addr:"Address", ci_addr_v:"Oltiariq innovatsion building, Oltiariq district, Fergana region",
+    ci_phone:"Phone", ci_hours:"Working hours", ci_hours_v:"Monday–Saturday, 8:00–17:00", ci_soc:"Social media",
     ft_tag:"Modern solutions for road traffic safety — traffic lights, LED signs and control systems.",
-    nav_catalog2:"Catalog", nav_why2:"Why us", nav_calc2:"Calculator", nav_certs2:"Certificates", nav_contact2:"Contact",
-    ft_rights:"© 2026 INNO TEXNO. All rights reserved.",
+    nav_catalog2:"Catalog", nav_why2:"Why us", nav_calc2:"Configurator", nav_certs2:"Certificates", nav_contact2:"Contact",
+    ft_rights:"© 2026 Svetofor.uz · Oltiariq innovatsion LLC. All rights reserved.",
     toast_ok:"Thank you! Your request has been received — we'll be in touch shortly.",
-    calc_msg:"From the calculator: {type}, solar kit: {kit}, {qty} pcs — ≈ {sum} UZS",
-    p1s:"Models with and without a countdown timer", p4s:"Straight and L-shaped · 4–7.5 m", pc_more:"Details", cat_all:"All products & prices", partner_t:"Science & technology partner", partner_d:"The smart pedestrian crossing system was developed together with Fergana State Technical University.", calc_solar:"Solar kit", calc_solar_hint:"Panel + battery + controller", cs0:"None", cs1:"60 W + 58 Ah", cs2:"100 W + 100 Ah", cert_req:"Request"
+    calc_msg: "From the configurator: {type}, solar kit: {kit}, {qty} pcs",
+    p1s:"Models with and without a countdown timer", p4s:"Straight and L-shaped · 4–7.5 m", pc_more:"Details", cat_all:"All products", partner_t:"Science & technology partner", partner_d:"The smart pedestrian crossing system was developed together with Fergana State Technical University.", calc_solar:"Solar kit", calc_solar_hint:"Panel + battery + controller", cs0:"None", cs1:"60 W + 58 Ah", cs2:"100 W + 100 Ah", cert_req:"Request"
   }
 };
 
 /* ---- catalogue page + shared order strings ---- */
 Object.assign(I18N.uz, {
-  kp_title: "Katalog va narxlar — INNO TEXNO",
+  kp_title: "Mahsulotlar katalogi — Svetofor.uz",
   crumb_home: "Bosh sahifa", crumb_cat: "Katalog",
-  kp_h1: "Katalog va narxlar",
-  kp_sub: "Svetoforlar, ustunlar, boshqaruv jihozlari va aqlli yo'l tizimlari. Narxlar so'mda, yetkazib berish va o'rnatish — bepul.",
+  kp_h1: "Mahsulotlar katalogi",
+  kp_sub: "Svetoforlar, ustunlar, boshqaruv jihozlari va aqlli yo'l tizimlari. Narxi kelishiladi, yetkazib berish va o'rnatish — bepul.",
   chip_smart: "Aqlli tizimlar", chip_lights: "Svetoforlar", chip_poles: "Ustunlar", chip_equip: "Jihozlar",
   ks_smart_t: "Aqlli tizimlar",
   ks_smart_d: "O'zimizning ishlanmalarimiz: patentlangan aqlli yo'l belgisi va sun'iy intellektli piyodalar o'tish joyi.",
@@ -212,25 +212,25 @@ Object.assign(I18N.uz, {
   ss_desc: "Quyosh paneli bilan jihozlangan aqlli yo'l belgisi: ruxsat etilgan tezlikni va haydovchining joriy tezligini ko'rsatadi, tezlik me'yorida bo'lsa — yashil «tabassum» yonadi. O'zbekistonda patentlangan sanoat namunasi.",
   ss_f1: "Quyosh paneli", ss_f2: "Tezlik cheklovi belgisi", ss_f3: "«Sizning tezligingiz» LED displeyi", ss_f4: "Rag'batlantiruvchi LED indikator",
   doc_patent: "Patent (PDF)", doc_reestr: "Reestr ko'chirmasi (PDF)",
-  price_request: "Narxi so'rov bo'yicha",
+  price_request: "Narxi kelishiladi",
   ks_lights_t: "Svetoforlar", ks_lights_d: "Chorrahalar va piyodalar o'tish joylari uchun LED svetoforlar.",
   ks_poles_t: "Svetofor ustunlari", ks_poles_d: "To'g'ri (I) va konsolli (Г) ustunlar — kesimi, balandligi va konsol uzunligi bo'yicha tanlang.",
   ks_i: "I shaklidagi ustunlar", ks_g: "Г shaklidagi konsolli ustunlar",
   pr_round: "Dumaloq quvur", pr_square: "Kvadrat profil", pr_oct: "Sakkiz qirrali ustun", sec_oct: "8 qirrali",
-  th_height: "Balandlik", th_console: "Konsol", th_len: "Uzunlik", th_price: "Narx",
+  th_height: "Balandlik", th_console: "Konsol", th_len: "Uzunlik",
   pole_i_name: "I shaklidagi ustun {sec}, {h}", pole_g_name: "Г shaklidagi ustun {sec} {h}, konsol {c} {l}",
   ks_equip_t: "Boshqaruv va quyosh energiyasi jihozlari", ks_equip_d: "Boshqaruv bloklari, radio modullar, quyosh panellari va akkumulyatorlar.",
-  kp_note_t: "Narxlar haqida",
-  kp_note_d: "Narxlar joriy katalog bo'yicha so'mda ko'rsatilgan. Yakuniy narx buyurtma hajmi va ob'ekt shartlariga bog'liq — aniq taklifni so'rovdan keyin yuboramiz.",
+  kp_note_t: "Narx haqida",
+  kp_note_d: "Narxi kelishiladi: u buyurtma hajmi va ob'ekt shartlariga bog'liq. So'rov qoldiring — menejer tijorat taklifini yuboradi.",
   btn_order: "Buyurtma berish", row_order: "Buyurtma",
-  order_msg: "Buyurtma: {name} — {price}",
+  order_msg: "Buyurtma: {name}",
   u_m: "m", u_mm: "mm"
 });
 Object.assign(I18N.ru, {
-  kp_title: "Каталог и цены — INNO TEXNO",
+  kp_title: "Каталог продукции — Svetofor.uz",
   crumb_home: "Главная", crumb_cat: "Каталог",
-  kp_h1: "Каталог и цены",
-  kp_sub: "Светофоры, опоры, оборудование управления и умные дорожные системы. Цены в сумах, доставка и монтаж — бесплатно.",
+  kp_h1: "Каталог продукции",
+  kp_sub: "Светофоры, опоры, оборудование управления и умные дорожные системы. Цена договорная, доставка и монтаж — бесплатно.",
   chip_smart: "Умные системы", chip_lights: "Светофоры", chip_poles: "Опоры", chip_equip: "Оборудование",
   ks_smart_t: "Умные системы",
   ks_smart_d: "Наши собственные разработки: запатентованный умный дорожный знак и пешеходный переход с искусственным интеллектом.",
@@ -255,25 +255,25 @@ Object.assign(I18N.ru, {
   ss_desc: "Умный дорожный знак с солнечной панелью: показывает разрешённую скорость и текущую скорость водителя, при соблюдении лимита загорается зелёный «смайл». Запатентованный в Узбекистане промышленный образец.",
   ss_f1: "Солнечная панель", ss_f2: "Знак ограничения скорости", ss_f3: "LED-табло «Ваша скорость»", ss_f4: "Поощряющий LED-индикатор",
   doc_patent: "Патент (PDF)", doc_reestr: "Выписка из реестра (PDF)",
-  price_request: "Цена по запросу",
+  price_request: "Цена договорная",
   ks_lights_t: "Светофоры", ks_lights_d: "LED-светофоры для перекрёстков и пешеходных переходов.",
   ks_poles_t: "Опоры для светофоров", ks_poles_d: "Прямые (I) и консольные (Г) опоры — выбирайте по сечению, высоте и длине консоли.",
   ks_i: "Прямые опоры (I-образные)", ks_g: "Г-образные опоры с консолью",
   pr_round: "Круглая труба", pr_square: "Квадратный профиль", pr_oct: "Восьмигранная опора", sec_oct: "восьмигранная",
-  th_height: "Высота", th_console: "Консоль", th_len: "Длина", th_price: "Цена",
+  th_height: "Высота", th_console: "Консоль", th_len: "Длина",
   pole_i_name: "Прямая опора {sec}, {h}", pole_g_name: "Г-образная опора {sec} {h}, консоль {c} {l}",
   ks_equip_t: "Управление и солнечная энергетика", ks_equip_d: "Блоки управления, радиомодули, солнечные панели и аккумуляторы.",
-  kp_note_t: "О ценах",
-  kp_note_d: "Цены указаны в сумах по действующему каталогу. Итоговая стоимость зависит от объёма заказа и условий объекта — точное предложение пришлём после заявки.",
+  kp_note_t: "О цене",
+  kp_note_d: "Цена договорная: зависит от объёма заказа и условий объекта. Оставьте заявку — менеджер пришлёт коммерческое предложение.",
   btn_order: "Заказать", row_order: "Заказать",
-  order_msg: "Заказ: {name} — {price}",
+  order_msg: "Заказ: {name}",
   u_m: "м", u_mm: "мм"
 });
 Object.assign(I18N.en, {
-  kp_title: "Catalogue & prices — INNO TEXNO",
+  kp_title: "Product catalogue — Svetofor.uz",
   crumb_home: "Home", crumb_cat: "Catalogue",
-  kp_h1: "Catalogue & prices",
-  kp_sub: "Traffic lights, poles, control equipment and smart road systems. Prices in UZS; delivery and installation are free.",
+  kp_h1: "Product catalogue",
+  kp_sub: "Traffic lights, poles, control equipment and smart road systems. Price negotiable; delivery and installation are free.",
   chip_smart: "Smart systems", chip_lights: "Traffic lights", chip_poles: "Poles", chip_equip: "Equipment",
   ks_smart_t: "Smart systems",
   ks_smart_d: "Our own developments: a patented smart road sign and an AI-driven pedestrian crossing.",
@@ -298,28 +298,27 @@ Object.assign(I18N.en, {
   ss_desc: "A solar-equipped smart road sign: it shows the speed limit and the driver's current speed, and lights a green smiley when the driver keeps to the limit. A patented industrial design in Uzbekistan.",
   ss_f1: "Solar panel", ss_f2: "Speed-limit sign", ss_f3: "“Your speed” LED display", ss_f4: "Feedback LED indicator",
   doc_patent: "Patent (PDF)", doc_reestr: "Register extract (PDF)",
-  price_request: "Price on request",
+  price_request: "Price negotiable",
   ks_lights_t: "Traffic lights", ks_lights_d: "LED traffic lights for intersections and pedestrian crossings.",
   ks_poles_t: "Traffic light poles", ks_poles_d: "Straight (I) and cantilever (L) poles — choose by section, height and cantilever length.",
   ks_i: "Straight poles (I-type)", ks_g: "L-shaped cantilever poles",
   pr_round: "Round pipe", pr_square: "Square profile", pr_oct: "Octagonal pole", sec_oct: "octagonal",
-  th_height: "Height", th_console: "Cantilever", th_len: "Length", th_price: "Price",
+  th_height: "Height", th_console: "Cantilever", th_len: "Length",
   pole_i_name: "Straight pole {sec}, {h}", pole_g_name: "L-shaped pole {sec} {h}, cantilever {c} {l}",
   ks_equip_t: "Control & solar equipment", ks_equip_d: "Control units, wireless modules, solar panels and batteries.",
-  kp_note_t: "About prices",
-  kp_note_d: "Prices are listed in UZS from the current catalogue. The final cost depends on order volume and site conditions — we send an exact quote after your request.",
+  kp_note_t: "About pricing",
+  kp_note_d: "Prices are negotiable and depend on order volume and site conditions. Leave a request and the manager will send a commercial offer.",
   btn_order: "Order", row_order: "Order",
-  order_msg: "Order: {name} — {price}",
+  order_msg: "Order: {name}",
   u_m: "m", u_mm: "mm"
 });
 
 /* ---- product pages ---- */
 Object.assign(I18N.uz, {
-  pp_specs: "Texnik ma'lumotlar", pp_variants: "Variantlar va narxlar", pp_variant: "Variant", pp_related: "O'xshash mahsulotlar",
-  pp_back: "Katalogga qaytish", pp_n_variants: "{n} ta variant — barcha narxlar pastda", pp_more: "Batafsil",
+  pp_specs: "Texnik ma'lumotlar", pp_variants: "Variantlar", pp_variant: "Variant", pp_related: "O'xshash mahsulotlar",
+  pp_back: "Katalogga qaytish", pp_n_variants: "{n} ta variant — jadval pastda", pp_more: "Batafsil",
   pp_datasheet: "Batafsil texnik hujjatlar so'rov bo'yicha taqdim etiladi.", pay_note: "To'lov: bank o'tkazmasi yoki naqd",
   pp_service: "Kafolat, yetkazib berish va to'lov", pp_delivery_t: "Yetkazib berish va o'rnatish", pp_pay_t: "To'lov",
-  price_from: "{p}dan",
   sk_shape: "Shakl", sk_section: "Kesim", sk_profile: "Profil", sk_height: "Balandlik", sk_mast: "Ustun balandligi",
   sk_console_sec: "Konsol kesimi", sk_console_len: "Konsol uzunligi", sk_count: "Variantlar soni", sk_sections: "Seksiyalar",
   sk_light: "Yorug'lik manbai", sk_timer: "Raqamli taymer", sk_use: "Qo'llanilishi", sk_power: "Quvvat", sk_capacity: "Sig'im",
@@ -334,11 +333,10 @@ Object.assign(I18N.uz, {
   pole_g_desc: "Konsolli ustun svetoforni yo'l qatnov qismi ustiga chiqaradi: ustun {sec}, balandligi {h}. Konsol kesimi va uzunligini tanlang — {range}."
 });
 Object.assign(I18N.ru, {
-  pp_specs: "Технические данные", pp_variants: "Варианты и цены", pp_variant: "Вариант", pp_related: "Похожие товары",
-  pp_back: "Вернуться в каталог", pp_n_variants: "Вариантов: {n} — все цены ниже", pp_more: "Подробнее",
+  pp_specs: "Технические данные", pp_variants: "Варианты", pp_variant: "Вариант", pp_related: "Похожие товары",
+  pp_back: "Вернуться в каталог", pp_n_variants: "Вариантов: {n} — таблица ниже", pp_more: "Подробнее",
   pp_datasheet: "Подробная техническая документация — по запросу.", pay_note: "Оплата: банковский перевод или наличные",
   pp_service: "Гарантия, доставка и оплата", pp_delivery_t: "Доставка и монтаж", pp_pay_t: "Оплата",
-  price_from: "от {p}",
   sk_shape: "Форма", sk_section: "Сечение", sk_profile: "Профиль", sk_height: "Высота", sk_mast: "Высота опоры",
   sk_console_sec: "Сечение консоли", sk_console_len: "Длина консоли", sk_count: "Вариантов", sk_sections: "Секции",
   sk_light: "Источник света", sk_timer: "Цифровой таймер", sk_use: "Применение", sk_power: "Мощность", sk_capacity: "Ёмкость",
@@ -353,11 +351,10 @@ Object.assign(I18N.ru, {
   pole_g_desc: "Консольная опора выносит светофор над проезжей частью: опора {sec}, высота {h}. Выберите сечение и длину консоли — {range}."
 });
 Object.assign(I18N.en, {
-  pp_specs: "Specifications", pp_variants: "Variants & prices", pp_variant: "Variant", pp_related: "Related products",
-  pp_back: "Back to catalogue", pp_n_variants: "{n} variants — all prices below", pp_more: "Details",
+  pp_specs: "Specifications", pp_variants: "Variants", pp_variant: "Variant", pp_related: "Related products",
+  pp_back: "Back to catalogue", pp_n_variants: "{n} variants — see the table below", pp_more: "Details",
   pp_datasheet: "Detailed technical documentation is available on request.", pay_note: "Payment: bank transfer or cash",
   pp_service: "Warranty, delivery & payment", pp_delivery_t: "Delivery & installation", pp_pay_t: "Payment",
-  price_from: "from {p}",
   sk_shape: "Shape", sk_section: "Section", sk_profile: "Profile", sk_height: "Height", sk_mast: "Pole height",
   sk_console_sec: "Cantilever section", sk_console_len: "Cantilever length", sk_count: "Variants", sk_sections: "Sections",
   sk_light: "Light source", sk_timer: "Countdown timer", sk_use: "Application", sk_power: "Power", sk_capacity: "Capacity",
@@ -409,8 +406,8 @@ Object.assign(I18N.en, {
 
 /* ---- about page (content from the client's brief) ---- */
 Object.assign(I18N.uz, {
-  nav_about: "Biz haqimizda", ab_title: "Biz haqimizda — INNO TEXNO", ab_h1: "Biz haqimizda",
-  ab_lead: "INNO TEXNO yo'l harakati xavfsizligini ta'minlash va zamonaviy svetofor qurilmalarini ishlab chiqarish maqsadida tashkil etilgan. Ishlab chiqarish bazamiz so'nggi texnologiyalar bilan jihozlangan.",
+  nav_about: "Biz haqimizda", ab_title: "Biz haqimizda — Svetofor.uz", ab_h1: "Biz haqimizda",
+  ab_lead: "«Oltiariq innovatsion» MChJ yo'l harakati xavfsizligini ta'minlash va zamonaviy svetofor qurilmalarini ishlab chiqarish maqsadida tashkil etilgan. Ishlab chiqarish bazamiz so'nggi texnologiyalar bilan jihozlangan.",
   ab_lead2: "Svetoforlar, LED yo'l belgilari va yo'l harakatini boshqarish tizimlarini ishlab chiqaramiz, yetkazib beramiz, o'rnatamiz va ta'mirlaymiz — O'zbekistonning barcha viloyatlarida va MDH mamlakatlarida.",
   ab_f1: "mahsulot va variant katalogda", ab_f2v: "1 yil", ab_f2: "rasmiy kafolat", ab_f3v: "0 so'm", ab_f3: "yetkazib berish va o'rnatish",
   ab_f4v: "SAP 2888", ab_f4: "sanoat namunasi patenti",
@@ -430,8 +427,8 @@ Object.assign(I18N.uz, {
   ab_cta_t: "Loyihangizni muhokama qilamiz", ab_cta_d: "Ob'ekt, muddat va hajmni yozing — texnik talablarni kelishib, tijorat taklifini tayyorlaymiz."
 });
 Object.assign(I18N.ru, {
-  nav_about: "О компании", ab_title: "О компании — INNO TEXNO", ab_h1: "О компании",
-  ab_lead: "INNO TEXNO создана, чтобы обеспечивать безопасность дорожного движения и выпускать современные светофоры. Наша производственная база оснащена новейшими технологиями.",
+  nav_about: "О компании", ab_title: "О компании — Svetofor.uz", ab_h1: "О компании",
+  ab_lead: "ООО «Oltiariq innovatsion» создано, чтобы обеспечивать безопасность дорожного движения и выпускать современные светофоры. Наша производственная база оснащена новейшими технологиями.",
   ab_lead2: "Производим, поставляем, монтируем и ремонтируем светофоры, LED-знаки и системы управления дорожным движением — во всех областях Узбекистана и в странах СНГ.",
   ab_f1: "товаров и вариантов в каталоге", ab_f2v: "1 год", ab_f2: "официальной гарантии", ab_f3v: "0 сум", ab_f3: "доставка и монтаж",
   ab_f4v: "SAP 2888", ab_f4: "патент на промышленный образец",
@@ -451,8 +448,8 @@ Object.assign(I18N.ru, {
   ab_cta_t: "Обсудим ваш проект", ab_cta_d: "Напишите объект, сроки и объём — согласуем технические требования и подготовим коммерческое предложение."
 });
 Object.assign(I18N.en, {
-  nav_about: "About us", ab_title: "About us — INNO TEXNO", ab_h1: "About us",
-  ab_lead: "INNO TEXNO was founded to keep road traffic safe and to manufacture modern traffic signal equipment. Our production facility is equipped with the latest technology.",
+  nav_about: "About us", ab_title: "About us — Svetofor.uz", ab_h1: "About us",
+  ab_lead: "Oltiariq innovatsion LLC was founded to keep road traffic safe and to manufacture modern traffic signal equipment. Our production facility is equipped with the latest technology.",
   ab_lead2: "We manufacture, supply, install and repair traffic lights, LED road signs and traffic control systems — across every region of Uzbekistan and in the CIS.",
   ab_f1: "products & variants in the catalogue", ab_f2v: "1 year", ab_f2: "official warranty", ab_f3v: "0 UZS", ab_f3: "delivery & installation",
   ab_f4v: "SAP 2888", ab_f4: "industrial design patent",
@@ -474,7 +471,7 @@ Object.assign(I18N.en, {
 
 /* ---- contacts page ---- */
 Object.assign(I18N.uz, {
-  cp_title: "Aloqa — INNO TEXNO", cp_h1: "Aloqa",
+  cp_title: "Aloqa — Svetofor.uz", cp_h1: "Aloqa",
   cp_lead: "Savol, buyurtma yoki tijorat taklifi bo'yicha biz bilan bog'laning — o'zingizga qulay usulni tanlang.",
   cp_call: "Qo'ng'iroq qilish", cp_tg: "Telegram'da yozish", cp_mail: "Xat yozish", cp_map: "Xaritada ko'rish",
   cp_form_t: "Xabar yoki buyurtma yuboring", cp_form_d: "Ma'lumotlaringizni qoldiring — mas'ul xodim siz bilan bog'lanadi.",
@@ -483,7 +480,7 @@ Object.assign(I18N.uz, {
   cp_steps_t: "So'rovdan keyin nima bo'ladi"
 });
 Object.assign(I18N.ru, {
-  cp_title: "Контакты — INNO TEXNO", cp_h1: "Контакты",
+  cp_title: "Контакты — Svetofor.uz", cp_h1: "Контакты",
   cp_lead: "Вопрос, заказ или коммерческое предложение — выберите удобный способ связи.",
   cp_call: "Позвонить", cp_tg: "Написать в Telegram", cp_mail: "Написать письмо", cp_map: "Показать на карте",
   cp_form_t: "Отправьте сообщение или заявку", cp_form_d: "Оставьте свои данные — ответственный сотрудник свяжется с вами.",
@@ -492,7 +489,7 @@ Object.assign(I18N.ru, {
   cp_steps_t: "Что будет после заявки"
 });
 Object.assign(I18N.en, {
-  cp_title: "Contacts — INNO TEXNO", cp_h1: "Contacts",
+  cp_title: "Contacts — Svetofor.uz", cp_h1: "Contacts",
   cp_lead: "Questions, orders or a commercial offer — choose the way to reach us that suits you.",
   cp_call: "Call us", cp_tg: "Message on Telegram", cp_mail: "Send an email", cp_map: "Show on the map",
   cp_form_t: "Send a message or an order", cp_form_d: "Leave your details — the responsible manager will get back to you.",
@@ -503,7 +500,7 @@ Object.assign(I18N.en, {
 
 /* ---- services page (content from the client's brief) ---- */
 Object.assign(I18N.uz, {
-  nav_services: "Xizmatlar", sv_title: "Xizmatlar — INNO TEXNO", sv_h1: "Xizmatlar",
+  nav_services: "Xizmatlar", sv_title: "Xizmatlar — Svetofor.uz", sv_h1: "Xizmatlar",
   sv_lead: "Texnik maslahatdan o'rnatish va kafolatli xizmatgacha — svetofor ob'ektini to'liq tayyorlab beramiz.",
   sv_free: "Bepul", sv_b1: "Yetkazib berish — bepul", sv_b2: "O'rnatish — bepul", sv_b3: "Servis — bepul", sv_b4: "Kafolat — 1 yil",
   sv_tag_service: "Servis bepul", sv_list_t: "Nimalarni bajaramiz", sv_cta: "So'rov yuborish",
@@ -525,7 +522,7 @@ Object.assign(I18N.uz, {
   fm_p8: "Xizmat (o'rnatish, servis, ta'mirlash)"
 });
 Object.assign(I18N.ru, {
-  nav_services: "Услуги", sv_title: "Услуги — INNO TEXNO", sv_h1: "Услуги",
+  nav_services: "Услуги", sv_title: "Услуги — Svetofor.uz", sv_h1: "Услуги",
   sv_lead: "От технической консультации до монтажа и гарантийного обслуживания — подготовим светофорный объект под ключ.",
   sv_free: "Бесплатно", sv_b1: "Доставка — бесплатно", sv_b2: "Монтаж — бесплатно", sv_b3: "Сервис — бесплатно", sv_b4: "Гарантия — 1 год",
   sv_tag_service: "Сервис бесплатно", sv_list_t: "Что мы делаем", sv_cta: "Отправить запрос",
@@ -547,7 +544,7 @@ Object.assign(I18N.ru, {
   fm_p8: "Услуга (монтаж, сервис, ремонт)"
 });
 Object.assign(I18N.en, {
-  nav_services: "Services", sv_title: "Services — INNO TEXNO", sv_h1: "Services",
+  nav_services: "Services", sv_title: "Services — Svetofor.uz", sv_h1: "Services",
   sv_lead: "From technical consulting to installation and warranty service — we deliver the traffic signal site turnkey.",
   sv_free: "Free", sv_b1: "Delivery — free", sv_b2: "Installation — free", sv_b3: "Service — free", sv_b4: "Warranty — 1 year",
   sv_tag_service: "Free service", sv_list_t: "What we do", sv_cta: "Send a request",
@@ -571,7 +568,7 @@ Object.assign(I18N.en, {
 
 /* ---- news & projects ---- */
 Object.assign(I18N.uz, {
-  nav_news: "Yangiliklar", nw_title: "Yangiliklar va loyihalar — INNO TEXNO", nw_h1: "Yangiliklar va loyihalar",
+  nav_news: "Yangiliklar", nw_title: "Yangiliklar va loyihalar — Svetofor.uz", nw_h1: "Yangiliklar va loyihalar",
   nw_lead: "O'rnatilgan tizimlar, yangi ishlanmalar va kompaniya hayotidagi muhim voqealar.",
   nw_all: "Barchasi", nw_f_projects: "Loyihalar", nw_f_news: "Yangiliklar", nw_project: "Loyiha", nw_news: "Yangilik",
   nw_read: "Batafsil", nw_others: "Boshqa materiallar", nw_back: "Barcha yangiliklar va loyihalar",
@@ -581,7 +578,7 @@ Object.assign(I18N.uz, {
   proj_title: "Loyihalar va yangiliklar", proj_sub: "O'rnatilgan tizimlar va yangi ishlanmalarimiz.", home_all_posts: "Barcha yangiliklar va loyihalar"
 });
 Object.assign(I18N.ru, {
-  nav_news: "Новости", nw_title: "Новости и проекты — INNO TEXNO", nw_h1: "Новости и проекты",
+  nav_news: "Новости", nw_title: "Новости и проекты — Svetofor.uz", nw_h1: "Новости и проекты",
   nw_lead: "Установленные системы, новые разработки и важные события компании.",
   nw_all: "Все", nw_f_projects: "Проекты", nw_f_news: "Новости", nw_project: "Проект", nw_news: "Новость",
   nw_read: "Подробнее", nw_others: "Другие материалы", nw_back: "Все новости и проекты",
@@ -591,7 +588,7 @@ Object.assign(I18N.ru, {
   proj_title: "Проекты и новости", proj_sub: "Установленные системы и наши новые разработки.", home_all_posts: "Все новости и проекты"
 });
 Object.assign(I18N.en, {
-  nav_news: "News", nw_title: "News & projects — INNO TEXNO", nw_h1: "News & projects",
+  nav_news: "News", nw_title: "News & projects — Svetofor.uz", nw_h1: "News & projects",
   nw_lead: "Installed systems, new developments and key company events.",
   nw_all: "All", nw_f_projects: "Projects", nw_f_news: "News", nw_project: "Project", nw_news: "News",
   nw_read: "Read more", nw_others: "More stories", nw_back: "All news & projects",
@@ -603,7 +600,7 @@ Object.assign(I18N.en, {
 
 /* ---- certificates & documents page (brief: GOST/quality certificates and product passports as PDF) ---- */
 Object.assign(I18N.uz, {
-  dc_title: "Sertifikatlar va hujjatlar — INNO TEXNO",
+  dc_title: "Sertifikatlar va hujjatlar — Svetofor.uz",
   dc_lead: "Davlat xaridlari va tenderlar uchun hujjatlar. Patent va davlat reestridan ko'chirmani shu yerdan yuklab oling, GOST va sifat sertifikatlari hamda mahsulot pasportlarini so'rov bo'yicha yuboramiz.",
   dc_b1: "PDF formatida", dc_b2: "Davlat xaridlari va tenderlar uchun", dc_b3: "Qolgan hujjatlar — so'rov bo'yicha",
   dc_dl_t: "Yuklab olish uchun hujjatlar", dc_dl_d: "Rasmiy hujjatlarning PDF nusxalari.",
@@ -620,7 +617,7 @@ Object.assign(I18N.uz, {
   home_all_docs: "Barcha hujjatlar"
 });
 Object.assign(I18N.ru, {
-  dc_title: "Сертификаты и документы — INNO TEXNO",
+  dc_title: "Сертификаты и документы — Svetofor.uz",
   dc_lead: "Документы для госзакупок и тендеров. Патент и выписку из госреестра скачайте здесь, сертификаты ГОСТ и качества, а также паспорта изделий отправим по запросу.",
   dc_b1: "В формате PDF", dc_b2: "Для госзакупок и тендеров", dc_b3: "Остальное — по запросу",
   dc_dl_t: "Документы для скачивания", dc_dl_d: "PDF-копии официальных документов.",
@@ -637,7 +634,7 @@ Object.assign(I18N.ru, {
   home_all_docs: "Все документы"
 });
 Object.assign(I18N.en, {
-  dc_title: "Certificates & documents — INNO TEXNO",
+  dc_title: "Certificates & documents — Svetofor.uz",
   dc_lead: "Documents for public procurement and tenders. Download the patent and the state register extract here; GOST and quality certificates and product passports are sent on request.",
   dc_b1: "As PDF", dc_b2: "For procurement and tenders", dc_b3: "Others — on request",
   dc_dl_t: "Documents to download", dc_dl_d: "PDF copies of the official documents.",
@@ -654,16 +651,28 @@ Object.assign(I18N.en, {
   home_all_docs: "All documents"
 });
 
-/* ---- language state + formatting: shared by all pages and by tools/build-products.mjs ---- */
+/* ---- contacts from the client (13.10.2026): roles on the contacts page, Telegram channel / bot ---- */
+Object.assign(I18N.uz, {
+  tg_channel: "Telegram-kanal", tg_bot: "Telegram-bot", cp_team_t: "To'g'ridan-to'g'ri aloqa",
+  cp_r_head: "Korxona rahbari", cp_r_office: "Ish yurituvchi", cp_r_engineer: "Bosh muhandis",
+  cp_r_service: "Xizmat ko'rsatuvchi xodim", cp_r_disp: "Dispetcher", cp_mail2: "Qo'shimcha e-mail"
+});
+Object.assign(I18N.ru, {
+  tg_channel: "Telegram-канал", tg_bot: "Telegram-бот", cp_team_t: "Прямые контакты",
+  cp_r_head: "Руководитель предприятия", cp_r_office: "Делопроизводитель", cp_r_engineer: "Главный инженер",
+  cp_r_service: "Сервисный специалист", cp_r_disp: "Диспетчер", cp_mail2: "Дополнительный e-mail"
+});
+Object.assign(I18N.en, {
+  tg_channel: "Telegram channel", tg_bot: "Telegram bot", cp_team_t: "Direct contacts",
+  cp_r_head: "Head of the company", cp_r_office: "Office manager", cp_r_engineer: "Chief engineer",
+  cp_r_service: "Service technician", cp_r_disp: "Dispatcher", cp_mail2: "Additional e-mail"
+});
+
+/* ---- language state: shared by all pages and by tools/build-products.mjs ---- */
 function storageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
 function storageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }
 let lang = storageGet('it-lang') || 'uz';
 function t(key) { return (I18N[lang] && I18N[lang][key]) || I18N.uz[key] || key; }
-function fmt(n) {
-  const s = Math.round(n).toLocaleString(lang === 'en' ? 'en-US' : 'ru-RU');
-  return lang === 'en' ? s : s.replace(/[\s  ]/g, ' ');
-}
-function money(n) { return `${fmt(n)} ${t('calc_sum')}`; }
 /* text field: {uz,ru,en} object, "@i18n_key", or a literal string */
 const tr = o => (typeof o === 'string' ? (o[0] === '@' ? t(o.slice(1)) : o) : (o[lang] || o.uz));
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');

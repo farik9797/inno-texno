@@ -127,7 +127,7 @@ function renderPostAside(p) {
       <iconify-icon icon="lucide:arrow-up-right"></iconify-icon></a>` : '';
   const docs = p.docs ? `<div class="post-aside-card"><h2>${t('nw_docs')}</h2><div class="doc-links">${p.docs.map(([k, href]) =>
       `<a href="${POST_ROOT}${href}" target="_blank" rel="noopener"><iconify-icon icon="lucide:file-text"></iconify-icon><span>${esc(tr(k))}</span></a>`).join('')}</div></div>` : '';
-  const cta = `<a class="btn post-cta" href="#buyurtma" data-product="${prod ? prod.form : 'other'}" data-item="${esc(tr(p.title))}" data-price="${esc(prod ? priceLabel(prod) : t('price_request'))}"><span>${t('nw_cta')}</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>`;
+  const cta = `<a class="btn post-cta" href="#buyurtma" data-product="${prod ? prod.form : 'other'}" data-item="${esc(tr(p.title))}"><span>${t('nw_cta')}</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>`;
   return facts + product + docs + cta;
 }
 function renderPostOthers(p) {
@@ -139,7 +139,7 @@ function renderPostOthers(p) {
 function postLd(p, base) {
   const ld = { '@context': 'https://schema.org', '@type': p.type === 'news' ? 'NewsArticle' : 'Article', headline: tr(p.title), description: tr(p.lead),
     image: p.photos.map(([src]) => base + src), url: `${base}yangiliklar/${p.slug}.html`, inLanguage: 'uz',
-    publisher: { '@type': 'Organization', name: 'INNO TEXNO', logo: { '@type': 'ImageObject', url: `${base}assets/img/icon-512.png` } } };
+    publisher: { '@type': 'Organization', name: 'Svetofor.uz', logo: { '@type': 'ImageObject', url: `${base}assets/img/icon-512.png` } } };
   if (p.date) ld.datePublished = p.date;
   return ld;
 }
@@ -167,7 +167,7 @@ if (typeof document !== 'undefined') {
   const P = document.body.dataset.post && findPost(document.body.dataset.post);
   if (P) {                                      /* post page */
     const mount = () => {
-      document.title = `${tr(P.title)} — INNO TEXNO`;
+      document.title = `${tr(P.title)} — Svetofor.uz`;
       document.getElementById('post-crumbs').innerHTML = renderPostCrumbs(P);
       document.getElementById('post-head').innerHTML = renderPostHead(P);
       document.getElementById('post-body').innerHTML = renderPostBody(P);

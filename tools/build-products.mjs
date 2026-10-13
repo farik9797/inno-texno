@@ -51,6 +51,10 @@ const iconTags = root => `<link rel="icon" href="${root}favicon.ico" sizes="32x3
 const activeNav = (html, href) => html
   .replace(/ class="active" aria-current="page"/g, '')
   .replace(new RegExp(`<a href="${href.replace(/[.]/g, '\\.')}"`, 'g'), `<a href="${href}" class="active" aria-current="page"`);
+// the company (contacts from the client, 13.10.2026) — Organization / ContactPage JSON-LD
+const ORG = { '@type': 'Organization', name: 'Svetofor.uz', legalName: "«Oltiariq innovatsion» MChJ", url: BASE, logo: `${BASE}assets/img/icon-512.png`,
+  telephone: '+998916710108', email: 'smartsvetofor707@gmail.com', sameAs: ['https://t.me/smart_svetafor'],
+  address: { '@type': 'PostalAddress', streetAddress: 'Oltiariq innovatsion binosi', addressLocality: 'Oltiariq tumani', addressRegion: "Farg'ona viloyati", addressCountry: 'UZ' } };
 const escAttr = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 fs.mkdirSync(OUT, { recursive: true });
@@ -58,19 +62,17 @@ for (const f of fs.readdirSync(OUT)) if (f.endsWith('.html')) fs.unlinkSync(path
 
 const slugs = run('PRODUCTS.map(p => p.slug)');
 for (const slug of slugs) {
-  const d = run(`(() => { const p = findProduct(${JSON.stringify(slug)}); const vs = variants(p);
+  const d = run(`(() => { const p = findProduct(${JSON.stringify(slug)});
     return { name: productName(p), desc: productDesc(p), cat: t(CAT_LABEL[p.cat]), anchor: CAT_ANCHOR[p.cat],
-      img: productImage(p), imgs: productImages(p), prices: vs.map(v => v.price),
+      img: productImage(p), imgs: productImages(p),
       crumbs: renderCrumbs(p), hero: renderHero(p, 0), details: renderDetails(p), related: renderRelated(p) }; })()`);
   const url = `${BASE}mahsulot/${slug}.html`;
   const metaDesc = d.desc.length > 158 ? d.desc.slice(0, 155).replace(/\s+\S*$/, '') + '…' : d.desc;
 
   const product = { '@context': 'https://schema.org', '@type': 'Product', name: d.name, description: d.desc,
-    brand: { '@type': 'Brand', name: 'INNO TEXNO' }, category: d.cat, url };
+    brand: { '@type': 'Brand', name: 'Svetofor.uz' }, category: d.cat, url };
   if (d.imgs.length) product.image = d.imgs.map(i => BASE + i);
-  if (d.prices.length === 1) product.offers = { '@type': 'Offer', price: d.prices[0], priceCurrency: 'UZS', url };
-  else if (d.prices.length > 1) product.offers = { '@type': 'AggregateOffer', priceCurrency: 'UZS',
-    lowPrice: Math.min(...d.prices), highPrice: Math.max(...d.prices), offerCount: d.prices.length };
+  // no offers: prices are negotiable and not published
   const crumbsLd = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     ['Bosh sahifa', BASE], ['Katalog', `${BASE}katalog.html`], [d.cat, `${BASE}katalog.html#${d.anchor}`], [d.name, url]
   ].map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) };
@@ -80,11 +82,11 @@ for (const slug of slugs) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escAttr(d.name)} — INNO TEXNO</title>
+<title>${escAttr(d.name)} — Svetofor.uz</title>
 <meta name="description" content="${escAttr(metaDesc)}">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="product">
-<meta property="og:title" content="${escAttr(d.name)} — INNO TEXNO">
+<meta property="og:title" content="${escAttr(d.name)} — Svetofor.uz">
 <meta property="og:description" content="${escAttr(metaDesc)}">
 <meta property="og:url" content="${url}">${d.img ? `\n<meta property="og:image" content="${BASE}${d.img}">` : ''}
 ${iconTags('../')}
@@ -131,14 +133,14 @@ ${footer}<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-ico
 const PAGES = [
   { src: 'tools/pages/kompaniya.html', out: 'kompaniya.html', title: 'ab_title', desc: 'ab_lead',
     scripts: ['assets/js/catalog-data.js', 'assets/js/kompaniya.js'], orderTitle: ['ab_cta_t', 'ab_cta_d'],
-    ld: { '@type': 'Organization', name: 'INNO TEXNO', url: BASE, logo: `${BASE}assets/img/icon-512.png` } },
-  // the form is placed in the body via {{form}}; contact data are still placeholders → not put into JSON-LD
+    ld: ORG },
+  // the form is placed in the body via {{form}}
   { src: 'tools/pages/aloqa.html', out: 'aloqa.html', title: 'cp_title', desc: 'cp_lead', order: false,
-    scripts: ['assets/js/aloqa.js'], ld: { '@type': 'ContactPage', name: 'INNO TEXNO', url: `${BASE}aloqa.html` } },
+    scripts: ['assets/js/aloqa.js'], ld: { '@type': 'ContactPage', name: 'Svetofor.uz', url: `${BASE}aloqa.html`, mainEntity: ORG } },
   { src: 'tools/pages/xizmatlar.html', out: 'xizmatlar.html', title: 'sv_title', desc: 'sv_lead',
     scripts: ['assets/js/xizmatlar.js'], orderTitle: ['sv_form_t', 'sv_form_d'], ldExpr: 'servicesLd()' },
   { src: 'tools/pages/yangiliklar.html', out: 'yangiliklar.html', title: 'nw_title', desc: 'nw_lead', order: false,
-    scripts: [], pageScripts: ['assets/js/posts.js'], ld: { '@type': 'CollectionPage', name: 'INNO TEXNO', url: `${BASE}yangiliklar.html` } },
+    scripts: [], pageScripts: ['assets/js/posts.js'], ld: { '@type': 'CollectionPage', name: 'Svetofor.uz', url: `${BASE}yangiliklar.html` } },
   { src: 'tools/pages/sertifikatlar.html', out: 'sertifikatlar.html', title: 'dc_title', desc: 'dc_lead',
     scripts: ['assets/js/sertifikatlar.js'], orderTitle: ['dc_form_t', 'dc_form_d'], ldExpr: `docsLd(${JSON.stringify(BASE)})` },
 ];
@@ -204,7 +206,7 @@ for (const slug of postSlugs) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${escAttr(d.title)} — INNO TEXNO</title>
+<title>${escAttr(d.title)} — Svetofor.uz</title>
 <meta name="description" content="${escAttr(d.lead)}">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="article">

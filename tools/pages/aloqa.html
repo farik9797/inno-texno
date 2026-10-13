@@ -1,6 +1,6 @@
 <!-- Body of aloqa.html (inside <main>). Built by tools/build-products.mjs: header/footer and the {{form}} come from
-     katalog.html; {{js:…}} → escaped text, {{html:…}} → raw markup (lang = uz). The map follows the address text (ci_addr_v).
-     Phone / e-mail / social links below are the same placeholders as in index.html and katalog.html — replace all together. -->
+     katalog.html; {{js:…}} → escaped text, {{html:…}} → raw markup (lang = uz). The map uses the client's pin (40.361639, 71.497626).
+     Contacts from the client (13.10.2026); the main phone / e-mail / Telegram are repeated in index.html and katalog.html. -->
 <div class="page-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
@@ -16,22 +16,22 @@
 <section class="cp-quick">
   <div class="wrap">
     <div class="cp-cards">
-      <a class="cp-card" href="tel:+998712000000">
+      <a class="cp-card" href="tel:+998916710108">
         <span class="equip-ic"><iconify-icon icon="lucide:phone"></iconify-icon></span>
-        <span class="cp-label" data-i18n="ci_phone">Telefon</span>
-        <b class="cp-val">+998 71 200-00-00</b>
+        <span class="cp-label" data-i18n="cp_r_disp">Dispetcher</span>
+        <b class="cp-val">+998 91 671 01 08</b>
         <span class="cp-act"><span data-i18n="cp_call">Qo'ng'iroq qilish</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></span>
       </a>
-      <a class="cp-card" href="https://t.me/innotexno" target="_blank" rel="noopener">
+      <a class="cp-card" href="https://t.me/smart_svetofor_bot" target="_blank" rel="noopener">
         <span class="equip-ic"><img src="https://cdn.simpleicons.org/telegram/F5C40D" width="22" height="22" alt=""></span>
-        <span class="cp-label">Telegram</span>
-        <b class="cp-val">@innotexno</b>
+        <span class="cp-label" data-i18n="tg_bot">Telegram-bot</span>
+        <b class="cp-val">@smart_svetofor_bot</b>
         <span class="cp-act"><span data-i18n="cp_tg">Telegram'da yozish</span><iconify-icon icon="lucide:arrow-up-right"></iconify-icon></span>
       </a>
-      <a class="cp-card" href="mailto:info@innotexno.uz">
+      <a class="cp-card" href="mailto:smartsvetofor707@gmail.com">
         <span class="equip-ic"><iconify-icon icon="lucide:mail"></iconify-icon></span>
         <span class="cp-label">E-mail</span>
-        <b class="cp-val">info@innotexno.uz</b>
+        <b class="cp-val">smartsvetofor707@<wbr>gmail.com</b>
         <span class="cp-act"><span data-i18n="cp_mail">Xat yozish</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></span>
       </a>
       <a class="cp-card" href="#xarita">
@@ -42,6 +42,17 @@
       </a>
     </div>
     <p class="cp-hours"><iconify-icon icon="lucide:clock"></iconify-icon><span><span data-i18n="ci_hours">Ish vaqti</span>:</span><b data-i18n="ci_hours_v">{{js:t('ci_hours_v')}}</b></p>
+
+    <h2 class="cp-team-t" data-i18n="cp_team_t">{{js:t('cp_team_t')}}</h2>
+    <ul class="cp-team">
+      <li><span class="cp-label" data-i18n="cp_r_head">{{js:t('cp_r_head')}}</span><a href="tel:+998911144363">+998 91 114 43 63</a></li>
+      <li><span class="cp-label" data-i18n="cp_r_office">{{js:t('cp_r_office')}}</span><a href="tel:+998911304362">+998 91 130 43 62</a></li>
+      <li><span class="cp-label" data-i18n="cp_r_engineer">{{js:t('cp_r_engineer')}}</span><a href="tel:+998944474220">+998 94 447 42 20</a>
+        <a class="cp-team-tg" href="https://t.me/Smart_svetofor_uz" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/telegram/A8ADB8" width="14" height="14" alt="">@Smart_svetofor_uz</a></li>
+      <li><span class="cp-label" data-i18n="cp_r_service">{{js:t('cp_r_service')}}</span><a href="tel:+998933973424">+998 93 397 34 24</a></li>
+      <li><span class="cp-label" data-i18n="cp_r_disp">{{js:t('cp_r_disp')}}</span><a href="tel:+998916710108">+998 91 671 01 08</a></li>
+      <li><span class="cp-label" data-i18n="cp_mail2">{{js:t('cp_mail2')}}</span><a href="mailto:amaliyelektronika@gmail.com">amaliyelektronika@gmail.com</a></li>
+    </ul>
   </div>
 </section>
 
@@ -59,7 +70,7 @@
         <h2 data-i18n="cp_map_t">Bizning manzil</h2>
         <p data-i18n="ci_addr_v">{{js:t('ci_addr_v')}}</p>
       </div>
-      <div class="cp-map" id="map" data-query="{{js:t('ci_addr_v')}}">
+      <div class="cp-map" id="map" data-query="40.361639,71.497626">
         <div class="cp-map-facade">
           <span class="cp-pin"><iconify-icon icon="lucide:map-pin"></iconify-icon></span>
           <button type="button" class="btn" id="map-load"><iconify-icon icon="lucide:map"></iconify-icon><span data-i18n="cp_map_load">Xaritani yuklash</span></button>
@@ -67,8 +78,8 @@
         </div>
       </div>
       <div class="doc-links cp-map-links">
-        <a href="https://www.google.com/maps/search/?api=1&amp;query={{js:encodeURIComponent(I18N.uz.ci_addr_v)}}" target="_blank" rel="noopener"><iconify-icon icon="lucide:external-link"></iconify-icon><span data-i18n="cp_open_google">Google Maps'da ochish</span></a>
-        <a href="https://yandex.uz/maps/?text={{js:encodeURIComponent(I18N.uz.ci_addr_v)}}" target="_blank" rel="noopener"><iconify-icon icon="lucide:external-link"></iconify-icon><span data-i18n="cp_open_yandex">Yandex Xaritalarda ochish</span></a>
+        <a href="https://www.google.com/maps?q=40.361639,71.497626" target="_blank" rel="noopener"><iconify-icon icon="lucide:external-link"></iconify-icon><span data-i18n="cp_open_google">Google Maps'da ochish</span></a>
+        <a href="https://yandex.uz/maps/?pt=71.497626,40.361639&amp;z=16&amp;l=map" target="_blank" rel="noopener"><iconify-icon icon="lucide:external-link"></iconify-icon><span data-i18n="cp_open_yandex">Yandex Xaritalarda ochish</span></a>
       </div>
     </div>
   </div>
@@ -86,9 +97,8 @@
     <div class="cp-social">
       <span class="ci-label" data-i18n="ci_soc">Ijtimoiy tarmoqlar</span>
       <div class="contact-socials">
-        <a href="https://t.me/innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/telegram/EDEDF0" width="16" height="16" alt="">Telegram</a>
-        <a href="https://instagram.com/innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/instagram/EDEDF0" width="16" height="16" alt="">Instagram</a>
-        <a href="https://youtube.com/@innotexno" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/youtube/EDEDF0" width="16" height="16" alt="">YouTube</a>
+        <a href="https://t.me/smart_svetafor" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/telegram/EDEDF0" width="16" height="16" alt=""><span data-i18n="tg_channel">{{js:t('tg_channel')}}</span></a>
+        <a href="https://t.me/smart_svetofor_bot" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/telegram/EDEDF0" width="16" height="16" alt=""><span data-i18n="tg_bot">{{js:t('tg_bot')}}</span></a>
       </div>
     </div>
   </div>

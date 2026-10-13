@@ -8,7 +8,7 @@ const CAT_LABEL = { smart: 'chip_smart', lights: 'chip_lights', poles: 'chip_pol
 const findProduct = slug => PRODUCTS.find(p => p.slug === slug);
 function refItem(ref) {
   const [list, id] = ref.split(':');
-  if (list === 'systems') return { price: CATALOG.systems[id] };
+  if (list === 'systems') return {}; /* the AI crossing: no catalogue row */
   return CATALOG[list].find(x => x.id === id);
 }
 const poleGroup = p => (p.refs[0] && p.refs[0].startsWith('poles:') ? refItem(p.refs[0]) : null);
@@ -22,20 +22,20 @@ function productName(p) {
   return tr(refItem(p.refs[0]).name);
 }
 
-/* every orderable variant of a product: { cells (table columns), label, name (for the order form), price } */
+/* every orderable variant of a product: { cells (table columns), label, name (for the order form) } — prices are negotiable, not shown */
 function variants(p) {
   const g = poleGroup(p);
   if (g) return g.rows.map(r => g.shape === 'g'
-    ? { cells: [sec(r[0]), len(r[1])], label: `${sec(r[0])} · ${len(r[1])}`, price: r[2],
+    ? { cells: [sec(r[0]), len(r[1])], label: `${sec(r[0])} · ${len(r[1])}`,
         name: t('pole_g_name').replace('{sec}', sec(g.section)).replace('{h}', len(g.height)).replace('{c}', sec(r[0])).replace('{l}', len(r[1])) }
-    : { cells: [len(r[0])], label: len(r[0]), price: r[1],
+    : { cells: [len(r[0])], label: len(r[0]),
         name: t('pole_i_name').replace('{sec}', sec(g.section)).replace('{h}', len(r[0])) });
   if (p.refs.length > 1) return p.refs.map((ref, i) => {
     const it = refItem(ref);
-    return { cells: [tr(p.vlabels[i])], label: tr(p.vlabels[i]), price: it.price, name: tr(it.name) };
+    return { cells: [tr(p.vlabels[i])], label: tr(p.vlabels[i]), name: tr(it.name) };
   });
-  if (p.refs.length === 1) return [{ cells: [], label: '', price: refItem(p.refs[0]).price, name: productName(p) }];
-  return []; /* price on request */
+  if (p.refs.length === 1) return [{ cells: [], label: '', name: productName(p) }];
+  return [];
 }
 function lengthRange(g) {
   const ls = g.rows.map(r => (g.shape === 'g' ? r[1] : r[0]));
@@ -99,12 +99,7 @@ function thumbHtml(p) {
   return `<img${p.photo ? ' class="pc-photo"' : ''} src="${ROOT}${productImage(p)}" alt="${name}" loading="lazy">`;
 }
 
-function priceLabel(p) {
-  const vs = variants(p);
-  if (!vs.length) return t('price_request');
-  if (vs.length === 1) return money(vs[0].price);
-  return t('price_from').replace('{p}', money(Math.min(...vs.map(v => v.price))));
-}
+const priceLabel = () => t('price_request'); /* «Narxi kelishiladi» for every product */
 
 function renderCrumbs(p) {
   const sep = '<iconify-icon icon="lucide:chevron-right" aria-hidden="true"></iconify-icon>';
@@ -135,9 +130,8 @@ function renderHero(p, vi, gi = 0) {
     const g = poleGroup(p);
     const label = g && g.shape === 'i' ? t('th_height') : t('pp_variant');
     picker = `<label class="pp-label" for="pp-variant">${label}</label>
-      <select id="pp-variant" class="pp-select">${vs.map((v, i) => `<option value="${i}"${i === vi ? ' selected' : ''}>${esc(v.label)} — ${money(v.price)}</option>`).join('')}</select>`;
+      <select id="pp-variant" class="pp-select">${vs.map((v, i) => `<option value="${i}"${i === vi ? ' selected' : ''}>${esc(v.label)}</option>`).join('')}</select>`;
   }
-  const price = cur ? money(cur.price) : t('price_request');
   const note = vs.length > 1 ? `<a class="pp-price-note" href="#variantlar">${t('pp_n_variants').replace('{n}', vs.length)}</a>` : '';
   return `
     <div class="pp-media ${hasGallery ? 'gallery' : p.media.kind}">${media}</div>
@@ -146,10 +140,10 @@ function renderHero(p, vi, gi = 0) {
       <h1>${esc(name)}</h1>
       <p class="pp-desc">${esc(productDesc(p))}</p>
       ${picker}
-      <span class="pp-price" id="pp-price">${price}</span>
+      <span class="pp-price" id="pp-price">${priceLabel(p)}</span>
       ${note}
       <div class="pp-actions">
-        <a class="btn" href="#buyurtma" data-product="${p.form}" data-item="${esc(cur ? cur.name : name)}" data-price="${esc(price)}"><span>${t('btn_order')}</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
+        <a class="btn" href="#buyurtma" data-product="${p.form}" data-item="${esc(cur ? cur.name : name)}"><span>${t('btn_order')}</span><iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
         <a class="btn ghost" href="${ROOT}katalog.html#${CAT_ANCHOR[p.cat]}">${t('pp_back')}</a>
       </div>
       <ul class="trust-list">
@@ -182,9 +176,9 @@ function renderDetails(p) {
     const g = poleGroup(p);
     const heads = g ? (g.shape === 'g' ? [t('th_console'), t('th_len')] : [t('th_height')]) : [t('pp_variant')];
     table = `<div class="pp-block" id="variantlar"><h2>${t('pp_variants')}</h2><div class="pp-table"><table class="price-table"><thead><tr>`
-      + heads.map(h => `<th>${h}</th>`).join('') + `<th>${t('th_price')}</th><th><span class="sr-only">${t('row_order')}</span></th></tr></thead><tbody>`
-      + vs.map(v => `<tr>${v.cells.map(c => `<td>${esc(c)}</td>`).join('')}<td class="num">${money(v.price)}</td>`
-        + `<td><a class="row-order" href="#buyurtma" data-product="${p.form}" data-item="${esc(v.name)}" data-price="${esc(money(v.price))}" aria-label="${esc(t('row_order') + ': ' + v.name)}"><iconify-icon icon="lucide:plus"></iconify-icon></a></td></tr>`).join('')
+      + heads.map(h => `<th>${h}</th>`).join('') + `<th><span class="sr-only">${t('row_order')}</span></th></tr></thead><tbody>`
+      + vs.map(v => `<tr>${v.cells.map(c => `<td>${esc(c)}</td>`).join('')}`
+        + `<td><a class="row-order" href="#buyurtma" data-product="${p.form}" data-item="${esc(v.name)}" aria-label="${esc(t('row_order') + ': ' + v.name)}"><iconify-icon icon="lucide:plus"></iconify-icon></a></td></tr>`).join('')
       + '</tbody></table></div></div>';
   }
   const service = `<div class="pp-block"><h2>${t('pp_service')}</h2><ul class="service-list">
@@ -254,7 +248,7 @@ if (typeof document !== 'undefined' && document.body.dataset.slug) {
     });
   }
   function mount() {
-    document.title = `${productName(P)} — INNO TEXNO`;
+    document.title = `${productName(P)} — Svetofor.uz`;
     document.getElementById('pp-crumbs').innerHTML = renderCrumbs(P);
     mountHero();
     document.getElementById('pp-details').innerHTML = renderDetails(P);
